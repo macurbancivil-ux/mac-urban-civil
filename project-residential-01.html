@@ -1,1 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Modern Family Residence | Mac Urban</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+
+    font-family: Arial, sans-serif;
+
+    background: #f7f7f5;
+
+    color: #151915;
+}
+
+header {
+
+    height: 105px;
+
+    background: #08140e;
+
+    display: flex;
+
+    align-items: center;
+}
+
+.header-inner {
+
+    width: 100%;
+
+    max-width: 1500px;
+
+    margin: auto;
+
+    padding: 0 45px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+.logo img {
+
+    width: 180px;
+
+    height: 90px;
+
+    object-fit: contain;
+}
+
+.back {
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+}
+
+.project-hero {
+
+    padding: 100px 8% 80px;
+
+    background: #10251a;
+
+    color: white;
+}
+
+.label {
+
+    color: #aab9ae;
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 20px;
+}
+
+h1 {
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(50px,7vw,90px);
+
+    font-weight: 400;
+
+    line-height: 1;
+}
+
+.project-info {
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 70px 8%;
+
+    display: grid;
+
+    grid-template-columns: 1fr 2fr;
+
+    gap: 80px;
+}
+
+.info-title {
+
+    font-family: Georgia, serif;
+
+    font-size: 30px;
+
+    font-weight: 400;
+}
+
+.info-text {
+
+    color: #626963;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+}
+
+.gallery {
+
+    max-width: 1300px;
+
+    margin: auto;
+
+    padding: 0 8% 100px;
+}
+
+.gallery-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(2,1fr);
+
+    gap: 20px;
+}
+
+.gallery-item {
+
+    width: 100%;
+
+    height: 500px;
+
+    overflow: hidden;
+}
+
+.gallery-item.large {
+
+    grid-column: span 2;
+
+    height: 650px;
+}
+
+.gallery-item img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.project-details {
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 0 8% 100px;
+}
+
+.details-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(4,1fr);
+
+    border-top: 1px solid #cdd2ce;
+
+    border-bottom: 1px solid #cdd2ce;
+}
+
+.detail {
+
+    padding: 25px;
+
+    border-right: 1px solid #cdd2ce;
+}
+
+.detail:last-child {
+    border-right: none;
+}
+
+.detail span {
+
+    display: block;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    color: #69756e;
+
+    margin-bottom: 7px;
+}
+
+.detail strong {
+
+    font-size: 14px;
+
+    font-weight: normal;
+}
+
+@media(max-width:700px){
+
+    header {
+        height: 80px;
+    }
+
+    .header-inner {
+        padding: 0 20px;
+    }
+
+    .logo img {
+        width: 130px;
+        height: 70px;
+    }
+
+    .project-info {
+
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+    }
+
+    .gallery-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-item,
+    .gallery-item.large {
+
+        grid-column: auto;
+
+        height: 350px;
+    }
+
+    .details-grid {
+
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<div class="header-inner">
+
+<a href="index.html"
+   class="logo">
+
+<img src="985.jpeg"
+     alt="Mac Urban Logo">
+
+</a>
+
+<a href="projects.html"
+   class="back">
+
+← ALL PROJECTS
+
+</a>
+
+</div>
+
+</header>
+
+
+<section class="project-hero">
+
+<div class="label">
+RESIDENTIAL / MELBOURNE
+</div>
+
+<h1>
+Modern Family<br>
+Residence
+</h1>
+
+</section>
+
+
+<section class="project-info">
+
+<div>
+
+<h2 class="info-title">
+Project Overview
+</h2>
+
+</div>
+
+
+<div>
+
+<p class="info-text">
+
+A contemporary residential project designed
+around modern family living.
+
+The project combines refined architectural
+details, functional spaces and carefully
+selected materials to create a home that
+balances comfort, quality and timeless design.
+
+</p>
+
+</div>
+
+</section>
+
+
+<section class="project-details">
+
+<div class="details-grid">
+
+<div class="detail">
+
+<span>TYPE</span>
+
+<strong>Residential</strong>
+
+</div>
+
+
+<div class="detail">
+
+<span>LOCATION</span>
+
+<strong>Melbourne VIC</strong>
+
+</div>
+
+
+<div class="detail">
+
+<span>PROJECT</span>
+
+<strong>Custom Home</strong>
+
+</div>
+
+
+<div class="detail">
+
+<span>BUILDER</span>
+
+<strong>Mac Urban</strong>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+PROJECT GALLERY
+========================= -->
+
+<section class="gallery">
+
+<div class="gallery-grid">
+
+
+<!-- MAIN IMAGE -->
+
+<div class="gallery-item large">
+
+<img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1800&q=90"
+     alt="Project exterior">
+
+</div>
+
+
+<!-- IMAGE 02 -->
+
+<div class="gallery-item">
+
+<img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1500&q=90"
+     alt="Project interior">
+
+</div>
+
+
+<!-- IMAGE 03 -->
+
+<div class="gallery-item">
+
+<img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1500&q=90"
+     alt="Modern residence">
+
+</div>
+
+
+<!-- IMAGE 04 -->
+
+<div class="gallery-item">
+
+<img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1500&q=90"
+     alt="Luxury kitchen">
+
+</div>
+
+
+<!-- IMAGE 05 -->
+
+<div class="gallery-item">
+
+<img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1500&q=90"
+     alt="Living space">
+
+</div>
+
+
+<!-- IMAGE 06 -->
+
+<div class="gallery-item">
+
+<img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1500&q=90"
+     alt="Exterior detail">
+
+</div>
+
+
+</div>
+
+</section>
+
+
+</body>
+
+</html>
