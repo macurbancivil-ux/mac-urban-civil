@@ -6,7 +6,7 @@
 
 <title>Mac Urban Civil Construction | Melbourne Builders</title>
 
-<meta name="description" content="Mac Urban Civil Construction delivers bespoke homes, new builds, renovations, commercial construction and professional project management across Melbourne.">
+<meta name="description" content="Mac Urban Civil Construction delivers residential, luxury and commercial construction projects across Melbourne and Australia.">
 
 <style>
 
@@ -37,8 +37,9 @@ html{
 body{
     font-family:Arial, Helvetica, sans-serif;
     color:var(--black);
-    background:#fff;
+    background:var(--white);
     line-height:1.6;
+    overflow-x:hidden;
 }
 
 img{
@@ -47,22 +48,25 @@ img{
 }
 
 a{
-    text-decoration:none;
     color:inherit;
+    text-decoration:none;
 }
 
 button,
 input,
 textarea,
 select{
-    font-family:inherit;
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
 }
 
 .container{
-    width:min(1380px,92%);
-    margin:auto;
+    width:min(1180px, calc(100% - 48px));
+    margin:0 auto;
 }
-
 
 /* =========================================================
    HEADER
@@ -75,13 +79,13 @@ header{
     width:100%;
     height:100px;
     background:rgba(255,255,255,.97);
-    border-bottom:1px solid rgba(0,0,0,.06);
     z-index:1000;
-    transition:.3s;
+    border-bottom:1px solid rgba(0,0,0,.05);
+    transition:.3s ease;
 }
 
 header.scrolled{
-    box-shadow:0 5px 25px rgba(0,0,0,.08);
+    box-shadow:0 8px 30px rgba(0,0,0,.08);
 }
 
 .header-inner{
@@ -94,78 +98,68 @@ header.scrolled{
 .logo{
     display:flex;
     align-items:center;
-    height:100%;
+    flex-shrink:0;
 }
 
 .logo img{
     width:230px;
     height:auto;
-    max-height:82px;
     object-fit:contain;
 }
 
-
-/* =========================================================
-   NAVIGATION
-========================================================= */
-
-.nav{
+.desktop-nav{
     display:flex;
     align-items:center;
-    gap:38px;
+    gap:34px;
 }
 
-.nav > a,
-.dropdown > a{
+.desktop-nav > a,
+.nav-dropdown > button{
+    border:0;
+    background:none;
     font-size:13px;
     font-weight:600;
-    letter-spacing:1.2px;
+    letter-spacing:.7px;
     text-transform:uppercase;
+    color:#222;
+    transition:.25s ease;
+}
+
+.desktop-nav > a:hover,
+.nav-dropdown > button:hover{
+    color:var(--green-dark);
+}
+
+.nav-dropdown{
     position:relative;
 }
 
-.nav > a::after,
-.dropdown > a::after{
-    content:"";
-    position:absolute;
-    bottom:-8px;
-    left:0;
-    width:0;
-    height:2px;
-    background:var(--green);
-    transition:.3s;
+.nav-dropdown button{
+    display:flex;
+    align-items:center;
+    gap:7px;
 }
 
-.nav > a:hover::after,
-.dropdown > a:hover::after{
-    width:100%;
-}
-
-
-/* =========================================================
-   DROPDOWN
-========================================================= */
-
-.dropdown{
-    position:relative;
+.nav-dropdown button span{
+    font-size:10px;
 }
 
 .dropdown-menu{
     position:absolute;
-    top:30px;
-    left:-20px;
-    min-width:220px;
-    background:white;
+    top:32px;
+    left:-18px;
+    min-width:190px;
+    background:#fff;
     border:1px solid var(--border);
-    box-shadow:0 15px 35px rgba(0,0,0,.12);
+    box-shadow:0 15px 35px rgba(0,0,0,.1);
     opacity:0;
     visibility:hidden;
     transform:translateY(8px);
-    transition:.25s;
-    padding:12px 0;
+    transition:.25s ease;
+    padding:10px 0;
 }
 
-.dropdown:hover .dropdown-menu{
+.nav-dropdown:hover .dropdown-menu{
     opacity:1;
     visibility:visible;
     transform:translateY(0);
@@ -173,42 +167,83 @@ header.scrolled{
 
 .dropdown-menu a{
     display:block;
-    padding:11px 20px;
+    padding:11px 18px;
     font-size:12px;
-    letter-spacing:.8px;
     text-transform:uppercase;
+    letter-spacing:.5px;
 }
 
 .dropdown-menu a:hover{
-    background:var(--green-light);
+    background:var(--green-soft);
     color:var(--green-dark);
 }
 
-
-/* =========================================================
-   MOBILE MENU
-========================================================= */
-
-.menu-toggle{
+.mobile-menu-btn{
     display:none;
-    width:42px;
-    height:42px;
-    border:1px solid var(--border);
-    background:#fff;
-    cursor:pointer;
-    align-items:center;
-    justify-content:center;
-    flex-direction:column;
-    gap:5px;
+    width:44px;
+    height:44px;
+    border:0;
+    background:none;
+    position:relative;
 }
 
-.menu-toggle span{
-    width:20px;
+.mobile-menu-btn span{
+    display:block;
+    width:24px;
     height:2px;
     background:#111;
+    margin:5px auto;
+    transition:.3s ease;
+}
+
+.mobile-nav{
+    position:fixed;
+    top:82px;
+    left:0;
+    width:100%;
+    background:#fff;
+    border-top:1px solid var(--border);
+    box-shadow:0 15px 30px rgba(0,0,0,.1);
+    padding:20px 24px 30px;
+    display:none;
+    z-index:999;
+}
+
+.mobile-nav.active{
     display:block;
 }
 
+.mobile-nav > a,
+.mobile-nav .mobile-dropdown-btn{
+    display:flex;
+    width:100%;
+    padding:14px 0;
+    border:0;
+    border-bottom:1px solid var(--border);
+    background:none;
+    justify-content:space-between;
+    text-align:left;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:.7px;
+    text-transform:uppercase;
+}
+
+.mobile-submenu{
+    display:none;
+    padding:4px 0 8px 15px;
+}
+
+.mobile-submenu.active{
+    display:block;
+}
+
+.mobile-submenu a{
+    display:block;
+    padding:9px 0;
+    color:#666;
+    font-size:12px;
+}
 
 /* =========================================================
    HERO
@@ -217,10 +252,9 @@ header.scrolled{
 .hero{
     min-height:100vh;
     padding-top:100px;
-    position:relative;
     display:flex;
     align-items:center;
-
+    position:relative;
     background:
         linear-gradient(
             90deg,
@@ -233,43 +267,43 @@ header.scrolled{
 }
 
 .hero-content{
+    width:min(1180px, calc(100% - 48px));
+    margin:0 auto;
     color:white;
-    max-width:760px;
+}
+
+.hero-text{
+    max-width:720px;
 }
 
 .hero-kicker{
-    font-size:13px;
+    font-size:12px;
+    letter-spacing:3px;
     text-transform:uppercase;
-    letter-spacing:4px;
     margin-bottom:22px;
-    color:#dfe9df;
-    font-weight:600;
+    color:#DCE7DC;
 }
 
 .hero h1{
-    font-size:clamp(48px,7vw,94px);
-    line-height:.98;
-    letter-spacing:-3px;
-    font-weight:700;
-    margin-bottom:30px;
-}
-
-.hero h1 span{
-    color:#B8CCB8;
+    font-size:clamp(48px, 6vw, 82px);
+    line-height:1.02;
+    font-weight:500;
+    letter-spacing:-2px;
+    margin-bottom:28px;
 }
 
 .hero p{
-    font-size:18px;
-    line-height:1.8;
     max-width:650px;
-    color:#f2f2f2;
+    font-size:17px;
+    line-height:1.8;
+    color:rgba(255,255,255,.9);
     margin-bottom:38px;
 }
 
 .hero-buttons{
     display:flex;
-    gap:15px;
     flex-wrap:wrap;
+    gap:14px;
 }
 
 .btn{
@@ -278,12 +312,12 @@ header.scrolled{
     justify-content:center;
     min-height:52px;
     padding:0 28px;
+    border:1px solid transparent;
     font-size:12px;
     font-weight:700;
-    letter-spacing:1.5px;
+    letter-spacing:1px;
     text-transform:uppercase;
-    transition:.3s;
-    cursor:pointer;
+    transition:.25s ease;
 }
 
 .btn-primary{
@@ -292,13 +326,13 @@ header.scrolled{
 }
 
 .btn-primary:hover{
-    background:#5E825F;
-    transform:translateY(-2px);
+    background:var(--green-dark);
 }
 
 .btn-outline{
-    border:1px solid rgba(255,255,255,.7);
+    border-color:rgba(255,255,255,.7);
     color:white;
+    background:rgba(255,255,255,.04);
 }
 
 .btn-outline:hover{
@@ -306,248 +340,155 @@ header.scrolled{
     color:#111;
 }
 
-
 /* =========================================================
-   GENERAL
+   GENERAL SECTION
 ========================================================= */
 
 section{
+    scroll-margin-top:100px;
+}
+
+.section{
     padding:110px 0;
 }
 
 .section-kicker{
-    color:var(--green-dark);
-    font-size:12px;
-    font-weight:700;
+    font-size:11px;
     text-transform:uppercase;
-    letter-spacing:3px;
-    margin-bottom:14px;
+    letter-spacing:2.5px;
+    font-weight:700;
+    color:var(--green-dark);
+    margin-bottom:18px;
 }
 
 .section-title{
-    font-size:clamp(36px,5vw,62px);
-    line-height:1.05;
-    letter-spacing:-2px;
+    font-size:clamp(36px, 4vw, 58px);
+    line-height:1.08;
+    font-weight:500;
+    letter-spacing:-1.5px;
+    max-width:760px;
     margin-bottom:25px;
 }
 
 .section-intro{
-    color:var(--grey);
-    max-width:760px;
-    font-size:17px;
-    line-height:1.8;
+    max-width:700px;
+    color:#666;
+    font-size:16px;
+    line-height:1.85;
 }
-
-.section-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-end;
-    gap:30px;
-    margin-bottom:55px;
-}
-
 
 /* =========================================================
-   ABOUT US
-   FULL BACKGROUND IMAGE
+   ABOUT
 ========================================================= */
 
 .about{
     position:relative;
-    min-height:760px;
-    padding:0;
-    overflow:hidden;
-    background:#E9EDE8;
-}
-
-
-/* Full background image */
-
-.about-background{
-    position:absolute;
-    inset:0;
-    z-index:0;
+    padding:110px 0;
+    background:#F5F6F2;
     overflow:hidden;
 }
 
-.about-background img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    object-position:center center;
-
-    /*
-       Cache refresh:
-       actual file = images/about us1.JPG
-    */
-}
-
-
-/* Main image/text blending */
-
-.about-background::after{
-    content:"";
-    position:absolute;
-    inset:0;
-
-    background:
-        linear-gradient(
-            90deg,
-
-            rgba(246,248,244,.99) 0%,
-
-            rgba(246,248,244,.97) 18%,
-
-            rgba(246,248,244,.91) 32%,
-
-            rgba(246,248,244,.76) 47%,
-
-            rgba(246,248,244,.48) 61%,
-
-            rgba(246,248,244,.18) 77%,
-
-            rgba(246,248,244,.02) 100%
-        );
-}
-
-
-/* Bottom blend */
-
-.about-bottom-fade{
-    position:absolute;
-    left:0;
-    right:0;
-    bottom:0;
-    height:240px;
-    z-index:1;
-
-    background:
-        linear-gradient(
-            to bottom,
-            rgba(246,248,244,0),
-            rgba(246,248,244,.72),
-            rgba(246,248,244,.96)
-        );
-}
-
-
-/* Content */
-
-.about-content{
-    position:relative;
-    z-index:2;
-    min-height:760px;
-
-    display:flex;
+.about-layout{
+    display:grid;
+    grid-template-columns:.9fr 1.1fr;
+    gap:70px;
     align-items:center;
 }
 
 .about-copy{
-    width:58%;
-    max-width:780px;
-    padding:105px 0;
+    width:100%;
+    max-width:650px;
 }
-
-
-/* About title */
 
 .about-copy .section-kicker{
     color:var(--green-dark);
 }
 
 .about-copy .section-title{
-    max-width:700px;
+    max-width:600px;
 }
 
-
-/* About paragraphs */
-
 .about-copy p{
-    color:#505650;
+    color:#555A55;
     margin-bottom:21px;
     font-size:16px;
     line-height:1.85;
-    max-width:700px;
+    max-width:620px;
 }
 
+.about-image{
+    width:100%;
+    height:620px;
+    overflow:hidden;
+    position:relative;
+    background:#ddd;
+}
 
-/* =========================================================
-   ABOUT STATS
-========================================================= */
+.about-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center center;
+}
+
+.about-image::after{
+    content:"";
+    position:absolute;
+    inset:18px;
+    border:1px solid rgba(255,255,255,.55);
+    pointer-events:none;
+}
 
 .about-stats{
     display:grid;
     grid-template-columns:repeat(3,minmax(0,1fr));
-    gap:15px;
+    gap:12px;
     margin-top:42px;
-    max-width:780px;
+    width:100%;
 }
-
-
-/* EXACT SAME SIZE */
 
 .stat{
     width:100%;
-    height:135px;
-    min-height:135px;
-
-    padding:20px 18px;
-
+    height:145px;
+    min-height:145px;
+    padding:22px 18px;
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:flex-start;
-
-    border-top:2px solid var(--green);
-
-    background:rgba(255,255,255,.66);
-
-    backdrop-filter:blur(7px);
-    -webkit-backdrop-filter:blur(7px);
-
-    box-shadow:0 8px 25px rgba(0,0,0,.04);
+    background:white;
+    border-top:3px solid var(--green);
+    box-shadow:0 8px 25px rgba(0,0,0,.05);
 }
-
-
-/* Same title box */
 
 .stat strong{
     display:flex;
     align-items:center;
-
     width:100%;
-    height:48px;
-    min-height:48px;
-
-    font-size:20px;
-    line-height:1.1;
-    letter-spacing:.4px;
-
+    height:52px;
+    min-height:52px;
+    font-size:28px;
+    line-height:1;
+    font-weight:700;
+    letter-spacing:.2px;
     color:var(--green-dark);
+    white-space:nowrap;
 }
-
-
-/* Same subtitle box */
 
 .stat span{
     display:flex;
     align-items:center;
-
     width:100%;
     height:30px;
     min-height:30px;
-
-    margin-top:7px;
-
+    margin-top:8px;
     font-size:10px;
     line-height:1.4;
-
+    font-weight:600;
     text-transform:uppercase;
-    letter-spacing:1.15px;
-
-    color:#666D66;
+    letter-spacing:1.2px;
+    color:#686D68;
 }
-
 
 /* =========================================================
    SERVICES
@@ -557,48 +498,55 @@ section{
     background:white;
 }
 
+.services-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:50px;
+    margin-bottom:55px;
+}
+
 .services-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:1px;
-    background:var(--border);
-    border:1px solid var(--border);
+    gap:20px;
 }
 
 .service-card{
-    background:white;
-    padding:42px 36px;
-    min-height:330px;
-    transition:.3s;
+    border:1px solid var(--border);
+    padding:38px 32px;
+    min-height:300px;
     position:relative;
+    transition:.3s ease;
+    background:white;
 }
 
 .service-card:hover{
-    background:var(--green-light);
-    transform:translateY(-4px);
-    z-index:2;
-    box-shadow:0 15px 35px rgba(0,0,0,.08);
+    transform:translateY(-5px);
+    box-shadow:0 18px 40px rgba(0,0,0,.08);
+    border-color:#CBD7CB;
 }
 
 .service-number{
-    font-size:12px;
-    color:var(--green-dark);
+    font-size:11px;
     letter-spacing:2px;
+    color:var(--green-dark);
     font-weight:700;
-    margin-bottom:28px;
+    margin-bottom:35px;
 }
 
 .service-card h3{
-    font-size:25px;
+    font-size:23px;
+    font-weight:500;
     margin-bottom:18px;
+    letter-spacing:-.3px;
 }
 
 .service-card p{
-    color:var(--grey);
+    color:#666;
     font-size:14px;
-    line-height:1.85;
+    line-height:1.8;
 }
-
 
 /* =========================================================
    PROJECTS
@@ -610,20 +558,21 @@ section{
 
 .project-filter{
     display:flex;
-    gap:10px;
     flex-wrap:wrap;
-    margin-bottom:35px;
+    gap:10px;
+    margin:35px 0 45px;
 }
 
 .filter-btn{
-    border:1px solid var(--border);
+    border:1px solid #D5D8D3;
     background:white;
-    padding:11px 18px;
+    padding:11px 19px;
     font-size:11px;
-    text-transform:uppercase;
+    font-weight:700;
     letter-spacing:1px;
-    cursor:pointer;
-    transition:.25s;
+    text-transform:uppercase;
+    color:#555;
+    transition:.25s ease;
 }
 
 .filter-btn:hover,
@@ -636,26 +585,26 @@ section{
 .projects-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:25px;
+    gap:22px;
 }
 
 .project-card{
     background:white;
-    cursor:pointer;
-    overflow:hidden;
     border:1px solid var(--border);
-    transition:.35s;
+    overflow:hidden;
+    cursor:pointer;
+    transition:.3s ease;
 }
 
 .project-card:hover{
-    transform:translateY(-7px);
-    box-shadow:0 20px 40px rgba(0,0,0,.12);
+    transform:translateY(-5px);
+    box-shadow:0 18px 40px rgba(0,0,0,.09);
 }
 
 .project-image{
-    height:330px;
-    position:relative;
+    height:360px;
     overflow:hidden;
+    position:relative;
     background:#ddd;
 }
 
@@ -663,208 +612,48 @@ section{
     width:100%;
     height:100%;
     object-fit:cover;
-    transition:.5s;
+    transition:.5s ease;
 }
 
 .project-card:hover .project-image img{
-    transform:scale(1.05);
+    transform:scale(1.04);
 }
 
-.project-overlay{
-    position:absolute;
-    inset:0;
-
-    background:
-        linear-gradient(
-            to top,
-            rgba(0,0,0,.65),
-            rgba(0,0,0,0) 60%
-        );
+.project-info{
+    padding:25px 25px 28px;
 }
 
 .project-category{
-    position:absolute;
-    top:18px;
-    left:18px;
-    background:var(--green);
-    color:white;
-    padding:8px 12px;
     font-size:10px;
-    letter-spacing:1.3px;
+    letter-spacing:2px;
     text-transform:uppercase;
     font-weight:700;
+    color:var(--green-dark);
+    margin-bottom:9px;
 }
 
-.project-content{
-    padding:28px;
-}
-
-.project-content h3{
-    font-size:25px;
-    margin-bottom:8px;
+.project-card h3{
+    font-size:23px;
+    font-weight:500;
+    margin-bottom:6px;
 }
 
 .project-location{
     font-size:13px;
-    color:var(--grey);
-    margin-bottom:18px;
+    color:#777;
 }
 
-.project-view{
-    font-size:11px;
-    font-weight:700;
-    color:var(--green-dark);
-    letter-spacing:1.5px;
-    text-transform:uppercase;
-}
-
-.project-placeholder{
-    background:#E9E9E5;
-    min-height:330px;
+.project-coming{
+    height:360px;
     display:flex;
     align-items:center;
     justify-content:center;
-    text-align:center;
-    color:#999;
-    font-size:11px;
+    background:#E8EAE5;
+    color:#7B807A;
+    font-size:12px;
     letter-spacing:2px;
     text-transform:uppercase;
 }
-
-
-/* =========================================================
-   PROJECT MODAL
-========================================================= */
-
-.project-modal{
-    position:fixed;
-    inset:0;
-    background:#F5F5F2;
-    z-index:10000;
-    overflow-y:auto;
-    display:none;
-}
-
-.project-modal.active{
-    display:block;
-}
-
-.project-modal-close{
-    position:fixed;
-    top:22px;
-    right:25px;
-    width:50px;
-    height:50px;
-    border:1px solid #ccc;
-    background:white;
-    cursor:pointer;
-    z-index:10003;
-    font-size:28px;
-    line-height:1;
-}
-
-.project-modal-close:hover{
-    background:var(--green);
-    color:white;
-    border-color:var(--green);
-}
-
-.project-modal-inner{
-    width:min(1380px,92%);
-    margin:0 auto;
-    padding:110px 0 100px;
-}
-
-.project-modal-header{
-    display:grid;
-    grid-template-columns:1.2fr .8fr;
-    gap:60px;
-    align-items:end;
-    margin-bottom:60px;
-}
-
-.project-modal-header h2{
-    font-size:clamp(42px,6vw,75px);
-    line-height:1;
-    letter-spacing:-3px;
-    margin-top:12px;
-}
-
-.project-modal-description{
-    color:var(--grey);
-    line-height:1.85;
-    font-size:15px;
-}
-
-.project-meta{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    border-top:1px solid var(--border);
-    border-bottom:1px solid var(--border);
-    margin-bottom:45px;
-}
-
-.meta-item{
-    padding:22px;
-    border-right:1px solid var(--border);
-}
-
-.meta-item:last-child{
-    border-right:0;
-}
-
-.meta-item span{
-    display:block;
-    font-size:10px;
-    color:var(--grey);
-    text-transform:uppercase;
-    letter-spacing:1.5px;
-    margin-bottom:7px;
-}
-
-.meta-item strong{
-    font-size:15px;
-}
-
-.project-gallery{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:20px;
-}
-
-.gallery-item{
-    height:520px;
-    overflow:hidden;
-    cursor:pointer;
-    background:#ddd;
-}
-
-.gallery-item img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    transition:.5s;
-}
-
-.gallery-item:hover img{
-    transform:scale(1.04);
-}
-
-.project-modal-footer{
-    margin-top:55px;
-    padding-top:30px;
-    border-top:1px solid var(--border);
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:30px;
-}
-
-.project-modal-footer p{
-    color:var(--grey);
-    font-size:14px;
-}
-
 
 /* =========================================================
    PROCESS
@@ -879,12 +668,12 @@ section{
     grid-template-columns:repeat(5,1fr);
     border-top:1px solid var(--border);
     border-bottom:1px solid var(--border);
+    margin-top:60px;
 }
 
 .process-item{
-    padding:40px 28px;
+    padding:40px 25px 45px;
     border-right:1px solid var(--border);
-    min-height:330px;
 }
 
 .process-item:last-child{
@@ -893,139 +682,155 @@ section{
 
 .process-number{
     font-size:12px;
-    color:var(--green-dark);
     letter-spacing:2px;
+    color:var(--green-dark);
     font-weight:700;
     margin-bottom:35px;
 }
 
 .process-item h3{
     font-size:21px;
-    margin-bottom:18px;
+    font-weight:500;
+    margin-bottom:14px;
 }
 
 .process-item p{
-    color:var(--grey);
+    color:#666;
     font-size:13px;
-    line-height:1.85;
+    line-height:1.75;
 }
-
 
 /* =========================================================
    CONTACT
 ========================================================= */
 
 .contact{
-    background:var(--dark);
+    background:#171917;
     color:white;
 }
 
 .contact-grid{
     display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:80px;
+    grid-template-columns:.85fr 1.15fr;
+    gap:90px;
+    align-items:start;
 }
 
 .contact .section-kicker{
-    color:#AFC4AF;
+    color:#A9C0A9;
 }
 
-.contact h2{
-    font-size:clamp(40px,5vw,65px);
-    line-height:1;
-    letter-spacing:-2px;
-    margin-bottom:25px;
+.contact .section-title{
+    color:white;
 }
 
-.contact-intro{
-    color:#BDBDBD;
+.contact-text{
+    color:#BFC3BF;
     max-width:560px;
-    line-height:1.8;
+    line-height:1.85;
+    font-size:15px;
 }
 
 .contact-details{
-    margin-top:45px;
+    margin-top:42px;
 }
 
 .contact-detail{
-    margin-bottom:24px;
-}
-
-.contact-detail span{
-    display:block;
-    color:#8D8D8D;
-    font-size:10px;
-    text-transform:uppercase;
-    letter-spacing:2px;
-    margin-bottom:5px;
+    padding:17px 0;
+    border-bottom:1px solid rgba(255,255,255,.12);
 }
 
 .contact-detail strong{
-    font-size:16px;
+    display:block;
+    color:#fff;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:1.8px;
+    margin-bottom:6px;
+}
+
+.contact-detail span{
+    color:#BFC3BF;
+    font-size:14px;
 }
 
 .contact-form{
-    display:grid;
-    gap:16px;
+    background:#202320;
+    padding:40px;
 }
 
 .form-row{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:16px;
+    gap:18px;
 }
 
-.contact-form input,
-.contact-form textarea,
-.contact-form select{
+.form-group{
+    margin-bottom:20px;
+}
+
+.form-group label{
+    display:block;
+    font-size:10px;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    color:#BFC3BF;
+    margin-bottom:8px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select{
     width:100%;
-    padding:16px;
-    background:#242424;
-    border:1px solid #3D3D3D;
+    border:1px solid rgba(255,255,255,.16);
+    background:#171917;
     color:white;
+    padding:14px 15px;
     outline:none;
 }
 
-.contact-form textarea{
-    min-height:150px;
-    resize:vertical;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus,
-.contact-form select:focus{
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus{
     border-color:var(--green);
 }
 
-.contact-form .btn{
-    border:0;
+.form-group textarea{
+    min-height:140px;
+    resize:vertical;
 }
 
+.form-group select option{
+    color:#111;
+}
+
+.contact-form .btn{
+    width:100%;
+    border:0;
+}
 
 /* =========================================================
    FOOTER
 ========================================================= */
 
 footer{
-    background:#0D0D0D;
-    color:#aaa;
-    padding:35px 0;
+    background:#101210;
+    color:white;
+    padding:45px 0 30px;
 }
 
-.footer-inner{
+.footer-top{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    gap:20px;
+    gap:30px;
+    padding-bottom:30px;
+    border-bottom:1px solid rgba(255,255,255,.1);
 }
 
 .footer-logo img{
-    width:145px;
-}
-
-.footer-copy{
-    font-size:11px;
-    letter-spacing:.5px;
+    width:190px;
+    height:auto;
 }
 
 .footer-links{
@@ -1034,13 +839,171 @@ footer{
 }
 
 .footer-links a{
+    color:#BFC3BF;
     font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:1px;
 }
 
 .footer-links a:hover{
     color:white;
 }
 
+.footer-bottom{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding-top:22px;
+    color:#777C77;
+    font-size:11px;
+}
+
+/* =========================================================
+   PROJECT MODAL
+========================================================= */
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.78);
+    z-index:2000;
+    display:none;
+    overflow-y:auto;
+    padding:40px 20px;
+}
+
+.modal.active{
+    display:block;
+}
+
+.modal-inner{
+    width:min(1100px,100%);
+    margin:40px auto;
+    background:white;
+    position:relative;
+}
+
+.modal-close{
+    position:absolute;
+    top:15px;
+    right:15px;
+    width:42px;
+    height:42px;
+    border:0;
+    background:rgba(0,0,0,.75);
+    color:white;
+    font-size:22px;
+    z-index:5;
+}
+
+.modal-image{
+    width:100%;
+    height:620px;
+    background:#ddd;
+    overflow:hidden;
+}
+
+.modal-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.modal-content{
+    padding:38px 40px 45px;
+}
+
+.modal-kicker{
+    color:var(--green-dark);
+    text-transform:uppercase;
+    font-size:10px;
+    letter-spacing:2px;
+    font-weight:700;
+    margin-bottom:12px;
+}
+
+.modal-content h2{
+    font-size:42px;
+    font-weight:500;
+    margin-bottom:25px;
+}
+
+.modal-meta{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    border-top:1px solid var(--border);
+    border-bottom:1px solid var(--border);
+    margin-bottom:28px;
+}
+
+.modal-meta-item{
+    padding:18px 15px;
+    border-right:1px solid var(--border);
+}
+
+.modal-meta-item:last-child{
+    border-right:0;
+}
+
+.modal-meta-item strong{
+    display:block;
+    font-size:9px;
+    text-transform:uppercase;
+    letter-spacing:1.5px;
+    color:#888;
+    margin-bottom:5px;
+}
+
+.modal-meta-item span{
+    font-size:14px;
+}
+
+.modal-description{
+    color:#666;
+    line-height:1.8;
+    max-width:760px;
+}
+
+.gallery{
+    margin-top:35px;
+}
+
+.gallery-title{
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:1.5px;
+    font-weight:700;
+    margin-bottom:15px;
+}
+
+.gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+}
+
+.gallery-item{
+    height:300px;
+    overflow:hidden;
+    cursor:pointer;
+}
+
+.gallery-item img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.3s ease;
+}
+
+.gallery-item:hover img{
+    transform:scale(1.03);
+}
+
+.modal-note{
+    margin-top:20px;
+    font-size:12px;
+    color:#888;
+}
 
 /* =========================================================
    LIGHTBOX
@@ -1049,11 +1012,11 @@ footer{
 .lightbox{
     position:fixed;
     inset:0;
-    background:rgba(0,0,0,.94);
+    background:rgba(0,0,0,.93);
+    z-index:3000;
     display:none;
     align-items:center;
     justify-content:center;
-    z-index:11000;
     padding:30px;
 }
 
@@ -1062,7 +1025,7 @@ footer{
 }
 
 .lightbox img{
-    max-width:95%;
+    max-width:95vw;
     max-height:90vh;
     object-fit:contain;
 }
@@ -1071,11 +1034,11 @@ footer{
     position:absolute;
     top:20px;
     right:25px;
+    background:none;
+    border:0;
     color:white;
-    font-size:40px;
-    cursor:pointer;
+    font-size:34px;
 }
-
 
 /* =========================================================
    RESPONSIVE
@@ -1083,8 +1046,21 @@ footer{
 
 @media(max-width:1100px){
 
-    .nav{
-        gap:20px;
+    .desktop-nav{
+        gap:22px;
+    }
+
+    .about-layout{
+        grid-template-columns:1fr;
+        gap:50px;
+    }
+
+    .about-copy{
+        max-width:850px;
+    }
+
+    .about-image{
+        height:560px;
     }
 
     .services-grid{
@@ -1099,25 +1075,29 @@ footer{
         grid-template-columns:repeat(2,1fr);
     }
 
-    .process-item{
-        border-bottom:1px solid var(--border);
-    }
-
-    .process-item:nth-child(2n){
+    .process-item:nth-child(2){
         border-right:0;
     }
 
-    .project-modal-header{
+    .process-item:nth-child(3),
+    .process-item:nth-child(4),
+    .process-item:nth-child(5){
+        border-top:1px solid var(--border);
+    }
+
+    .process-item:nth-child(4){
+        border-right:0;
+    }
+
+    .process-item:last-child{
+        grid-column:span 2;
+    }
+
+    .contact-grid{
         grid-template-columns:1fr;
-        gap:25px;
+        gap:55px;
     }
-
-    .about-copy{
-        width:62%;
-    }
-
 }
-
 
 @media(max-width:800px){
 
@@ -1125,428 +1105,366 @@ footer{
         height:82px;
     }
 
+    section{
+        scroll-margin-top:82px;
+    }
+
+    .container{
+        width:min(100% - 34px, 1180px);
+    }
+
     .logo img{
         width:185px;
-        max-height:68px;
     }
 
-    .menu-toggle{
-        display:flex;
+    .desktop-nav{
+        display:none;
     }
 
-    .nav{
-        position:absolute;
+    .mobile-menu-btn{
+        display:block;
+    }
+
+    .mobile-nav{
         top:82px;
-        left:0;
-        width:100%;
-        background:white;
-        display:none;
-        flex-direction:column;
-        align-items:stretch;
-        gap:0;
-        border-top:1px solid var(--border);
-        box-shadow:0 15px 30px rgba(0,0,0,.08);
-        max-height:calc(100vh - 82px);
-        overflow-y:auto;
     }
-
-    .nav.active{
-        display:flex;
-    }
-
-    .nav > a,
-    .dropdown > a{
-        display:block;
-        padding:18px 25px;
-        border-bottom:1px solid var(--border);
-    }
-
-    .nav > a::after,
-    .dropdown > a::after{
-        display:none;
-    }
-
-    .dropdown-menu{
-        position:static;
-        display:none;
-        opacity:1;
-        visibility:visible;
-        transform:none;
-        box-shadow:none;
-        border:0;
-        min-width:0;
-        padding:0;
-    }
-
-    .dropdown.active .dropdown-menu{
-        display:block;
-    }
-
-    .dropdown-menu a{
-        padding:14px 45px;
-        border-bottom:1px solid #eee;
-        background:#fafafa;
-    }
-
-
-    /* =====================================================
-       MOBILE HERO
-    ===================================================== */
 
     .hero{
+        min-height:100svh;
         padding-top:82px;
-        min-height:92vh;
+        background-position:center;
+    }
+
+    .hero-content{
+        width:min(100% - 34px,1180px);
     }
 
     .hero h1{
-        font-size:52px;
-        letter-spacing:-2px;
+        font-size:47px;
+        letter-spacing:-1.2px;
     }
 
     .hero p{
         font-size:15px;
+        line-height:1.7;
     }
 
-
-    /* =====================================================
-       MOBILE SECTIONS
-    ===================================================== */
-
-    section{
+    .section{
         padding:75px 0;
     }
 
-    .section-header{
-        display:block;
-        margin-bottom:35px;
+    .section-title{
+        font-size:39px;
     }
-
-
-    /* =====================================================
-       MOBILE ABOUT
-    ===================================================== */
 
     .about{
-        min-height:0;
+        padding:75px 0;
     }
 
-    .about-background{
-        position:absolute;
-        height:100%;
-    }
-
-    .about-background img{
-        object-position:center center;
-    }
-
-    .about-background::after{
-        background:
-            linear-gradient(
-                180deg,
-
-                rgba(246,248,244,.94) 0%,
-
-                rgba(246,248,244,.91) 28%,
-
-                rgba(246,248,244,.82) 50%,
-
-                rgba(246,248,244,.75) 72%,
-
-                rgba(246,248,244,.90) 100%
-            );
-    }
-
-    .about-bottom-fade{
-        height:180px;
-
-        background:
-            linear-gradient(
-                to bottom,
-                rgba(246,248,244,0),
-                rgba(246,248,244,.85),
-                rgba(246,248,244,1)
-            );
-    }
-
-    .about-content{
-        min-height:0;
+    .about-layout{
+        grid-template-columns:1fr;
+        gap:40px;
     }
 
     .about-copy{
         width:100%;
         max-width:none;
-        padding:80px 0;
     }
 
     .about-copy p{
         font-size:15px;
     }
 
+    .about-image{
+        height:420px;
+    }
 
-    /* =====================================================
-       MOBILE ABOUT STATS
-       SAME SIZE
-    ===================================================== */
+    .about-image::after{
+        inset:12px;
+    }
 
     .about-stats{
         grid-template-columns:1fr;
         gap:12px;
-        width:100%;
-        max-width:none;
     }
 
     .stat{
-        width:100%;
-        height:105px;
-        min-height:105px;
-
+        height:110px;
+        min-height:110px;
         padding:18px 20px;
-
-        background:rgba(255,255,255,.78);
     }
 
     .stat strong{
-        height:40px;
-        min-height:40px;
-        font-size:19px;
+        height:42px;
+        min-height:42px;
+        font-size:28px;
     }
 
     .stat span{
-        height:25px;
-        min-height:25px;
-        margin-top:4px;
+        height:24px;
+        min-height:24px;
+        margin-top:3px;
     }
 
-
-    /* =====================================================
-       MOBILE SERVICES
-    ===================================================== */
+    .services-header{
+        display:block;
+        margin-bottom:38px;
+    }
 
     .services-grid{
         grid-template-columns:1fr;
     }
 
-
-    /* =====================================================
-       MOBILE PROJECTS
-    ===================================================== */
+    .service-card{
+        min-height:0;
+    }
 
     .projects-grid{
         grid-template-columns:1fr;
     }
 
-    .project-image{
+    .project-image,
+    .project-coming{
         height:300px;
     }
-
-
-    /* =====================================================
-       MOBILE MODAL
-    ===================================================== */
-
-    .project-modal-inner{
-        padding-top:95px;
-    }
-
-    .project-modal-header h2{
-        font-size:46px;
-    }
-
-    .project-meta{
-        grid-template-columns:1fr;
-    }
-
-    .meta-item{
-        border-right:0;
-        border-bottom:1px solid var(--border);
-    }
-
-    .meta-item:last-child{
-        border-bottom:0;
-    }
-
-    .project-gallery{
-        grid-template-columns:1fr;
-    }
-
-    .gallery-item{
-        height:400px;
-    }
-
-    .project-modal-footer{
-        flex-direction:column;
-        align-items:flex-start;
-    }
-
-
-    /* =====================================================
-       MOBILE PROCESS
-    ===================================================== */
 
     .process-grid{
         grid-template-columns:1fr;
     }
 
     .process-item{
-        border-right:0;
-        border-bottom:1px solid var(--border);
-        min-height:auto;
+        border-right:0 !important;
+        border-top:1px solid var(--border);
+    }
+
+    .process-item:first-child{
+        border-top:0;
     }
 
     .process-item:last-child{
-        border-bottom:0;
+        grid-column:auto;
     }
 
-
-    /* =====================================================
-       MOBILE CONTACT
-    ===================================================== */
-
-    .contact-grid{
-        grid-template-columns:1fr;
-        gap:50px;
+    .contact-form{
+        padding:27px 20px;
     }
 
     .form-row{
         grid-template-columns:1fr;
+        gap:0;
     }
 
-
-    /* =====================================================
-       MOBILE FOOTER
-    ===================================================== */
-
-    .footer-inner{
+    .footer-top{
         flex-direction:column;
-        text-align:center;
+        align-items:flex-start;
     }
 
     .footer-links{
         flex-wrap:wrap;
-        justify-content:center;
+        gap:15px 22px;
     }
 
+    .footer-bottom{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:8px;
+    }
+
+    .modal{
+        padding:15px;
+    }
+
+    .modal-inner{
+        margin:20px auto;
+    }
+
+    .modal-image{
+        height:350px;
+    }
+
+    .modal-content{
+        padding:28px 22px 35px;
+    }
+
+    .modal-content h2{
+        font-size:34px;
+    }
+
+    .modal-meta{
+        grid-template-columns:1fr;
+    }
+
+    .modal-meta-item{
+        border-right:0;
+        border-bottom:1px solid var(--border);
+    }
+
+    .modal-meta-item:last-child{
+        border-bottom:0;
+    }
+
+    .gallery-grid{
+        grid-template-columns:1fr;
+    }
+
+    .gallery-item{
+        height:250px;
+    }
+}
+
+@media(max-width:430px){
+
+    .logo img{
+        width:165px;
+    }
+
+    .hero h1{
+        font-size:41px;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .btn{
+        width:100%;
+    }
+
+    .section-title{
+        font-size:35px;
+    }
+
+    .about-image{
+        height:350px;
+    }
+
+    .project-image,
+    .project-coming{
+        height:260px;
+    }
 }
 
 </style>
 </head>
 
-
 <body>
-
 
 <!-- =========================================================
      HEADER
 ========================================================= -->
 
-<header id="header">
+<header id="siteHeader">
 
-<div class="container header-inner">
+    <div class="container header-inner">
 
-    <a href="#home" class="logo">
-
-        <img
-            src="985.jpeg"
-            alt="Mac Urban Civil Construction"
-        >
-
-    </a>
-
-
-    <button
-        class="menu-toggle"
-        id="menuToggle"
-        aria-label="Open Menu"
-    >
-
-        <span></span>
-        <span></span>
-        <span></span>
-
-    </button>
-
-
-    <nav class="nav" id="nav">
-
-        <a href="#home">
-            Home
+        <a href="#home" class="logo">
+            <img src="985.jpeg" alt="Mac Urban Civil Construction">
         </a>
 
-        <a href="#about">
-            About
-        </a>
+        <nav class="desktop-nav">
 
-        <div class="dropdown">
+            <a href="#home">Home</a>
 
-            <a href="#services">
-                Services
-            </a>
+            <a href="#about">About</a>
 
-            <div class="dropdown-menu">
+            <div class="nav-dropdown">
+                <button type="button">
+                    Services <span>▼</span>
+                </button>
 
-                <a href="#services">Custom Homes</a>
-                <a href="#services">New Homes</a>
-                <a href="#services">Renovations</a>
-                <a href="#services">Commercial</a>
-                <a href="#services">Project Management</a>
-                <a href="#services">Construction Consulting</a>
-
+                <div class="dropdown-menu">
+                    <a href="#services">Custom Homes</a>
+                    <a href="#services">New Homes</a>
+                    <a href="#services">Renovations</a>
+                    <a href="#services">Commercial</a>
+                    <a href="#services">Project Management</a>
+                    <a href="#services">Construction Consulting</a>
+                </div>
             </div>
 
-        </div>
+            <div class="nav-dropdown">
+                <button type="button">
+                    Projects <span>▼</span>
+                </button>
 
-
-        <div class="dropdown">
-
-            <a href="#projects">
-                Projects
-            </a>
-
-            <div class="dropdown-menu">
-
-                <a href="#projects">
-                    All Projects
-                </a>
-
-                <a
-                    href="#projects"
-                    onclick="openProjectModal('luxury'); return false;"
-                >
-                    Luxury
-                </a>
-
-                <a href="#projects">
-                    Renovation
-                </a>
-
-                <a href="#projects">
-                    Residential
-                </a>
-
-                <a href="#projects">
-                    Commercial
-                </a>
-
+                <div class="dropdown-menu">
+                    <a href="#projects">All Projects</a>
+                    <a href="#projects" onclick="setProjectFilter('luxury')">Luxury</a>
+                    <a href="#projects" onclick="setProjectFilter('residential')">Residential</a>
+                    <a href="#projects" onclick="setProjectFilter('renovation')">Renovation</a>
+                    <a href="#projects" onclick="setProjectFilter('commercial')">Commercial</a>
+                </div>
             </div>
 
-        </div>
+            <a href="#process">Process</a>
 
+            <a href="#contact">Contact</a>
 
-        <a href="#process">
-            Our Process
-        </a>
+        </nav>
 
+        <button class="mobile-menu-btn"
+                id="mobileMenuBtn"
+                aria-label="Open navigation"
+                type="button">
 
-        <a href="#contact">
-            Contact
-        </a>
+            <span></span>
+            <span></span>
+            <span></span>
 
-    </nav>
+        </button>
 
-</div>
+    </div>
 
 </header>
 
+
+<!-- =========================================================
+     MOBILE NAVIGATION
+========================================================= -->
+
+<div class="mobile-nav" id="mobileNav">
+
+    <a href="#home">Home</a>
+
+    <a href="#about">About</a>
+
+    <button class="mobile-dropdown-btn" type="button">
+        Services
+        <span>+</span>
+    </button>
+
+    <div class="mobile-submenu">
+
+        <a href="#services">Custom Homes</a>
+        <a href="#services">New Homes</a>
+        <a href="#services">Renovations</a>
+        <a href="#services">Commercial</a>
+        <a href="#services">Project Management</a>
+        <a href="#services">Construction Consulting</a>
+
+    </div>
+
+    <button class="mobile-dropdown-btn" type="button">
+        Projects
+        <span>+</span>
+    </button>
+
+    <div class="mobile-submenu">
+
+        <a href="#projects">All Projects</a>
+        <a href="#projects" onclick="setProjectFilter('luxury')">Luxury</a>
+        <a href="#projects" onclick="setProjectFilter('residential')">Residential</a>
+        <a href="#projects" onclick="setProjectFilter('renovation')">Renovation</a>
+        <a href="#projects" onclick="setProjectFilter('commercial')">Commercial</a>
+
+    </div>
+
+    <a href="#process">Process</a>
+
+    <a href="#contact">Contact</a>
+
+</div>
 
 
 <!-- =========================================================
@@ -1555,977 +1473,800 @@ footer{
 
 <section class="hero" id="home">
 
-<div class="container">
+    <div class="hero-content">
 
-<div class="hero-content">
+        <div class="hero-text">
 
-    <div class="hero-kicker">
-        Melbourne · Australia
+            <div class="hero-kicker">
+                Melbourne · Australia
+            </div>
+
+            <h1>
+                Building with Purpose.
+            </h1>
+
+            <p>
+                Mac Urban Civil Construction delivers considered residential,
+                luxury and commercial construction projects with a focus on
+                quality, precision and professional project management.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#projects" class="btn btn-primary">
+                    View Projects
+                </a>
+
+                <a href="#contact" class="btn btn-outline">
+                    Start a Project
+                </a>
+
+            </div>
+
+        </div>
+
     </div>
-
-
-    <h1>
-        Building<br>
-        <span>with Purpose.</span>
-    </h1>
-
-
-    <p>
-        Mac Urban Civil Construction delivers considered residential,
-        luxury and commercial construction projects with a focus on
-        quality, precision and professional project management.
-    </p>
-
-
-    <div class="hero-buttons">
-
-        <a href="#projects" class="btn btn-primary">
-            View Projects
-        </a>
-
-        <a href="#contact" class="btn btn-outline">
-            Start a Project
-        </a>
-
-    </div>
-
-</div>
-
-</div>
 
 </section>
 
 
-
 <!-- =========================================================
-     ABOUT US
+     ABOUT
 ========================================================= -->
 
 <section class="about" id="about">
 
+    <div class="container">
 
-<div class="about-background">
+        <div class="about-layout">
 
-    <!-- IMPORTANT:
-         Actual uploaded filename is:
-         about us1.JPG
-    -->
+            <div class="about-copy">
 
-    <img
-        src="images/about us1.JPG?v=2"
-        alt="Mac Urban Contemporary Residential Construction"
-    >
+                <div class="section-kicker">
+                    About Mac Urban
+                </div>
 
-</div>
+                <h2 class="section-title">
+                    Construction built around quality.
+                </h2>
 
+                <p>
+                    Mac Urban Civil Construction is an Australian construction
+                    company focused on delivering residential, luxury and
+                    commercial building projects with a strong emphasis on
+                    workmanship, communication and professional project
+                    management.
+                </p>
 
-<div class="about-bottom-fade"></div>
+                <p>
+                    We work closely with clients, architects, engineers,
+                    consultants and specialist trades to create a structured
+                    construction process from early planning through to final
+                    handover.
+                </p>
 
+                <p>
+                    Our approach combines practical construction knowledge,
+                    detailed coordination and contemporary design thinking to
+                    deliver buildings that are functional, refined and built
+                    to a high standard.
+                </p>
 
-<div class="container about-content">
+                <div class="about-stats">
 
-<div class="about-copy">
+                    <div class="stat">
+                        <strong>10+</strong>
+                        <span>Years Experience</span>
+                    </div>
 
+                    <div class="stat">
+                        <strong>PROFESSIONAL</strong>
+                        <span>Construction Quality</span>
+                    </div>
 
-    <div class="section-kicker">
-        About Mac Urban
-    </div>
+                    <div class="stat">
+                        <strong>CONTEMPORARY</strong>
+                        <span>Design Excellence</span>
+                    </div>
 
+                </div>
 
-    <h2 class="section-title">
-        Construction built around quality.
-    </h2>
-
-
-    <p>
-        Mac Urban Civil Construction is an Australian construction
-        company focused on delivering residential, luxury and
-        commercial building projects with a strong emphasis on
-        workmanship, communication and professional project
-        management.
-    </p>
-
-
-    <p>
-        We work closely with clients, architects, engineers,
-        consultants and specialist trades to create a structured
-        construction process from early planning through to final
-        handover.
-    </p>
-
-
-    <p>
-        Our approach combines practical construction knowledge,
-        detailed coordination and contemporary design thinking
-        to deliver buildings that are functional, refined and
-        built to a high standard.
-    </p>
-
-
-    <div class="about-stats">
+            </div>
 
 
-        <div class="stat">
+            <div class="about-image">
 
-            <strong>
-                10+
-            </strong>
+                <img
+                    src="images/about us1.JPG?v=3"
+                    alt="Mac Urban Contemporary Construction"
+                >
 
-            <span>
-                Years Experience
-            </span>
+            </div>
 
         </div>
-
-
-        <div class="stat">
-
-            <strong>
-                PROFESSIONAL
-            </strong>
-
-            <span>
-                Construction Quality
-            </span>
-
-        </div>
-
-
-        <div class="stat">
-
-            <strong>
-                CONTEMPORARY
-            </strong>
-
-            <span>
-                Design Excellence
-            </span>
-
-        </div>
-
 
     </div>
-
-
-</div>
-
-</div>
 
 </section>
-
 
 
 <!-- =========================================================
      SERVICES
 ========================================================= -->
 
-<section class="services" id="services">
+<section class="section services" id="services">
 
-<div class="container">
+    <div class="container">
 
+        <div class="services-header">
 
-<div class="section-header">
+            <div>
 
-    <div>
+                <div class="section-kicker">
+                    What We Do
+                </div>
 
-        <div class="section-kicker">
-            What We Do
+                <h2 class="section-title">
+                    Construction services with a considered approach.
+                </h2>
+
+            </div>
+
+            <p class="section-intro">
+                From new homes and luxury residences to renovations and
+                commercial projects, Mac Urban provides structured construction
+                services supported by professional coordination and experienced
+                project management.
+            </p>
+
         </div>
 
-        <h2 class="section-title">
-            Construction services.
-        </h2>
+
+        <div class="services-grid">
+
+            <div class="service-card">
+
+                <div class="service-number">01</div>
+
+                <h3>Custom Homes</h3>
+
+                <p>
+                    We deliver individually designed homes with a strong focus
+                    on architectural detail, build quality and long-term
+                    functionality. Working closely with clients, designers and
+                    consultants, we coordinate each stage to create refined
+                    residential spaces that reflect both lifestyle and design
+                    intent.
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-number">02</div>
+
+                <h3>New Homes</h3>
+
+                <p>
+                    Our new home construction service provides a structured
+                    pathway from pre-construction planning through to
+                    completion. We coordinate trades, consultants, materials
+                    and construction activities to maintain quality, program
+                    control and a professional building experience.
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-number">03</div>
+
+                <h3>Renovations</h3>
+
+                <p>
+                    We approach renovations with careful planning and detailed
+                    coordination, balancing existing structures with new
+                    architectural elements. Our team manages construction,
+                    specialist trades and project sequencing to minimise
+                    disruption while achieving a cohesive and high-quality
+                    result.
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-number">04</div>
+
+                <h3>Commercial</h3>
+
+                <p>
+                    Mac Urban delivers commercial construction with an emphasis
+                    on reliable coordination, documentation, quality control
+                    and program management. We work with project stakeholders
+                    to manage construction requirements efficiently while
+                    maintaining professional standards throughout delivery.
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-number">05</div>
+
+                <h3>Project Management</h3>
+
+                <p>
+                    Our project management approach connects design,
+                    procurement, construction and communication into one
+                    coordinated process. We provide practical oversight of
+                    project requirements, timelines, trades and quality to help
+                    clients achieve a controlled and transparent build.
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-number">06</div>
+
+                <h3>Construction Consulting</h3>
+
+                <p>
+                    We provide practical construction advice for clients,
+                    developers and project stakeholders requiring experienced
+                    guidance. Our consulting support can assist with project
+                    planning, construction methodology, coordination,
+                    feasibility and delivery considerations.
+                </p>
+
+            </div>
+
+        </div>
 
     </div>
-
-
-    <p class="section-intro">
-        From bespoke residential construction to commercial projects,
-        Mac Urban provides practical construction solutions supported
-        by professional coordination and project management.
-    </p>
-
-</div>
-
-
-
-<div class="services-grid">
-
-
-    <div class="service-card">
-
-        <div class="service-number">01</div>
-
-        <h3>Custom Homes</h3>
-
-        <p>
-            We deliver bespoke homes tailored to the site, architectural
-            vision and lifestyle of each client. From early planning and
-            consultant coordination through detailed construction and
-            final handover, our team manages quality, workmanship and
-            communication to create refined residences built with lasting
-            performance, functionality and attention to detail.
-        </p>
-
-    </div>
-
-
-    <div class="service-card">
-
-        <div class="service-number">02</div>
-
-        <h3>New Homes</h3>
-
-        <p>
-            Our new home construction service provides a structured
-            pathway from design development and approvals through
-            procurement, construction and handover. We coordinate
-            consultants, trades, materials, budgets and construction
-            programs to maintain quality and accountability while
-            delivering a well-managed building process aligned with
-            the project's requirements.
-        </p>
-
-    </div>
-
-
-    <div class="service-card">
-
-        <div class="service-number">03</div>
-
-        <h3>Renovations</h3>
-
-        <p>
-            We undertake renovations and extensions with careful
-            consideration of existing structures, architectural intent
-            and day-to-day functionality. Our team manages site
-            conditions, sequencing, trades, finishes and construction
-            coordination to minimise disruption and deliver considered
-            improvements that integrate seamlessly with the existing
-            property while maintaining high standards of workmanship.
-        </p>
-
-    </div>
-
-
-    <div class="service-card">
-
-        <div class="service-number">04</div>
-
-        <h3>Commercial</h3>
-
-        <p>
-            Our commercial construction capability supports retail,
-            office, development and other commercial projects with a
-            strong focus on program, coordination, quality and site
-            management. We work with clients, consultants, contractors
-            and stakeholders to establish clear project requirements
-            and deliver construction works in a controlled and
-            professionally managed environment.
-        </p>
-
-    </div>
-
-
-    <div class="service-card">
-
-        <div class="service-number">05</div>
-
-        <h3>Project Management</h3>
-
-        <p>
-            We provide end-to-end project management covering consultant
-            coordination, procurement, cost control, construction
-            programming, contractor management, site communication and
-            quality oversight. Our approach provides clients with clear
-            visibility throughout the project, helping manage risks,
-            resolve issues efficiently and maintain alignment between
-            design, budget, program and construction delivery.
-        </p>
-
-    </div>
-
-
-    <div class="service-card">
-
-        <div class="service-number">06</div>
-
-        <h3>Construction Consulting</h3>
-
-        <p>
-            Our construction consulting service provides practical
-            support across feasibility, estimating, planning,
-            buildability, procurement and project strategy. Drawing on
-            construction experience and industry knowledge, we help
-            clients identify risks, evaluate options and make informed
-            decisions before and during construction, improving project
-            clarity and supporting more efficient delivery.
-        </p>
-
-    </div>
-
-
-</div>
-
-</div>
 
 </section>
-
 
 
 <!-- =========================================================
      PROJECTS
 ========================================================= -->
 
-<section class="projects" id="projects">
+<section class="section projects" id="projects">
 
-<div class="container">
-
-
-<div class="section-header">
-
-    <div>
+    <div class="container">
 
         <div class="section-kicker">
             Selected Work
         </div>
 
         <h2 class="section-title">
-            Our projects.
+            Projects shaped by quality and detail.
         </h2>
 
-    </div>
+        <p class="section-intro">
+            Explore selected residential, luxury, renovation and commercial
+            projects delivered by Mac Urban Civil Construction.
+        </p>
 
 
-    <p class="section-intro">
-        A selection of residential, luxury, renovation and commercial
-        construction projects. Select a project to view the full
-        project details and gallery.
-    </p>
+        <div class="project-filter">
 
-</div>
+            <button class="filter-btn active"
+                    data-filter="all"
+                    type="button">
+                All
+            </button>
 
-
-
-<div class="project-filter">
-
-    <button
-        class="filter-btn active"
-        onclick="filterProjects('all', this)"
-    >
-        All
-    </button>
-
-    <button
-        class="filter-btn"
-        onclick="filterProjects('luxury', this)"
-    >
-        Luxury
-    </button>
-
-    <button
-        class="filter-btn"
-        onclick="filterProjects('residential', this)"
-    >
-        Residential
-    </button>
-
-    <button
-        class="filter-btn"
-        onclick="filterProjects('renovation', this)"
-    >
-        Renovation
-    </button>
-
-    <button
-        class="filter-btn"
-        onclick="filterProjects('commercial', this)"
-    >
-        Commercial
-    </button>
-
-</div>
-
-
-
-<div class="projects-grid" id="projectsGrid">
-
-
-    <div
-        class="project-card"
-        data-category="luxury"
-        onclick="openProjectModal('luxury')"
-    >
-
-        <div class="project-image">
-
-            <img
-                src="project-images/projects/luxury/3-cross-st-ryde/3805.jpeg"
-                alt="3 Cross St Ryde Luxury Residence"
-            >
-
-            <div class="project-overlay"></div>
-
-            <div class="project-category">
+            <button class="filter-btn"
+                    data-filter="luxury"
+                    type="button">
                 Luxury
+            </button>
+
+            <button class="filter-btn"
+                    data-filter="residential"
+                    type="button">
+                Residential
+            </button>
+
+            <button class="filter-btn"
+                    data-filter="renovation"
+                    type="button">
+                Renovation
+            </button>
+
+            <button class="filter-btn"
+                    data-filter="commercial"
+                    type="button">
+                Commercial
+            </button>
+
+        </div>
+
+
+        <div class="projects-grid" id="projectsGrid">
+
+            <!-- 3 CROSS ST RYDE -->
+
+            <div class="project-card"
+                 data-category="luxury"
+                 onclick="openProjectModal('luxury')">
+
+                <div class="project-image">
+
+                    <img
+                        src="project-images/projects/luxury/3-cross-st-ryde/3805.jpeg"
+                        alt="3 Cross St Ryde Luxury Residence"
+                    >
+
+                </div>
+
+                <div class="project-info">
+
+                    <div class="project-category">
+                        Luxury Residence
+                    </div>
+
+                    <h3>
+                        3 Cross St, Ryde
+                    </h3>
+
+                    <div class="project-location">
+                        Sydney · NSW
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- RESIDENTIAL PLACEHOLDER -->
+
+            <div class="project-card"
+                 data-category="residential">
+
+                <div class="project-coming">
+                    Residential · Coming Soon
+                </div>
+
+                <div class="project-info">
+
+                    <div class="project-category">
+                        Residential
+                    </div>
+
+                    <h3>
+                        Coming Soon
+                    </h3>
+
+                    <div class="project-location">
+                        More projects will be added
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- RENOVATION PLACEHOLDER -->
+
+            <div class="project-card"
+                 data-category="renovation">
+
+                <div class="project-coming">
+                    Renovation · Coming Soon
+                </div>
+
+                <div class="project-info">
+
+                    <div class="project-category">
+                        Renovation
+                    </div>
+
+                    <h3>
+                        Coming Soon
+                    </h3>
+
+                    <div class="project-location">
+                        More projects will be added
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- COMMERCIAL PLACEHOLDER -->
+
+            <div class="project-card"
+                 data-category="commercial">
+
+                <div class="project-coming">
+                    Commercial · Coming Soon
+                </div>
+
+                <div class="project-info">
+
+                    <div class="project-category">
+                        Commercial
+                    </div>
+
+                    <h3>
+                        Coming Soon
+                    </h3>
+
+                    <div class="project-location">
+                        More projects will be added
+                    </div>
+
+                </div>
+
             </div>
 
         </div>
 
-
-        <div class="project-content">
-
-            <h3>
-                3 Cross St, Ryde
-            </h3>
-
-            <div class="project-location">
-                Sydney · NSW
-            </div>
-
-            <div class="project-view">
-                View Project →
-            </div>
-
-        </div>
-
     </div>
-
-
-    <div
-        class="project-card project-placeholder"
-        data-category="residential"
-    >
-
-        <div>
-            Residential Project<br>
-            Coming Soon
-        </div>
-
-    </div>
-
-
-    <div
-        class="project-card project-placeholder"
-        data-category="renovation"
-    >
-
-        <div>
-            Renovation Project<br>
-            Coming Soon
-        </div>
-
-    </div>
-
-
-    <div
-        class="project-card project-placeholder"
-        data-category="commercial"
-    >
-
-        <div>
-            Commercial Project<br>
-            Coming Soon
-        </div>
-
-    </div>
-
-
-</div>
-
-</div>
 
 </section>
 
 
-
 <!-- =========================================================
-     PROJECT DETAIL MODAL
+     PROCESS
 ========================================================= -->
 
-<div
-    class="project-modal"
-    id="projectModal"
->
+<section class="section process" id="process">
 
-
-<button
-    class="project-modal-close"
-    onclick="closeProjectModal()"
->
-    ×
-</button>
-
-
-<div class="project-modal-inner">
-
-
-    <div class="project-modal-header">
-
-
-        <div>
-
-            <div class="section-kicker">
-                Luxury Residence
-            </div>
-
-
-            <h2>
-                3 Cross St,<br>
-                Ryde
-            </h2>
-
-        </div>
-
-
-        <div class="project-modal-description">
-
-            <p>
-                3 Cross St, Ryde is a residential project showcasing
-                Mac Urban's approach to considered construction,
-                detailed coordination and quality workmanship.
-                The project combines contemporary architectural
-                design with practical residential functionality.
-            </p>
-
-        </div>
-
-
-    </div>
-
-
-
-    <div class="project-meta">
-
-
-        <div class="meta-item">
-
-            <span>
-                Project
-            </span>
-
-            <strong>
-                3 Cross St, Ryde
-            </strong>
-
-        </div>
-
-
-        <div class="meta-item">
-
-            <span>
-                Category
-            </span>
-
-            <strong>
-                Luxury Residential
-            </strong>
-
-        </div>
-
-
-        <div class="meta-item">
-
-            <span>
-                Location
-            </span>
-
-            <strong>
-                Ryde, NSW
-            </strong>
-
-        </div>
-
-
-    </div>
-
-
-
-    <div class="project-gallery">
-
-
-        <div
-            class="gallery-item"
-            onclick="openLightbox(this)"
-        >
-
-            <img
-                src="project-images/projects/luxury/3-cross-st-ryde/3805.jpeg"
-                alt="3 Cross St Ryde"
-            >
-
-        </div>
-
-
-    </div>
-
-
-
-    <div class="project-modal-footer">
-
-        <p>
-            More project photography and construction details
-            will be added as the project portfolio develops.
-        </p>
-
-
-        <a
-            href="#contact"
-            class="btn btn-primary"
-            onclick="closeProjectModal()"
-        >
-            Enquire About a Project
-        </a>
-
-    </div>
-
-
-</div>
-
-</div>
-
-
-
-<!-- =========================================================
-     OUR PROCESS
-========================================================= -->
-
-<section class="process" id="process">
-
-<div class="container">
-
-
-<div class="section-header">
-
-    <div>
+    <div class="container">
 
         <div class="section-kicker">
-            How We Work
+            Our Process
         </div>
 
         <h2 class="section-title">
-            Our process.
+            A clear process from concept to completion.
         </h2>
 
-    </div>
-
-
-    <p class="section-intro">
-        A structured approach helps create clarity from the first
-        conversation through construction completion and handover.
-    </p>
-
-</div>
-
-
-
-<div class="process-grid">
-
-
-    <div class="process-item">
-
-        <div class="process-number">
-            01
-        </div>
-
-        <h3>
-            Consultation
-        </h3>
-
-        <p>
-            We begin by understanding the client's objectives, site
-            conditions, budget, design expectations and project
-            constraints. Early discussions help establish a practical
-            project brief, identify key risks and clarify the scope
-            required before design, approvals, consultant engagement
-            and construction planning commence.
+        <p class="section-intro">
+            Every project is approached with clear communication, structured
+            planning and professional construction management.
         </p>
 
-    </div>
+
+        <div class="process-grid">
+
+            <div class="process-item">
+
+                <div class="process-number">
+                    01
+                </div>
+
+                <h3>
+                    Consultation
+                </h3>
+
+                <p>
+                    We begin by understanding your project, requirements,
+                    expectations and design direction. Early discussions help
+                    establish the project scope and identify key construction
+                    considerations.
+                </p>
+
+            </div>
 
 
-    <div class="process-item">
+            <div class="process-item">
 
-        <div class="process-number">
-            02
+                <div class="process-number">
+                    02
+                </div>
+
+                <h3>
+                    Planning
+                </h3>
+
+                <p>
+                    We review project documentation, consultants, approvals,
+                    budget considerations and construction requirements to
+                    establish a practical delivery strategy.
+                </p>
+
+            </div>
+
+
+            <div class="process-item">
+
+                <div class="process-number">
+                    03
+                </div>
+
+                <h3>
+                    Pre-Construction
+                </h3>
+
+                <p>
+                    Before construction begins, we coordinate trades,
+                    procurement, scheduling and site requirements to create a
+                    clear and organised construction pathway.
+                </p>
+
+            </div>
+
+
+            <div class="process-item">
+
+                <div class="process-number">
+                    04
+                </div>
+
+                <h3>
+                    Construction
+                </h3>
+
+                <p>
+                    Our team manages construction activities, trades,
+                    coordination and quality throughout the build while
+                    maintaining communication with project stakeholders.
+                </p>
+
+            </div>
+
+
+            <div class="process-item">
+
+                <div class="process-number">
+                    05
+                </div>
+
+                <h3>
+                    Handover
+                </h3>
+
+                <p>
+                    The project is completed through final inspections,
+                    rectification and handover processes, ensuring the finished
+                    building meets the agreed project requirements.
+                </p>
+
+            </div>
+
         </div>
 
-        <h3>
-            Planning
-        </h3>
-
-        <p>
-            We coordinate architectural, engineering and specialist
-            consultants while progressing approvals, documentation and
-            construction planning. The objective is to establish a
-            coordinated project pathway, identify interfaces early and
-            ensure design decisions, statutory requirements, budgets and
-            construction methodology are considered before works
-            commence.
-        </p>
-
     </div>
-
-
-    <div class="process-item">
-
-        <div class="process-number">
-            03
-        </div>
-
-        <h3>
-            Pre-Construction
-        </h3>
-
-        <p>
-            Before construction starts, we finalise contracts,
-            specifications, procurement requirements, budgets,
-            construction programs and site planning. Detailed
-            preparation allows responsibilities, milestones and
-            expectations to be clearly established, reducing
-            uncertainty and creating a controlled transition from
-            design and planning into physical construction.
-        </p>
-
-    </div>
-
-
-    <div class="process-item">
-
-        <div class="process-number">
-            04
-        </div>
-
-        <h3>
-            Construction
-        </h3>
-
-        <p>
-            During construction, our team manages site coordination,
-            trades, quality control, program performance, materials and
-            project communication. We monitor progress against agreed
-            requirements, address construction issues promptly and
-            maintain coordination between the client, consultants and
-            contractors throughout the delivery phase.
-        </p>
-
-    </div>
-
-
-    <div class="process-item">
-
-        <div class="process-number">
-            05
-        </div>
-
-        <h3>
-            Handover
-        </h3>
-
-        <p>
-            At completion, we coordinate final inspections, defect
-            management, documentation and handover requirements. The
-            project is reviewed against the agreed scope and
-            construction standards, with outstanding items addressed
-            systematically to support a smooth transition from
-            construction completion to client occupation or operational
-            use.
-        </p>
-
-    </div>
-
-
-</div>
-
-</div>
 
 </section>
-
 
 
 <!-- =========================================================
      CONTACT
 ========================================================= -->
 
-<section class="contact" id="contact">
+<section class="section contact" id="contact">
 
-<div class="container">
+    <div class="container">
 
-<div class="contact-grid">
+        <div class="contact-grid">
 
+            <div>
 
-    <div>
+                <div class="section-kicker">
+                    Start a Project
+                </div>
 
-        <div class="section-kicker">
-            Start a Conversation
-        </div>
+                <h2 class="section-title">
+                    Let's build something considered.
+                </h2>
 
-
-        <h2>
-            Let's build<br>
-            something better.
-        </h2>
-
-
-        <p class="contact-intro">
-            Tell us about your project, development or construction
-            requirements. Our team can discuss the scope, project
-            objectives and the next steps.
-        </p>
+                <p class="contact-text">
+                    Whether you are planning a new home, luxury residence,
+                    renovation or commercial project, contact Mac Urban Civil
+                    Construction to discuss your project requirements.
+                </p>
 
 
-        <div class="contact-details">
+                <div class="contact-details">
+
+                    <div class="contact-detail">
+
+                        <strong>Email</strong>
+
+                        <span>
+                            info@macurbancivil.com.au
+                        </span>
+
+                    </div>
 
 
-            <div class="contact-detail">
+                    <div class="contact-detail">
 
-                <span>
-                    Email
-                </span>
+                        <strong>Service Area</strong>
 
-                <strong>
-                    info@macurbancivil.com.au
-                </strong>
+                        <span>
+                            Melbourne · Victoria · Australia
+                        </span>
 
-            </div>
+                    </div>
 
 
-            <div class="contact-detail">
+                    <div class="contact-detail">
 
-                <span>
-                    Service Area
-                </span>
+                        <strong>Company</strong>
 
-                <strong>
-                    Melbourne · Victoria · Australia
-                </strong>
+                        <span>
+                            Mac Urban Civil Construction Pty Ltd
+                        </span>
 
-            </div>
+                    </div>
 
-
-            <div class="contact-detail">
-
-                <span>
-                    Company
-                </span>
-
-                <strong>
-                    Mac Urban Civil Construction Pty Ltd
-                </strong>
+                </div>
 
             </div>
 
+
+            <form
+                class="contact-form"
+                action="https://formsubmit.co/info@macurbancivil.com.au"
+                method="POST"
+            >
+
+                <input
+                    type="hidden"
+                    name="_subject"
+                    value="New Project Enquiry - Mac Urban Civil Construction"
+                >
+
+                <input
+                    type="hidden"
+                    name="_captcha"
+                    value="false"
+                >
+
+                <input
+                    type="hidden"
+                    name="_template"
+                    value="table"
+                >
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="name">
+                            Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            name="Name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="Email"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="phone">
+                            Phone
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            name="Phone"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="projectType">
+                            Project Type
+                        </label>
+
+                        <select
+                            id="projectType"
+                            name="Project Type"
+                        >
+
+                            <option value="">
+                                Select
+                            </option>
+
+                            <option>
+                                Custom Home
+                            </option>
+
+                            <option>
+                                New Home
+                            </option>
+
+                            <option>
+                                Renovation
+                            </option>
+
+                            <option>
+                                Luxury Residence
+                            </option>
+
+                            <option>
+                                Commercial
+                            </option>
+
+                            <option>
+                                Project Management
+                            </option>
+
+                            <option>
+                                Construction Consulting
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="message">
+                        Project Details
+                    </label>
+
+                    <textarea
+                        id="message"
+                        name="Message"
+                        placeholder="Tell us about your project..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="btn btn-primary"
+                >
+                    Send Enquiry
+                </button>
+
+            </form>
 
         </div>
 
     </div>
 
-
-
-    <form
-        class="contact-form"
-        action="https://formsubmit.co/info@macurbancivil.com.au"
-        method="POST"
-    >
-
-        <input
-            type="hidden"
-            name="_subject"
-            value="New Mac Urban Website Enquiry"
-        >
-
-        <input
-            type="hidden"
-            name="_captcha"
-            value="false"
-        >
-
-
-        <div class="form-row">
-
-            <input
-                type="text"
-                name="name"
-                placeholder="Your Name"
-                required
-            >
-
-            <input
-                type="email"
-                name="email"
-                placeholder="Email Address"
-                required
-            >
-
-        </div>
-
-
-        <div class="form-row">
-
-            <input
-                type="tel"
-                name="phone"
-                placeholder="Phone"
-            >
-
-
-            <select name="project_type">
-
-                <option value="">
-                    Project Type
-                </option>
-
-                <option>
-                    Custom Home
-                </option>
-
-                <option>
-                    New Home
-                </option>
-
-                <option>
-                    Renovation
-                </option>
-
-                <option>
-                    Commercial
-                </option>
-
-                <option>
-                    Project Management
-                </option>
-
-                <option>
-                    Construction Consulting
-                </option>
-
-            </select>
-
-        </div>
-
-
-        <textarea
-            name="message"
-            placeholder="Tell us about your project..."
-            required
-        ></textarea>
-
-
-        <button
-            type="submit"
-            class="btn btn-primary"
-        >
-            Submit Enquiry
-        </button>
-
-    </form>
-
-</div>
-
-</div>
-
 </section>
-
 
 
 <!-- =========================================================
@@ -2534,52 +2275,185 @@ footer{
 
 <footer>
 
-<div class="container footer-inner">
+    <div class="container">
+
+        <div class="footer-top">
+
+            <a href="#home" class="footer-logo">
+
+                <img
+                    src="985.jpeg"
+                    alt="Mac Urban Civil Construction"
+                >
+
+            </a>
 
 
-    <div class="footer-logo">
+            <div class="footer-links">
 
-        <img
-            src="985.jpeg"
-            alt="Mac Urban"
-        >
+                <a href="#home">
+                    Home
+                </a>
+
+                <a href="#about">
+                    About
+                </a>
+
+                <a href="#projects">
+                    Projects
+                </a>
+
+                <a href="#contact">
+                    Contact
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 Mac Urban Civil Construction Pty Ltd. All rights reserved.
+            </span>
+
+            <span>
+                Melbourne · Victoria · Australia
+            </span>
+
+        </div>
 
     </div>
-
-
-    <div class="footer-copy">
-
-        © 2026 Mac Urban Civil Construction Pty Ltd.
-        All rights reserved.
-
-    </div>
-
-
-    <div class="footer-links">
-
-        <a href="#home">
-            Home
-        </a>
-
-        <a href="#about">
-            About
-        </a>
-
-        <a href="#projects">
-            Projects
-        </a>
-
-        <a href="#contact">
-            Contact
-        </a>
-
-    </div>
-
-
-</div>
 
 </footer>
 
+
+<!-- =========================================================
+     PROJECT MODAL
+========================================================= -->
+
+<div class="modal" id="projectModal">
+
+    <div class="modal-inner">
+
+        <button
+            class="modal-close"
+            type="button"
+            onclick="closeProjectModal()"
+            aria-label="Close project"
+        >
+            ×
+        </button>
+
+
+        <div class="modal-image">
+
+            <img
+                id="modalMainImage"
+                src="project-images/projects/luxury/3-cross-st-ryde/3805.jpeg"
+                alt="3 Cross St Ryde"
+            >
+
+        </div>
+
+
+        <div class="modal-content">
+
+            <div class="modal-kicker">
+                Luxury Residence
+            </div>
+
+            <h2>
+                3 Cross St, Ryde
+            </h2>
+
+
+            <div class="modal-meta">
+
+                <div class="modal-meta-item">
+
+                    <strong>
+                        Project
+                    </strong>
+
+                    <span>
+                        Luxury Residence
+                    </span>
+
+                </div>
+
+
+                <div class="modal-meta-item">
+
+                    <strong>
+                        Category
+                    </strong>
+
+                    <span>
+                        Luxury
+                    </span>
+
+                </div>
+
+
+                <div class="modal-meta-item">
+
+                    <strong>
+                        Location
+                    </strong>
+
+                    <span>
+                        Ryde · Sydney NSW
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <p class="modal-description">
+                3 Cross St, Ryde is a contemporary residential project
+                representing Mac Urban's approach to quality construction,
+                refined detailing and modern residential design.
+            </p>
+
+
+            <div class="gallery">
+
+                <div class="gallery-title">
+                    Project Photography
+                </div>
+
+                <div class="gallery-grid">
+
+                    <div
+                        class="gallery-item"
+                        onclick="openLightbox(this.querySelector('img').src)"
+                    >
+
+                        <img
+                            src="project-images/projects/luxury/3-cross-st-ryde/3805.jpeg"
+                            alt="3 Cross St Ryde Project"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="modal-note">
+                    Additional project photography and project details will be
+                    added as the portfolio develops.
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
 
 
 <!-- =========================================================
@@ -2589,46 +2463,45 @@ footer{
 <div
     class="lightbox"
     id="lightbox"
+    onclick="closeLightbox()"
 >
 
-    <div
+    <button
         class="lightbox-close"
+        type="button"
         onclick="closeLightbox()"
     >
         ×
-    </div>
-
+    </button>
 
     <img
         id="lightboxImage"
         src=""
-        alt="Project Image"
+        alt="Project image"
+        onclick="event.stopPropagation()"
     >
 
 </div>
 
 
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
 
 <script>
 
-
 /* =========================================================
-   HEADER
+   HEADER SCROLL
 ========================================================= */
 
-const header =
-    document.getElementById("header");
+const siteHeader = document.getElementById("siteHeader");
 
 window.addEventListener("scroll", function(){
 
-    if(window.scrollY > 30){
-
-        header.classList.add("scrolled");
-
+    if(window.scrollY > 20){
+        siteHeader.classList.add("scrolled");
     }else{
-
-        header.classList.remove("scrolled");
-
+        siteHeader.classList.remove("scrolled");
     }
 
 });
@@ -2638,37 +2511,42 @@ window.addEventListener("scroll", function(){
    MOBILE MENU
 ========================================================= */
 
-const menuToggle =
-    document.getElementById("menuToggle");
+const mobileMenuBtn =
+    document.getElementById("mobileMenuBtn");
 
-const nav =
-    document.getElementById("nav");
+const mobileNav =
+    document.getElementById("mobileNav");
 
-menuToggle.addEventListener("click", function(){
+mobileMenuBtn.addEventListener("click", function(){
 
-    nav.classList.toggle("active");
+    mobileNav.classList.toggle("active");
 
 });
 
 
 /* =========================================================
-   MOBILE DROPDOWN
+   MOBILE DROPDOWNS
 ========================================================= */
 
-document.querySelectorAll(".dropdown > a")
-.forEach(function(link){
+const mobileDropdownButtons =
+    document.querySelectorAll(".mobile-dropdown-btn");
 
-    link.addEventListener("click", function(e){
+mobileDropdownButtons.forEach(function(button){
 
-        if(window.innerWidth <= 800){
+    button.addEventListener("click", function(){
 
-            const dropdown =
-                this.parentElement;
+        const submenu =
+            button.nextElementSibling;
 
-            dropdown.classList.toggle("active");
+        submenu.classList.toggle("active");
 
-            e.preventDefault();
+        const symbol =
+            button.querySelector("span");
 
+        if(submenu.classList.contains("active")){
+            symbol.textContent = "−";
+        }else{
+            symbol.textContent = "+";
         }
 
     });
@@ -2677,15 +2555,14 @@ document.querySelectorAll(".dropdown > a")
 
 
 /* =========================================================
-   CLOSE MOBILE MENU
+   CLOSE MOBILE MENU AFTER CLICK
 ========================================================= */
 
-document.querySelectorAll(".nav > a")
-.forEach(function(link){
+document.querySelectorAll(".mobile-nav a").forEach(function(link){
 
     link.addEventListener("click", function(){
 
-        nav.classList.remove("active");
+        mobileNav.classList.remove("active");
 
     });
 
@@ -2696,39 +2573,31 @@ document.querySelectorAll(".nav > a")
    PROJECT FILTER
 ========================================================= */
 
-function filterProjects(category, clickedButton){
+const filterButtons =
+    document.querySelectorAll(".filter-btn");
 
-    const cards =
-        document.querySelectorAll(".project-card");
-
-    const buttons =
-        document.querySelectorAll(".filter-btn");
+const projectCards =
+    document.querySelectorAll(".project-card");
 
 
-    buttons.forEach(function(btn){
+function filterProjects(category){
 
-        btn.classList.remove("active");
+    filterButtons.forEach(function(button){
+
+        button.classList.toggle(
+            "active",
+            button.dataset.filter === category
+        );
 
     });
 
 
-    if(clickedButton){
-
-        clickedButton.classList.add("active");
-
-    }
-
-
-    cards.forEach(function(card){
+    projectCards.forEach(function(card){
 
         const cardCategory =
-            card.getAttribute("data-category");
+            card.dataset.category;
 
-
-        if(
-            category === "all" ||
-            cardCategory === category
-        ){
+        if(category === "all" || cardCategory === category){
 
             card.style.display = "";
 
@@ -2743,6 +2612,28 @@ function filterProjects(category, clickedButton){
 }
 
 
+filterButtons.forEach(function(button){
+
+    button.addEventListener("click", function(){
+
+        filterProjects(button.dataset.filter);
+
+    });
+
+});
+
+
+function setProjectFilter(category){
+
+    setTimeout(function(){
+
+        filterProjects(category);
+
+    },100);
+
+}
+
+
 /* =========================================================
    PROJECT MODAL
 ========================================================= */
@@ -2751,15 +2642,13 @@ const projectModal =
     document.getElementById("projectModal");
 
 
-function openProjectModal(project){
+function openProjectModal(type){
 
-    if(project === "luxury"){
+    if(type === "luxury"){
 
         projectModal.classList.add("active");
 
         document.body.style.overflow = "hidden";
-
-        projectModal.scrollTop = 0;
 
     }
 
@@ -2786,22 +2675,9 @@ const lightboxImage =
     document.getElementById("lightboxImage");
 
 
-function openLightbox(element){
+function openLightbox(src){
 
-    const image =
-        element.querySelector("img");
-
-
-    if(!image){
-
-        return;
-
-    }
-
-
-    lightboxImage.src =
-        image.src;
-
+    lightboxImage.src = src;
 
     lightbox.classList.add("active");
 
@@ -2818,16 +2694,18 @@ function closeLightbox(){
 
 
 /* =========================================================
-   ESCAPE
+   ESC KEY
 ========================================================= */
 
-document.addEventListener("keydown", function(e){
+document.addEventListener("keydown", function(event){
 
-    if(e.key === "Escape"){
+    if(event.key === "Escape"){
+
+        closeProjectModal();
 
         closeLightbox();
 
-        closeProjectModal();
+        mobileNav.classList.remove("active");
 
     }
 
@@ -2835,29 +2713,14 @@ document.addEventListener("keydown", function(e){
 
 
 /* =========================================================
-   MODAL BACKGROUND
+   MODAL BACKGROUND CLOSE
 ========================================================= */
 
-projectModal.addEventListener("click", function(e){
+projectModal.addEventListener("click", function(event){
 
-    if(e.target === projectModal){
+    if(event.target === projectModal){
 
         closeProjectModal();
-
-    }
-
-});
-
-
-/* =========================================================
-   LIGHTBOX BACKGROUND
-========================================================= */
-
-lightbox.addEventListener("click", function(e){
-
-    if(e.target === lightbox){
-
-        closeLightbox();
 
     }
 
