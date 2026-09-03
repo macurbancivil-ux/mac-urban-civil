@@ -4,24 +4,74 @@
 
 <meta charset="UTF-8">
 
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>
-Mac Urban Civil Construction | Melbourne Builders
-</title>
+<title>Mac Urban Civil Construction | Melbourne Builders</title>
 
 <meta
-    name="description"
-    content="Mac Urban Civil Construction delivers premium residential, renovation and commercial construction projects across Melbourne and Australia."
+name="description"
+content="Mac Urban Civil Construction delivers premium residential, renovation and commercial construction projects across Melbourne and Australia."
 >
 
 <style>
 
 /* =========================================================
-   ROOT
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+
+    color:#111111;
+    background:#FFFFFF;
+
+    line-height:1.6;
+}
+
+img{
+    display:block;
+    max-width:100%;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+button,
+input,
+textarea,
+select{
+    font:inherit;
+}
+
+.container{
+    width:min(1180px,calc(100% - 60px));
+    margin:0 auto;
+}
+
+section{
+    scroll-margin-top:110px;
+}
+
+
+/* =========================================================
+   COLOURS
 ========================================================= */
 
 :root{
@@ -48,65 +98,6 @@ Mac Urban Civil Construction | Melbourne Builders
 
     --border:#E2E2DE;
 
-}
-
-
-/* =========================================================
-   RESET
-========================================================= */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-
-    font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    Arial,
-    sans-serif;
-
-    color:var(--black);
-
-    background:#FFFFFF;
-
-    line-height:1.6;
-}
-
-img{
-    display:block;
-    max-width:100%;
-}
-
-a{
-    color:inherit;
-    text-decoration:none;
-}
-
-button,
-input,
-textarea,
-select{
-    font:inherit;
-}
-
-.container{
-
-    width:min(1180px,calc(100% - 60px));
-
-    margin:0 auto;
-}
-
-section{
-    scroll-margin-top:110px;
 }
 
 
@@ -217,14 +208,14 @@ section{
 
     height:1px;
 
-    background:var(--green);
+    background:#6F936F;
 
     transition:.25s ease;
 }
 
 .desktop-nav a:hover{
 
-    color:var(--green-dark);
+    color:#4F704F;
 }
 
 .desktop-nav a:hover::after{
@@ -299,7 +290,7 @@ section{
 
     background:#FFFFFF;
 
-    border-top:1px solid var(--border);
+    border-top:1px solid #E2E2DE;
 
     padding:20px 24px 28px;
 }
@@ -315,7 +306,7 @@ section{
 
     padding:15px 0;
 
-    border-bottom:1px solid var(--border);
+    border-bottom:1px solid #E2E2DE;
 
     font-size:16px;
 
@@ -370,7 +361,7 @@ section{
 }
 
 
-/* MELBOURNE AUSTRALIA */
+/* MELBOURNE */
 
 .hero-kicker{
 
@@ -414,8 +405,7 @@ section{
 
     line-height:1.7;
 
-    color:
-    rgba(255,255,255,.9);
+    color:rgba(255,255,255,.9);
 
     margin-bottom:40px;
 }
@@ -493,7 +483,7 @@ section{
 
 
 /* =========================================================
-   GENERAL SECTION
+   GENERAL SECTIONS
 ========================================================= */
 
 .section{
@@ -508,7 +498,7 @@ section{
 
 .section-kicker{
 
-    color:var(--green-dark);
+    color:#4F704F;
 
     font-size:13px;
 
@@ -537,7 +527,7 @@ section{
 
     margin-top:22px;
 
-    color:var(--grey);
+    color:#666666;
 
     font-size:17px;
 
@@ -551,7 +541,7 @@ section{
 
 .about{
 
-    background:var(--light);
+    background:#F6F6F3;
 }
 
 
@@ -583,8 +573,6 @@ section{
     background-size:cover;
 
     background-position:center;
-
-    color:#FFFFFF;
 }
 
 .about-hero-inner{
@@ -598,9 +586,11 @@ section{
 }
 
 
-/* ABOUT MAC URBAN */
+/* =========================================================
+   ABOUT MAC URBAN
+========================================================= */
 
-.about-hero-kicker{
+.about-heading-white{
 
     font-size:32px;
 
@@ -617,12 +607,14 @@ section{
 
 
 /* =========================================================
-   IMPORTANT:
    CONSTRUCTION BUILT AROUND QUALITY
-   ALWAYS WHITE
+
+   NEW CLASS
+   NO GREEN
+   WHITE ONLY
 ========================================================= */
 
-.about-hero-title{
+.quality-title-white{
 
     max-width:800px;
 
@@ -662,7 +654,7 @@ section{
 
 .about-text{
 
-    color:var(--grey);
+    color:#666666;
 
     font-size:17px;
 
@@ -675,7 +667,7 @@ section{
 }
 
 
-/* ABOUT STATS */
+/* STATS */
 
 .about-stats{
 
@@ -691,7 +683,7 @@ section{
 
     background:#FFFFFF;
 
-    border:1px solid var(--border);
+    border:1px solid #E2E2DE;
 
     min-height:190px;
 
@@ -710,12 +702,12 @@ section{
 
     transform:translateY(-5px);
 
-    border-color:var(--green);
+    border-color:#6F936F;
 }
 
 .stat-number{
 
-    color:var(--green-dark);
+    color:#4F704F;
 
     font-size:40px;
 
@@ -765,9 +757,9 @@ section{
 
     padding:35px;
 
-    background:var(--light);
+    background:#F6F6F3;
 
-    border:1px solid var(--border);
+    border:1px solid #E2E2DE;
 
     position:relative;
 
@@ -776,9 +768,9 @@ section{
 
 .service-card:hover{
 
-    background:var(--green-soft);
+    background:#EEF3EE;
 
-    border-color:var(--green);
+    border-color:#6F936F;
 
     transform:translateY(-5px);
 }
@@ -787,7 +779,7 @@ section{
 
     font-size:13px;
 
-    color:var(--green-dark);
+    color:#4F704F;
 
     letter-spacing:2px;
 
@@ -805,7 +797,7 @@ section{
 
 .service-card p{
 
-    color:var(--grey);
+    color:#666666;
 
     font-size:15px;
 
@@ -819,7 +811,7 @@ section{
 
 .projects{
 
-    background:var(--light);
+    background:#F6F6F3;
 }
 
 .project-filters{
@@ -835,7 +827,7 @@ section{
 
 .filter-btn{
 
-    border:1px solid var(--border);
+    border:1px solid #E2E2DE;
 
     background:#FFFFFF;
 
@@ -853,9 +845,9 @@ section{
 .filter-btn:hover,
 .filter-btn.active{
 
-    background:var(--green);
+    background:#6F936F;
 
-    border-color:var(--green);
+    border-color:#6F936F;
 
     color:#FFFFFF;
 }
@@ -876,7 +868,7 @@ section{
 
     cursor:pointer;
 
-    border:1px solid var(--border);
+    border:1px solid #E2E2DE;
 
     overflow:hidden;
 
@@ -924,7 +916,7 @@ section{
 
 .project-category{
 
-    color:var(--green-dark);
+    color:#4F704F;
 
     font-size:12px;
 
@@ -946,7 +938,7 @@ section{
 
 .project-location{
 
-    color:var(--grey-light);
+    color:#888888;
 
     font-size:14px;
 }
@@ -963,7 +955,7 @@ section{
 
     background:#E9E9E5;
 
-    color:#777;
+    color:#777777;
 
     font-size:13px;
 
@@ -994,9 +986,9 @@ section{
     grid-template-columns:
     repeat(5,1fr);
 
-    border-top:1px solid var(--border);
+    border-top:1px solid #E2E2DE;
 
-    border-left:1px solid var(--border);
+    border-left:1px solid #E2E2DE;
 }
 
 .process-item{
@@ -1005,21 +997,21 @@ section{
 
     padding:30px 25px;
 
-    border-right:1px solid var(--border);
+    border-right:1px solid #E2E2DE;
 
-    border-bottom:1px solid var(--border);
+    border-bottom:1px solid #E2E2DE;
 
     transition:.3s ease;
 }
 
 .process-item:hover{
 
-    background:var(--green-soft);
+    background:#EEF3EE;
 }
 
 .process-number{
 
-    color:var(--green-dark);
+    color:#4F704F;
 
     font-size:13px;
 
@@ -1039,7 +1031,7 @@ section{
 
 .process-item p{
 
-    color:var(--grey);
+    color:#666666;
 
     font-size:14px;
 
@@ -1053,7 +1045,7 @@ section{
 
 .contact{
 
-    background:var(--dark);
+    background:#1A1A1A;
 
     color:#FFFFFF;
 }
@@ -1126,7 +1118,7 @@ section{
 }
 
 
-/* FORM */
+/* CONTACT FORM */
 
 .contact-form{
 
@@ -1170,9 +1162,9 @@ section{
 
     width:100%;
 
-    border:1px solid #444;
+    border:1px solid #444444;
 
-    background:#222;
+    background:#222222;
 
     color:#FFFFFF;
 
@@ -1201,9 +1193,9 @@ section{
 
     margin-top:8px;
 
-    border:1px solid var(--green);
+    border:1px solid #6F936F;
 
-    background:var(--green);
+    background:#6F936F;
 
     color:#FFFFFF;
 
@@ -1236,7 +1228,7 @@ section{
 
     background:#101010;
 
-    color:#AAA;
+    color:#AAAAAA;
 
     border-top:1px solid #292929;
 
@@ -1280,7 +1272,7 @@ section{
 
     font-size:13px;
 
-    color:#AAA;
+    color:#AAAAAA;
 
     transition:.25s ease;
 }
@@ -1304,7 +1296,7 @@ section{
 
     font-size:12px;
 
-    color:#777;
+    color:#777777;
 }
 
 
@@ -1401,7 +1393,7 @@ section{
 
 .modal-category{
 
-    color:var(--green-dark);
+    color:#4F704F;
 
     font-size:12px;
 
@@ -1425,14 +1417,14 @@ section{
 
 .modal-location{
 
-    color:var(--grey);
+    color:#666666;
 
     margin-bottom:25px;
 }
 
 .modal-description{
 
-    color:var(--grey);
+    color:#666666;
 
     max-width:750px;
 
@@ -1645,7 +1637,7 @@ section{
         font-size:13px;
     }
 
-    .btn-primary{
+    .hero .btn-primary{
 
         background:#6F936F !important;
 
@@ -1684,11 +1676,9 @@ section{
 
     .about{
 
-        position:relative;
-
         padding-top:0;
 
-        background:var(--light);
+        background:#F6F6F3;
     }
 
     .about::before{
@@ -1710,8 +1700,6 @@ section{
     .about-hero{
 
         min-height:330px;
-
-        margin:0;
 
         background-image:
 
@@ -1740,7 +1728,7 @@ section{
 
     /* ABOUT MAC URBAN */
 
-    .about-hero-kicker{
+    .about-heading-white{
 
         font-size:56px;
 
@@ -1756,10 +1744,10 @@ section{
     }
 
 
-    /* CONSTRUCTION BUILT AROUND QUALITY
-       ALWAYS WHITE */
+    /* QUALITY TITLE
+       WHITE ONLY */
 
-    .about-hero-title{
+    .quality-title-white{
 
         font-size:34px;
 
@@ -1881,7 +1869,7 @@ section{
 
         grid-template-columns:1fr;
 
-        border-left:1px solid var(--border);
+        border-left:1px solid #E2E2DE;
     }
 
     .process-item{
@@ -1985,8 +1973,6 @@ section{
         width:220px;
 
         max-height:82px;
-
-        object-fit:contain;
     }
 
     .mobile-menu-btn{
@@ -2014,7 +2000,7 @@ section{
 
     /* ABOUT MAC URBAN */
 
-    .about-hero-kicker{
+    .about-heading-white{
 
         font-size:46px;
 
@@ -2024,10 +2010,10 @@ section{
     }
 
 
-    /* CONSTRUCTION BUILT AROUND QUALITY
-       ALWAYS WHITE */
+    /* QUALITY TITLE
+       WHITE ONLY */
 
-    .about-hero-title{
+    .quality-title-white{
 
         font-size:30px;
 
@@ -2048,20 +2034,18 @@ section{
 
 
 /* =========================================================
-   FINAL OVERRIDE
-   THIS IS INTENTIONALLY AT THE VERY END
-   SO THE TITLE CAN NEVER TURN GREEN
+   ABSOLUTE FINAL WHITE RULE
 ========================================================= */
 
-.about-hero .about-hero-title,
-.about-hero-title,
-#about .about-hero-title{
+.quality-title-white{
 
     color:#FFFFFF !important;
 }
 
 
-/* VIEW PROJECTS FINAL OVERRIDE */
+/* =========================================================
+   ABSOLUTE FINAL GREEN BUTTON RULE
+========================================================= */
 
 .hero .btn-primary{
 
@@ -2085,21 +2069,21 @@ section{
 ========================================================= -->
 
 <header
-    class="site-header"
-    id="siteHeader"
+class="site-header"
+id="siteHeader"
 >
 
     <div class="container header-inner">
 
 
         <a
-            href="#home"
-            class="logo"
+        href="#home"
+        class="logo"
         >
 
             <img
-                src="985.jpeg"
-                alt="Mac Urban Civil Construction"
+            src="985.jpeg"
+            alt="Mac Urban Civil Construction"
             >
 
         </a>
@@ -2135,9 +2119,9 @@ section{
 
 
         <button
-            class="mobile-menu-btn"
-            id="mobileMenuBtn"
-            aria-label="Open menu"
+        class="mobile-menu-btn"
+        id="mobileMenuBtn"
+        aria-label="Open menu"
         >
 
             <span></span>
@@ -2152,8 +2136,8 @@ section{
 
 
     <div
-        class="mobile-menu"
-        id="mobileMenu"
+    class="mobile-menu"
+    id="mobileMenu"
     >
 
         <a href="#home">
@@ -2191,8 +2175,8 @@ section{
 ========================================================= -->
 
 <section
-    class="hero"
-    id="home"
+class="hero"
+id="home"
 >
 
     <div class="container">
@@ -2202,14 +2186,15 @@ section{
 
 
             <div class="hero-kicker">
+
                 Melbourne · Australia
+
             </div>
 
 
             <h1>
 
                 Building<br>
-
                 with Purpose.
 
             </h1>
@@ -2230,18 +2215,22 @@ section{
 
 
                 <a
-                    href="#projects"
-                    class="btn btn-primary"
+                href="#projects"
+                class="btn btn-primary"
                 >
+
                     View Projects
+
                 </a>
 
 
                 <a
-                    href="#contact"
-                    class="btn btn-outline"
+                href="#contact"
+                class="btn btn-outline"
                 >
+
                     Start a Project
+
                 </a>
 
 
@@ -2261,8 +2250,8 @@ section{
 ========================================================= -->
 
 <section
-    class="about"
-    id="about"
+class="about"
+id="about"
 >
 
 
@@ -2272,14 +2261,25 @@ section{
         <div class="about-hero-inner">
 
 
-            <div class="about-hero-kicker">
+            <div
+            class="about-heading-white"
+            >
 
                 About Mac Urban
 
             </div>
 
 
-            <div class="about-hero-title">
+            <!--
+                IMPORTANT:
+                THIS TEXT IS WHITE.
+                COMPLETELY NEW CLASS.
+            -->
+
+            <div
+            class="quality-title-white"
+            style="color:#FFFFFF !important;"
+            >
 
                 Construction built around quality.
 
@@ -2352,7 +2352,6 @@ section{
                 </div>
 
 
-
                 <div class="stat-card">
 
                     <div class="stat-number">
@@ -2364,7 +2363,6 @@ section{
                     </div>
 
                 </div>
-
 
 
                 <div class="stat-card">
@@ -2397,8 +2395,8 @@ section{
 ========================================================= -->
 
 <section
-    class="section services"
-    id="services"
+class="section services"
+id="services"
 >
 
 
@@ -2409,9 +2407,7 @@ section{
 
 
             <div class="section-kicker">
-
                 What We Do
-
             </div>
 
 
@@ -2467,7 +2463,6 @@ section{
             </div>
 
 
-
             <div class="service-card">
 
                 <div class="service-number">
@@ -2491,7 +2486,6 @@ section{
                 </p>
 
             </div>
-
 
 
             <div class="service-card">
@@ -2518,7 +2512,6 @@ section{
             </div>
 
 
-
             <div class="service-card">
 
                 <div class="service-number">
@@ -2543,7 +2536,6 @@ section{
             </div>
 
 
-
             <div class="service-card">
 
                 <div class="service-number">
@@ -2566,7 +2558,6 @@ section{
                 </p>
 
             </div>
-
 
 
             <div class="service-card">
@@ -2595,7 +2586,6 @@ section{
 
         </div>
 
-
     </div>
 
 </section>
@@ -2607,8 +2597,8 @@ section{
 ========================================================= -->
 
 <section
-    class="section projects"
-    id="projects"
+class="section projects"
+id="projects"
 >
 
 
@@ -2646,40 +2636,40 @@ section{
 
 
             <button
-                class="filter-btn active"
-                data-filter="all"
+            class="filter-btn active"
+            data-filter="all"
             >
                 All
             </button>
 
 
             <button
-                class="filter-btn"
-                data-filter="luxury"
+            class="filter-btn"
+            data-filter="luxury"
             >
                 Luxury
             </button>
 
 
             <button
-                class="filter-btn"
-                data-filter="residential"
+            class="filter-btn"
+            data-filter="residential"
             >
                 Residential
             </button>
 
 
             <button
-                class="filter-btn"
-                data-filter="renovation"
+            class="filter-btn"
+            data-filter="renovation"
             >
                 Renovation
             </button>
 
 
             <button
-                class="filter-btn"
-                data-filter="commercial"
+            class="filter-btn"
+            data-filter="commercial"
             >
                 Commercial
             </button>
@@ -2695,17 +2685,17 @@ section{
             <!-- 3 CROSS ST RYDE -->
 
             <div
-                class="project-card"
-                data-category="luxury"
-                onclick="openProjectModal('luxury')"
+            class="project-card"
+            data-category="luxury"
+            onclick="openProjectModal('luxury')"
             >
 
 
                 <div class="project-image">
 
                     <img
-                        src="project-images/projects/luxury/3-cross-st-ryde/3805.jpeg"
-                        alt="3 Cross St Ryde Luxury Residence"
+                    src="project-images/projects/luxury/3-cross-st-ryde/3805.jpeg"
+                    alt="3 Cross St Ryde Luxury Residence"
                     >
 
                 </div>
@@ -2745,8 +2735,8 @@ section{
             <!-- RESIDENTIAL -->
 
             <div
-                class="project-card"
-                data-category="residential"
+            class="project-card"
+            data-category="residential"
             >
 
                 <div class="coming-soon">
@@ -2758,27 +2748,17 @@ section{
 
                 <div class="project-info">
 
-
                     <div class="project-category">
-
                         Residential
-
                     </div>
-
 
                     <h3>
-
                         Residential Project
-
                     </h3>
 
-
                     <div class="project-location">
-
                         Australia
-
                     </div>
-
 
                 </div>
 
@@ -2789,8 +2769,8 @@ section{
             <!-- RENOVATION -->
 
             <div
-                class="project-card"
-                data-category="renovation"
+            class="project-card"
+            data-category="renovation"
             >
 
                 <div class="coming-soon">
@@ -2802,27 +2782,17 @@ section{
 
                 <div class="project-info">
 
-
                     <div class="project-category">
-
                         Renovation
-
                     </div>
-
 
                     <h3>
-
                         Renovation Project
-
                     </h3>
 
-
                     <div class="project-location">
-
                         Melbourne · VIC
-
                     </div>
-
 
                 </div>
 
@@ -2833,8 +2803,8 @@ section{
             <!-- COMMERCIAL -->
 
             <div
-                class="project-card"
-                data-category="commercial"
+            class="project-card"
+            data-category="commercial"
             >
 
                 <div class="coming-soon">
@@ -2846,27 +2816,17 @@ section{
 
                 <div class="project-info">
 
-
                     <div class="project-category">
-
                         Commercial
-
                     </div>
-
 
                     <h3>
-
                         Commercial Project
-
                     </h3>
 
-
                     <div class="project-location">
-
                         Australia
-
                     </div>
-
 
                 </div>
 
@@ -2886,8 +2846,8 @@ section{
 ========================================================= -->
 
 <section
-    class="section process"
-    id="process"
+class="section process"
+id="process"
 >
 
 
@@ -2898,9 +2858,7 @@ section{
 
 
             <div class="section-kicker">
-
                 Our Approach
-
             </div>
 
 
@@ -2940,7 +2898,6 @@ section{
             </div>
 
 
-
             <div class="process-item">
 
                 <div class="process-number">
@@ -2960,7 +2917,6 @@ section{
                 </p>
 
             </div>
-
 
 
             <div class="process-item">
@@ -2984,7 +2940,6 @@ section{
             </div>
 
 
-
             <div class="process-item">
 
                 <div class="process-number">
@@ -3004,7 +2959,6 @@ section{
                 </p>
 
             </div>
-
 
 
             <div class="process-item">
@@ -3030,7 +2984,6 @@ section{
 
         </div>
 
-
     </div>
 
 </section>
@@ -3042,8 +2995,8 @@ section{
 ========================================================= -->
 
 <section
-    class="section contact"
-    id="contact"
+class="section contact"
+id="contact"
 >
 
 
@@ -3057,9 +3010,7 @@ section{
 
 
                 <div class="section-kicker">
-
                     Contact
-
                 </div>
 
 
@@ -3095,15 +3046,16 @@ section{
                         <div class="contact-detail-value">
 
                             <a
-                                href="mailto:info@macurbancivil.com.au"
+                            href="mailto:info@macurbancivil.com.au"
                             >
+
                                 info@macurbancivil.com.au
+
                             </a>
 
                         </div>
 
                     </div>
-
 
 
                     <div class="contact-detail">
@@ -3119,7 +3071,6 @@ section{
                         </div>
 
                     </div>
-
 
 
                     <div class="contact-detail">
@@ -3148,32 +3099,31 @@ section{
 
 
                 <form
-                    class="contact-form"
-                    action="https://formsubmit.co/info@macurbancivil.com.au"
-                    method="POST"
+                class="contact-form"
+                action="https://formsubmit.co/info@macurbancivil.com.au"
+                method="POST"
                 >
 
 
                     <input
-                        type="hidden"
-                        name="_subject"
-                        value="New Project Enquiry - Mac Urban Civil Construction"
+                    type="hidden"
+                    name="_subject"
+                    value="New Project Enquiry - Mac Urban Civil Construction"
                     >
 
 
                     <input
-                        type="hidden"
-                        name="_captcha"
-                        value="false"
+                    type="hidden"
+                    name="_captcha"
+                    value="false"
                     >
 
 
                     <input
-                        type="hidden"
-                        name="_template"
-                        value="table"
+                    type="hidden"
+                    name="_template"
+                    value="table"
                     >
-
 
 
                     <div class="form-row">
@@ -3186,14 +3136,13 @@ section{
                             </label>
 
                             <input
-                                type="text"
-                                id="name"
-                                name="name"
-                                required
+                            type="text"
+                            id="name"
+                            name="name"
+                            required
                             >
 
                         </div>
-
 
 
                         <div class="form-group">
@@ -3203,10 +3152,10 @@ section{
                             </label>
 
                             <input
-                                type="email"
-                                id="email"
-                                name="email"
-                                required
+                            type="email"
+                            id="email"
+                            name="email"
+                            required
                             >
 
                         </div>
@@ -3226,13 +3175,12 @@ section{
                             </label>
 
                             <input
-                                type="tel"
-                                id="phone"
-                                name="phone"
+                            type="tel"
+                            id="phone"
+                            name="phone"
                             >
 
                         </div>
-
 
 
                         <div class="form-group">
@@ -3242,8 +3190,8 @@ section{
                             </label>
 
                             <select
-                                id="project"
-                                name="project_type"
+                            id="project"
+                            name="project_type"
                             >
 
                                 <option value="">
@@ -3286,9 +3234,9 @@ section{
                         </label>
 
                         <textarea
-                            id="message"
-                            name="message"
-                            required
+                        id="message"
+                        name="message"
+                        required
                         ></textarea>
 
                     </div>
@@ -3296,8 +3244,8 @@ section{
 
 
                     <button
-                        type="submit"
-                        class="contact-submit"
+                    type="submit"
+                    class="contact-submit"
                     >
 
                         Send Enquiry
@@ -3335,8 +3283,8 @@ section{
             <div class="footer-logo">
 
                 <img
-                    src="985.jpeg"
-                    alt="Mac Urban Civil Construction"
+                src="985.jpeg"
+                alt="Mac Urban Civil Construction"
                 >
 
             </div>
@@ -3407,8 +3355,8 @@ section{
 ========================================================= -->
 
 <div
-    class="modal"
-    id="projectModal"
+class="modal"
+id="projectModal"
 >
 
 
@@ -3416,9 +3364,9 @@ section{
 
 
         <button
-            class="modal-close"
-            onclick="closeProjectModal()"
-            aria-label="Close"
+        class="modal-close"
+        onclick="closeProjectModal()"
+        aria-label="Close"
         >
 
             ×
@@ -3429,9 +3377,9 @@ section{
         <div class="modal-image">
 
             <img
-                id="modalProjectImage"
-                src=""
-                alt=""
+            id="modalProjectImage"
+            src=""
+            alt=""
             >
 
         </div>
@@ -3441,8 +3389,8 @@ section{
 
 
             <div
-                class="modal-category"
-                id="modalProjectCategory"
+            class="modal-category"
+            id="modalProjectCategory"
             >
 
                 Luxury Residence
@@ -3450,7 +3398,9 @@ section{
             </div>
 
 
-            <h2 id="modalProjectTitle">
+            <h2
+            id="modalProjectTitle"
+            >
 
                 3 Cross St, Ryde
 
@@ -3458,8 +3408,8 @@ section{
 
 
             <div
-                class="modal-location"
-                id="modalProjectLocation"
+            class="modal-location"
+            id="modalProjectLocation"
             >
 
                 Sydney · NSW
@@ -3468,8 +3418,8 @@ section{
 
 
             <p
-                class="modal-description"
-                id="modalProjectDescription"
+            class="modal-description"
+            id="modalProjectDescription"
             >
 
                 A contemporary luxury residential
@@ -3494,15 +3444,15 @@ section{
 ========================================================= -->
 
 <div
-    class="lightbox"
-    id="lightbox"
+class="lightbox"
+id="lightbox"
 >
 
 
     <button
-        class="lightbox-close"
-        onclick="closeLightbox()"
-        aria-label="Close"
+    class="lightbox-close"
+    onclick="closeLightbox()"
+    aria-label="Close"
     >
 
         ×
@@ -3511,9 +3461,9 @@ section{
 
 
     <img
-        id="lightboxImage"
-        src=""
-        alt=""
+    id="lightboxImage"
+    src=""
+    alt=""
     >
 
 
@@ -3528,9 +3478,7 @@ section{
 <script>
 
 
-/* =========================================================
-   HEADER SCROLL
-========================================================= */
+/* HEADER */
 
 const siteHeader =
 document.getElementById("siteHeader");
@@ -3541,15 +3489,11 @@ window.addEventListener(
 
         if(window.scrollY > 20){
 
-            siteHeader.classList.add(
-                "scrolled"
-            );
+            siteHeader.classList.add("scrolled");
 
         }else{
 
-            siteHeader.classList.remove(
-                "scrolled"
-            );
+            siteHeader.classList.remove("scrolled");
 
         }
 
@@ -3557,9 +3501,7 @@ window.addEventListener(
 );
 
 
-/* =========================================================
-   MOBILE MENU
-========================================================= */
+/* MOBILE MENU */
 
 const mobileMenuBtn =
 document.getElementById(
@@ -3612,9 +3554,7 @@ document
 );
 
 
-/* =========================================================
-   PROJECT FILTER
-========================================================= */
+/* PROJECT FILTER */
 
 const filterButtons =
 document.querySelectorAll(
@@ -3692,9 +3632,7 @@ filterButtons.forEach(
 );
 
 
-/* =========================================================
-   OPEN PROJECT
-========================================================= */
+/* PROJECT MODAL */
 
 function openProjectModal(type){
 
@@ -3766,9 +3704,7 @@ function openProjectModal(type){
 }
 
 
-/* =========================================================
-   CLOSE PROJECT
-========================================================= */
+/* CLOSE PROJECT */
 
 function closeProjectModal(){
 
@@ -3786,9 +3722,7 @@ function closeProjectModal(){
 }
 
 
-/* =========================================================
-   LIGHTBOX
-========================================================= */
+/* LIGHTBOX */
 
 document
 .getElementById(
@@ -3824,9 +3758,7 @@ document
 );
 
 
-/* =========================================================
-   CLOSE LIGHTBOX
-========================================================= */
+/* CLOSE LIGHTBOX */
 
 function closeLightbox(){
 
@@ -3841,9 +3773,7 @@ function closeLightbox(){
 }
 
 
-/* =========================================================
-   MODAL BACKGROUND
-========================================================= */
+/* MODAL BACKGROUND */
 
 document
 .getElementById(
@@ -3881,9 +3811,7 @@ document
 );
 
 
-/* =========================================================
-   ESC KEY
-========================================================= */
+/* ESC */
 
 document.addEventListener(
     "keydown",
@@ -3911,9 +3839,7 @@ document.addEventListener(
     }
 );
 
-
 </script>
-
 
 </body>
 </html>
