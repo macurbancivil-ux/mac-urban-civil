@@ -106,7 +106,7 @@ header.scrolled{
 
 
 /* =========================================================
-   NAV
+   NAVIGATION
 ========================================================= */
 
 .nav{
@@ -349,35 +349,41 @@ section{
 
 /* =========================================================
    ABOUT US
-   NEW BACKGROUND IMAGE DESIGN
+   FULL BACKGROUND IMAGE
 ========================================================= */
 
 .about{
     position:relative;
-    min-height:720px;
+    min-height:760px;
     padding:0;
     overflow:hidden;
     background:#E9EDE8;
 }
 
 
-/* Background image */
+/* Full background image */
 
 .about-background{
     position:absolute;
     inset:0;
     z-index:0;
+    overflow:hidden;
 }
 
 .about-background img{
     width:100%;
     height:100%;
     object-fit:cover;
-    object-position:center;
+    object-position:center center;
+
+    /*
+       Cache refresh:
+       actual file = images/about us1.JPG
+    */
 }
 
 
-/* Image + text blending */
+/* Main image/text blending */
 
 .about-background::after{
     content:"";
@@ -387,30 +393,40 @@ section{
     background:
         linear-gradient(
             90deg,
-            rgba(245,247,243,.97) 0%,
-            rgba(245,247,243,.92) 27%,
-            rgba(245,247,243,.68) 48%,
-            rgba(245,247,243,.22) 72%,
-            rgba(245,247,243,.04) 100%
+
+            rgba(246,248,244,.99) 0%,
+
+            rgba(246,248,244,.97) 18%,
+
+            rgba(246,248,244,.91) 32%,
+
+            rgba(246,248,244,.76) 47%,
+
+            rgba(246,248,244,.48) 61%,
+
+            rgba(246,248,244,.18) 77%,
+
+            rgba(246,248,244,.02) 100%
         );
 }
 
 
-/* Slight bottom blend */
+/* Bottom blend */
 
 .about-bottom-fade{
     position:absolute;
     left:0;
     right:0;
     bottom:0;
-    height:180px;
+    height:240px;
     z-index:1;
 
     background:
         linear-gradient(
             to bottom,
-            rgba(245,247,243,0),
-            rgba(245,247,243,.72)
+            rgba(246,248,244,0),
+            rgba(246,248,244,.72),
+            rgba(246,248,244,.96)
         );
 }
 
@@ -420,16 +436,16 @@ section{
 .about-content{
     position:relative;
     z-index:2;
-    min-height:720px;
+    min-height:760px;
 
     display:flex;
     align-items:center;
 }
 
 .about-copy{
-    width:55%;
-    max-width:760px;
-    padding:100px 0;
+    width:58%;
+    max-width:780px;
+    padding:105px 0;
 }
 
 
@@ -461,39 +477,47 @@ section{
 
 .about-stats{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:repeat(3,minmax(0,1fr));
     gap:15px;
     margin-top:42px;
-    max-width:760px;
+    max-width:780px;
 }
 
 
-/* All three exactly same size */
+/* EXACT SAME SIZE */
 
 .stat{
-    min-height:125px;
-    padding:20px 18px 17px;
+    width:100%;
+    height:135px;
+    min-height:135px;
+
+    padding:20px 18px;
 
     display:flex;
     flex-direction:column;
     justify-content:center;
+    align-items:flex-start;
 
     border-top:2px solid var(--green);
 
-    background:rgba(255,255,255,.62);
+    background:rgba(255,255,255,.66);
 
-    backdrop-filter:blur(4px);
-    -webkit-backdrop-filter:blur(4px);
+    backdrop-filter:blur(7px);
+    -webkit-backdrop-filter:blur(7px);
+
+    box-shadow:0 8px 25px rgba(0,0,0,.04);
 }
 
 
-/* Same heading size */
+/* Same title box */
 
 .stat strong{
     display:flex;
     align-items:center;
 
+    width:100%;
     height:48px;
+    min-height:48px;
 
     font-size:20px;
     line-height:1.1;
@@ -503,12 +527,17 @@ section{
 }
 
 
-/* Same description size */
+/* Same subtitle box */
 
 .stat span{
-    display:block;
+    display:flex;
+    align-items:center;
 
-    margin-top:8px;
+    width:100%;
+    height:30px;
+    min-height:30px;
+
+    margin-top:7px;
 
     font-size:10px;
     line-height:1.4;
@@ -1160,7 +1189,9 @@ footer{
     }
 
 
-    /* Hero */
+    /* =====================================================
+       MOBILE HERO
+    ===================================================== */
 
     .hero{
         padding-top:82px;
@@ -1177,7 +1208,9 @@ footer{
     }
 
 
-    /* Sections */
+    /* =====================================================
+       MOBILE SECTIONS
+    ===================================================== */
 
     section{
         padding:75px 0;
@@ -1189,7 +1222,9 @@ footer{
     }
 
 
-    /* About */
+    /* =====================================================
+       MOBILE ABOUT
+    ===================================================== */
 
     .about{
         min-height:0;
@@ -1200,14 +1235,36 @@ footer{
         height:100%;
     }
 
+    .about-background img{
+        object-position:center center;
+    }
+
     .about-background::after{
         background:
             linear-gradient(
                 180deg,
-                rgba(245,247,243,.93) 0%,
-                rgba(245,247,243,.88) 42%,
-                rgba(245,247,243,.72) 70%,
-                rgba(245,247,243,.86) 100%
+
+                rgba(246,248,244,.94) 0%,
+
+                rgba(246,248,244,.91) 28%,
+
+                rgba(246,248,244,.82) 50%,
+
+                rgba(246,248,244,.75) 72%,
+
+                rgba(246,248,244,.90) 100%
+            );
+    }
+
+    .about-bottom-fade{
+        height:180px;
+
+        background:
+            linear-gradient(
+                to bottom,
+                rgba(246,248,244,0),
+                rgba(246,248,244,.85),
+                rgba(246,248,244,1)
             );
     }
 
@@ -1225,25 +1282,54 @@ footer{
         font-size:15px;
     }
 
+
+    /* =====================================================
+       MOBILE ABOUT STATS
+       SAME SIZE
+    ===================================================== */
+
     .about-stats{
         grid-template-columns:1fr;
         gap:12px;
+        width:100%;
+        max-width:none;
     }
 
     .stat{
-        min-height:100px;
-        background:rgba(255,255,255,.74);
+        width:100%;
+        height:105px;
+        min-height:105px;
+
+        padding:18px 20px;
+
+        background:rgba(255,255,255,.78);
+    }
+
+    .stat strong{
+        height:40px;
+        min-height:40px;
+        font-size:19px;
+    }
+
+    .stat span{
+        height:25px;
+        min-height:25px;
+        margin-top:4px;
     }
 
 
-    /* Services */
+    /* =====================================================
+       MOBILE SERVICES
+    ===================================================== */
 
     .services-grid{
         grid-template-columns:1fr;
     }
 
 
-    /* Projects */
+    /* =====================================================
+       MOBILE PROJECTS
+    ===================================================== */
 
     .projects-grid{
         grid-template-columns:1fr;
@@ -1254,7 +1340,9 @@ footer{
     }
 
 
-    /* Modal */
+    /* =====================================================
+       MOBILE MODAL
+    ===================================================== */
 
     .project-modal-inner{
         padding-top:95px;
@@ -1291,7 +1379,9 @@ footer{
     }
 
 
-    /* Process */
+    /* =====================================================
+       MOBILE PROCESS
+    ===================================================== */
 
     .process-grid{
         grid-template-columns:1fr;
@@ -1308,7 +1398,9 @@ footer{
     }
 
 
-    /* Contact */
+    /* =====================================================
+       MOBILE CONTACT
+    ===================================================== */
 
     .contact-grid{
         grid-template-columns:1fr;
@@ -1320,7 +1412,9 @@ footer{
     }
 
 
-    /* Footer */
+    /* =====================================================
+       MOBILE FOOTER
+    ===================================================== */
 
     .footer-inner{
         flex-direction:column;
@@ -1510,12 +1604,15 @@ footer{
 <section class="about" id="about">
 
 
-<!-- Background Image -->
-
 <div class="about-background">
 
+    <!-- IMPORTANT:
+         Actual uploaded filename is:
+         about us1.JPG
+    -->
+
     <img
-        src="images/about us1.jpg"
+        src="images/about us1.JPG?v=2"
         alt="Mac Urban Contemporary Residential Construction"
     >
 
@@ -1524,8 +1621,6 @@ footer{
 
 <div class="about-bottom-fade"></div>
 
-
-<!-- Content -->
 
 <div class="container about-content">
 
@@ -1566,8 +1661,6 @@ footer{
         built to a high standard.
     </p>
 
-
-    <!-- Three equal items -->
 
     <div class="about-stats">
 
@@ -1858,8 +1951,6 @@ footer{
 <div class="projects-grid" id="projectsGrid">
 
 
-    <!-- 3 CROSS ST RYDE -->
-
     <div
         class="project-card"
         data-category="luxury"
@@ -1901,8 +1992,6 @@ footer{
     </div>
 
 
-    <!-- RESIDENTIAL -->
-
     <div
         class="project-card project-placeholder"
         data-category="residential"
@@ -1916,8 +2005,6 @@ footer{
     </div>
 
 
-    <!-- RENOVATION -->
-
     <div
         class="project-card project-placeholder"
         data-category="renovation"
@@ -1930,8 +2017,6 @@ footer{
 
     </div>
 
-
-    <!-- COMMERCIAL -->
 
     <div
         class="project-card project-placeholder"
