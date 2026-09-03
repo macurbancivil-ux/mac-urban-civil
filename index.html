@@ -1,789 +1,1448 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<meta name="description"
+      content="Mac Urban Civil Construction Pty Ltd — Melbourne residential builder, custom homes, renovations, commercial construction and project management.">
+
 <title>Mac Urban Civil Construction | Melbourne Builders</title>
+
 <style>
+
 /* =========================================================
-GLOBAL
+   GLOBAL
 ========================================================= */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 html {
     scroll-behavior: smooth;
 }
+
 body {
     font-family: Arial, Helvetica, sans-serif;
     color: #151915;
-    background: #f7f7f5;
+    background: #f6f7f4;
     line-height: 1.6;
 }
+
+img {
+    max-width: 100%;
+}
+
 a {
     -webkit-tap-highlight-color: transparent;
 }
+
+
 /* =========================================================
-HEADER
+   HEADER
 ========================================================= */
+
 header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 115px;
-    background: rgba(8, 20, 14, 0.98);
-    border-bottom: 1px solid rgba(255,255,255,0.12);
+    height: 105px;
+
+    background: rgba(8, 20, 14, 0.97);
+
+    border-bottom:
+        1px solid rgba(255,255,255,0.12);
+
     z-index: 9999;
+
+    backdrop-filter: blur(8px);
 }
+
 .nav-container {
-    max-width: 1550px;
+    max-width: 1500px;
     height: 100%;
+
     margin: auto;
-    padding: 0 40px;
+
+    padding: 0 45px;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
+
+
 /* =========================================================
-LOGO
+   LOGO
 ========================================================= */
+
 .logo {
     display: flex;
     align-items: center;
+
     flex-shrink: 0;
+
     text-decoration: none;
 }
+
 .logo img {
-    width: 250px;
-    height: 110px;
+    width: 220px;
+    height: 92px;
+
     object-fit: contain;
+
     display: block;
 }
+
+
 /* =========================================================
-DESKTOP NAVIGATION
+   DESKTOP NAVIGATION
 ========================================================= */
+
 nav {
     display: flex;
     align-items: center;
+
     height: 100%;
 }
-nav a,
+
+nav > a,
 .dropbtn {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    height: 100%;
+
+    padding: 0 19px;
+
     color: white;
-    text-decoration: none;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 1.7px;
-    padding: 45px 18px;
+
     background: transparent;
+
     border: none;
+
+    text-decoration: none;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    letter-spacing: 1.8px;
+
     cursor: pointer;
+
     white-space: nowrap;
-    transition: color 0.25s ease;
+
+    transition:
+        color 0.25s ease;
 }
-nav a:hover,
+
+nav > a:hover,
 .dropbtn:hover {
     color: #b9cabb;
 }
+
+
 /* =========================================================
-DROPDOWN
+   DROPDOWN
 ========================================================= */
+
 .dropdown {
     position: relative;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
 }
+
+.dropbtn span {
+    margin-left: 7px;
+    font-size: 10px;
+}
+
 .dropdown-menu {
     position: absolute;
-    top: 115px;
+
+    top: 105px;
     left: 0;
-    width: 275px;
+
+    width: 280px;
+
     background: #10251a;
-    border-top: 2px solid #b9cabb;
+
+    border-top:
+        2px solid #b9cabb;
+
     box-shadow:
         0 20px 45px rgba(0,0,0,0.4);
+
     opacity: 0;
     visibility: hidden;
+
     transform: translateY(10px);
+
     transition:
         opacity 0.2s ease,
         transform 0.2s ease,
         visibility 0.2s ease;
+
     pointer-events: none;
 }
+
 .dropdown-menu a {
     display: block;
-    padding: 18px 24px;
-    font-size: 11px;
-    letter-spacing: 1.5px;
+
+    padding: 17px 24px;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 10px;
+
+    letter-spacing: 1.6px;
+
     border-bottom:
         1px solid rgba(255,255,255,0.08);
+
+    transition:
+        background 0.25s ease,
+        padding-left 0.25s ease;
 }
+
 .dropdown-menu a:hover {
     background: #193625;
+
+    padding-left: 30px;
 }
-/* DESKTOP HOVER */
+
+
 @media (min-width: 901px) {
+
     .dropdown:hover .dropdown-menu {
         opacity: 1;
         visibility: visible;
+
         transform: translateY(0);
+
         pointer-events: auto;
     }
+
 }
+
+
 /* =========================================================
-MOBILE MENU BUTTON
+   MOBILE MENU BUTTON
 ========================================================= */
+
 .menu-toggle {
     display: none;
-    width: 48px;
-    height: 48px;
+
+    width: 46px;
+    height: 46px;
+
     background: transparent;
-    border: 1px solid rgba(255,255,255,0.3);
+
+    border:
+        1px solid rgba(255,255,255,0.3);
+
     color: white;
-    font-size: 27px;
+
+    font-size: 25px;
+
     line-height: 1;
+
     cursor: pointer;
+
     align-items: center;
     justify-content: center;
+
     border-radius: 2px;
+
     z-index: 10001;
 }
+
+
 /* =========================================================
-HERO
+   HERO
 ========================================================= */
+
 .hero {
     min-height: 100vh;
+
     padding:
-        170px
-        8%
-        90px;
+        170px 8% 100px;
+
     display: flex;
+
     align-items: center;
+
     background-color: #10251a;
+
     background-image:
+
         linear-gradient(
-            rgba(7,20,13,0.38),
-            rgba(7,20,13,0.72)
+            rgba(7,20,13,0.32),
+            rgba(7,20,13,0.76)
         ),
+
         url("https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=3000&q=95");
+
     background-size: cover;
-    background-position: center center;
+
+    background-position: center;
+
     background-repeat: no-repeat;
 }
+
 .hero-content {
     max-width: 850px;
+
     color: white;
 }
+
 .hero-label {
-    font-size: 12px;
+    font-size: 11px;
+
     letter-spacing: 5px;
+
     text-transform: uppercase;
+
     margin-bottom: 25px;
+
     color: #c0cec4;
 }
+
 .hero h1 {
     font-family: Georgia, serif;
+
     font-weight: 400;
+
     font-size:
-        clamp(55px, 7vw, 105px);
-    line-height: 0.98;
+        clamp(52px, 7vw, 98px);
+
+    line-height: 1.02;
+
     margin-bottom: 35px;
 }
+
 .hero p {
     max-width: 680px;
-    font-size: 18px;
-    line-height: 1.7;
+
+    font-size: 17px;
+
+    line-height: 1.8;
+
     color: #e2e9e4;
+
     margin-bottom: 40px;
 }
+
 .btn {
     display: inline-block;
-    padding: 17px 34px;
+
+    padding:
+        16px 32px;
+
     background: white;
+
     color: #10251a;
+
     text-decoration: none;
-    font-size: 11px;
+
+    font-size: 10px;
+
     font-weight: bold;
+
     letter-spacing: 2px;
-    transition: 0.25s ease;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
 }
+
 .btn:hover {
     background: #c8d5cc;
+
+    transform: translateY(-2px);
 }
+
+
 /* =========================================================
-GENERAL
+   GENERAL
 ========================================================= */
+
 section {
-    padding: 115px 8%;
-    scroll-margin-top: 115px;
+    padding:
+        120px 8%;
+
+    scroll-margin-top: 105px;
 }
+
 .container {
-    max-width: 1300px;
+    max-width: 1320px;
+
     margin: auto;
 }
+
 .label {
-    font-size: 11px;
+    font-size: 10px;
+
     letter-spacing: 4px;
+
     color: #65766b;
+
     text-transform: uppercase;
+
     margin-bottom: 18px;
 }
+
 .title {
     font-family: Georgia, serif;
+
     font-weight: 400;
+
     font-size:
-        clamp(40px,5vw,65px);
+        clamp(40px, 5vw, 64px);
+
     line-height: 1.1;
+
     margin-bottom: 30px;
 }
+
 .text {
     max-width: 720px;
+
     color: #606761;
-    font-size: 17px;
-    line-height: 1.8;
+
+    font-size: 16px;
+
+    line-height: 1.9;
 }
+
+
 /* =========================================================
-ABOUT
+   ABOUT
 ========================================================= */
+
 .about {
-    background: #f7f7f5;
+    background: #f6f7f4;
 }
+
 .about-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 95px;
+
     align-items: center;
 }
+
 .about-image {
-    height: 580px;
+    min-height: 590px;
+
     background-image:
+
         url("https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=2200&q=95");
+
     background-size: cover;
+
     background-position: center;
 }
+
+
 /* =========================================================
-SERVICES
+   SERVICES
 ========================================================= */
+
 .services {
     background: #10251a;
+
     color: white;
 }
+
 .services .label {
     color: #aab9ae;
 }
+
+.services .title {
+    max-width: 850px;
+}
+
 .services-grid {
     display: grid;
+
     grid-template-columns:
         repeat(3, 1fr);
-    margin-top: 60px;
+
+    margin-top: 65px;
+
     gap: 1px;
+
     background:
-        rgba(255,255,255,0.15);
+        rgba(255,255,255,0.13);
 }
+
 .service {
-    padding: 45px 35px;
-    min-height: 340px;
+    padding:
+        48px 38px;
+
+    min-height: 330px;
+
     background: #10251a;
+
     transition:
-        background 0.25s ease;
+        background 0.3s ease;
 }
+
 .service:hover {
     background: #193625;
 }
+
 .service-number {
-    font-size: 11px;
+    font-size: 10px;
+
     letter-spacing: 3px;
+
     color: #9dad9f;
+
     margin-bottom: 30px;
 }
+
 .service h3 {
     font-family: Georgia, serif;
+
     font-weight: 400;
+
     font-size: 27px;
+
     margin-bottom: 18px;
 }
+
 .service p {
     color: #c1cbc4;
-    font-size: 14px;
-    line-height: 1.8;
+
+    font-size: 13px;
+
+    line-height: 1.85;
 }
+
+
 /* =========================================================
-PROJECTS
+   PROJECTS
 ========================================================= */
+
 .projects {
     background: white;
 }
+
 .projects-header {
     display: flex;
+
     justify-content: space-between;
-    align-items: end;
-    gap: 30px;
+
+    align-items: flex-end;
+
+    gap: 40px;
 }
+
 .view-projects {
     display: inline-block;
-    text-decoration: none;
+
     color: #10251a;
+
     border-bottom:
         1px solid #10251a;
+
     padding-bottom: 8px;
-    font-size: 11px;
-    letter-spacing: 2px;
-    font-weight: bold;
-    cursor: pointer;
-}
-.project-grid {
-    display: grid;
-    grid-template-columns:
-        1.3fr 0.7fr;
-    gap: 25px;
-    margin-top: 55px;
-}
-.project-card {
-    position: relative;
-    overflow: hidden;
-    display: block;
-    text-decoration: none;
-    color: white;
-    min-height: 540px;
-}
-.project-card.small {
-    min-height: 257px;
-}
-.project-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    position: absolute;
-    inset: 0;
-    transition:
-        transform 0.6s ease;
-}
-.project-card:hover img {
-    transform: scale(1.05);
-}
-.project-overlay {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: end;
-    padding: 35px;
-    background:
-        linear-gradient(
-            transparent 35%,
-            rgba(0,0,0,0.82)
-        );
-}
-.project-overlay span {
+
     font-size: 10px;
-    letter-spacing: 3px;
+
+    letter-spacing: 2px;
+
+    font-weight: bold;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+
+    transition:
+        color 0.25s ease,
+        border-color 0.25s ease;
 }
-.project-overlay h3 {
-    font-family: Georgia, serif;
-    font-weight: 400;
-    font-size: 30px;
-    line-height: 1.2;
-    margin-top: 5px;
+
+.view-projects:hover {
+    color: #65766b;
+
+    border-color: #65766b;
 }
+
+
 /* =========================================================
-PROJECT CATEGORY BAR
+   PROJECT CATEGORIES
 ========================================================= */
+
 .project-categories {
     display: flex;
+
     flex-wrap: wrap;
-    gap: 12px;
+
+    gap: 10px;
+
     margin-top: 45px;
+
     padding-top: 25px;
+
     border-top:
         1px solid #d9ddd9;
 }
+
 .project-category {
-    padding: 12px 18px;
+    padding:
+        11px 17px;
+
     border:
         1px solid #c8cec9;
+
     background: white;
+
     color: #10251a;
-    font-size: 10px;
+
+    font-size: 9px;
+
     letter-spacing: 1.5px;
+
     text-decoration: none;
-    transition: 0.25s ease;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease;
 }
+
 .project-category:hover {
     background: #10251a;
+
     color: white;
+
     border-color: #10251a;
 }
+
+
 /* =========================================================
-PROCESS
+   PROJECT GRID
 ========================================================= */
+
+.project-grid {
+    display: grid;
+
+    grid-template-columns:
+        1.25fr 0.75fr;
+
+    gap: 25px;
+
+    margin-top: 55px;
+}
+
+.project-column {
+    display: grid;
+
+    gap: 25px;
+}
+
+.project-card {
+    position: relative;
+
+    overflow: hidden;
+
+    display: block;
+
+    text-decoration: none;
+
+    color: white;
+
+    min-height: 540px;
+}
+
+.project-card.small {
+    min-height: 257px;
+}
+
+.project-card img {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.7s ease;
+}
+
+.project-card:hover img {
+    transform: scale(1.05);
+}
+
+.project-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    padding: 36px;
+
+    background:
+        linear-gradient(
+            transparent 30%,
+            rgba(0,0,0,0.84)
+        );
+}
+
+.project-overlay span {
+    font-size: 9px;
+
+    letter-spacing: 3px;
+}
+
+.project-overlay h3 {
+    font-family: Georgia, serif;
+
+    font-weight: 400;
+
+    font-size: 29px;
+
+    line-height: 1.2;
+
+    margin-top: 7px;
+}
+
+
+/* =========================================================
+   COMMERCIAL PROJECTS
+========================================================= */
+
+.commercial-project-section {
+    padding-top: 100px;
+}
+
+.commercial-project-section h3 {
+    font-family: Georgia, serif;
+
+    font-size: 34px;
+
+    font-weight: 400;
+
+    margin-bottom: 15px;
+}
+
+
+/* =========================================================
+   PROCESS
+========================================================= */
+
 .process {
     background: #e9ece9;
 }
+
 .process-grid {
     display: grid;
+
     grid-template-columns:
-        repeat(5,1fr);
-    gap: 20px;
-    margin-top: 60px;
+        repeat(5, 1fr);
+
+    gap: 25px;
+
+    margin-top: 65px;
 }
+
 .process-step {
     border-top:
         1px solid #77847b;
+
     padding-top: 25px;
 }
-.process-step span {
-    font-size: 11px;
+
+.process-number {
+    font-size: 10px;
+
     letter-spacing: 2px;
+
     color: #647169;
 }
+
 .process-step h3 {
     font-family: Georgia, serif;
+
     font-weight: 400;
+
     font-size: 25px;
+
     margin:
         22px 0 10px;
 }
+
 .process-step p {
     font-size: 13px;
+
     color: #646b66;
+
+    line-height: 1.7;
 }
+
+
 /* =========================================================
-CONTACT
+   CONTACT
 ========================================================= */
+
 .contact {
     background: #10251a;
+
     color: white;
 }
+
 .contact .label {
     color: #aab9ae;
 }
+
 .contact-grid {
     display: grid;
+
     grid-template-columns:
         1fr 1fr;
+
     gap: 100px;
 }
+
 .contact-details {
     margin-top: 20px;
 }
+
 .contact-row {
     padding: 20px 0;
+
     border-top:
         1px solid rgba(255,255,255,0.15);
 }
+
 .contact-row span {
     display: block;
+
     color: #aab9ae;
-    font-size: 10px;
+
+    font-size: 9px;
+
     letter-spacing: 2px;
-    margin-bottom: 5px;
+
+    margin-bottom: 6px;
 }
+
 .contact-row a {
     color: white;
+
     text-decoration: none;
+
+    font-size: 15px;
 }
+
 .contact-row a:hover {
     color: #b9cabb;
 }
+
+.contact-row p {
+    font-size: 15px;
+
+    color: white;
+}
+
+
 /* =========================================================
-FOOTER
+   FOOTER
 ========================================================= */
+
 footer {
     background: #08140e;
+
     color: white;
-    padding: 55px 8%;
+
+    padding:
+        50px 8%;
 }
+
 .footer-container {
-    max-width: 1300px;
+    max-width: 1320px;
+
     margin: auto;
+
     display: flex;
+
     justify-content: space-between;
+
     align-items: center;
+
+    gap: 30px;
 }
+
 .footer-logo img {
-    width: 170px;
-    height: 85px;
+    width: 155px;
+
+    height: 75px;
+
     object-fit: contain;
 }
+
 .footer-copy {
     color: #7f8b83;
-    font-size: 11px;
+
+    font-size: 10px;
+
+    line-height: 1.7;
 }
+
+
 /* =========================================================
-MOBILE
+   MOBILE
 ========================================================= */
+
 @media (max-width: 900px) {
+
     header {
-        height: 82px;
+        height: 80px;
     }
+
     .nav-container {
         padding:
             0 18px;
     }
+
     .logo img {
-        width: 175px;
-        height: 78px;
+        width: 165px;
+
+        height: 72px;
     }
+
     .menu-toggle {
         display: flex;
     }
+
     nav {
         display: none;
+
         position: absolute;
-        top: 82px;
+
+        top: 80px;
         left: 0;
+
         width: 100%;
+
         height: auto;
+
         max-height:
-            calc(100vh - 82px);
+            calc(100vh - 80px);
+
         overflow-y: auto;
+
         background: #10251a;
+
         flex-direction: column;
+
         align-items: stretch;
+
         box-shadow:
             0 15px 30px rgba(0,0,0,0.3);
     }
+
     nav.active {
         display: flex;
     }
-    nav a,
+
+    nav > a,
     .dropbtn {
+
         width: 100%;
+
+        min-height: 55px;
+
+        height: auto;
+
         padding:
-            19px 24px;
+            18px 24px;
+
         text-align: left;
-        font-size: 12px;
+
+        justify-content: space-between;
+
+        font-size: 11px;
+
         border-bottom:
             1px solid rgba(255,255,255,0.08);
     }
+
     .dropdown {
         width: 100%;
-    }
-    .dropdown-menu {
-        position: static;
-        display: none;
-        width: 100%;
-        opacity: 1;
-        visibility: visible;
-        transform: none;
-        pointer-events: auto;
-        box-shadow: none;
-        border-top: none;
-        border-bottom: none;
-    }
-    .dropdown.open
-    .dropdown-menu {
+
+        height: auto;
+
         display: block;
     }
+
+    .dropbtn {
+        display: flex;
+    }
+
+    .dropdown-menu {
+
+        position: static;
+
+        display: none;
+
+        width: 100%;
+
+        opacity: 1;
+
+        visibility: visible;
+
+        transform: none;
+
+        pointer-events: auto;
+
+        box-shadow: none;
+
+        border-top: none;
+    }
+
+    .dropdown.open .dropdown-menu {
+        display: block;
+    }
+
     .dropdown-menu a {
+
         padding:
             16px 45px;
+
         background: #0b1d13;
-        font-size: 11px;
+
+        font-size: 10px;
     }
+
     .dropdown-menu a:hover {
         background: #193625;
+
+        padding-left: 50px;
     }
+
+
+    /* HERO */
+
     .hero {
+
         min-height: 100vh;
+
         padding:
-            125px
-            7%
-            70px;
+            125px 7% 70px;
+
         background-image:
+
             linear-gradient(
                 rgba(7,20,13,0.42),
-                rgba(7,20,13,0.76)
+                rgba(7,20,13,0.78)
             ),
+
             url("https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2400&q=95");
-        background-position:
-            center center;
     }
+
     .hero h1 {
         font-size:
             clamp(48px, 13vw, 72px);
     }
+
     .hero p {
-        font-size: 16px;
-        line-height: 1.7;
+        font-size: 15px;
+
+        line-height: 1.8;
     }
+
+
+    /* SECTIONS */
+
     section {
         padding:
             85px 7%;
-        scroll-margin-top: 82px;
+
+        scroll-margin-top: 80px;
     }
-    .about-grid,
-    .contact-grid {
+
+
+    /* ABOUT */
+
+    .about-grid {
+
         grid-template-columns: 1fr;
-        gap: 45px;
+
+        gap: 50px;
     }
+
     .about-image {
-        height: 430px;
-    }
-    .services-grid {
-        grid-template-columns: 1fr;
-    }
-    .service {
-        min-height: auto;
-        padding:
-            40px 30px;
-    }
-    .project-grid {
-        grid-template-columns: 1fr;
-    }
-    .projects-header {
-        display: block;
-    }
-    .view-projects {
-        margin-top: 10px;
-    }
-    .project-card {
         min-height: 430px;
     }
+
+
+    /* SERVICES */
+
+    .services-grid {
+
+        grid-template-columns: 1fr;
+
+        margin-top: 50px;
+    }
+
+    .service {
+
+        min-height: auto;
+
+        padding:
+            42px 30px;
+    }
+
+
+    /* PROJECTS */
+
+    .projects-header {
+
+        display: block;
+    }
+
+    .view-projects {
+
+        margin-top: 5px;
+
+        display: inline-block;
+    }
+
+    .project-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+    .project-column {
+
+        gap: 20px;
+    }
+
+    .project-card {
+
+        min-height: 420px;
+    }
+
     .project-card.small {
+
         min-height: 300px;
     }
+
+
+    /* PROCESS */
+
     .process-grid {
+
         grid-template-columns: 1fr;
+
+        gap: 35px;
     }
+
+
+    /* CONTACT */
+
+    .contact-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+    }
+
+
+    /* FOOTER */
+
     .footer-container {
+
         flex-direction: column;
+
         align-items: flex-start;
+
         gap: 25px;
     }
+
 }
+
+
 /* =========================================================
-SMALL MOBILE
+   SMALL MOBILE
 ========================================================= */
+
 @media (max-width: 480px) {
+
     .logo img {
-        width: 165px;
-        height: 75px;
+
+        width: 155px;
+
+        height: 70px;
     }
+
     .menu-toggle {
-        width: 45px;
-        height: 45px;
-        font-size: 25px;
+
+        width: 44px;
+
+        height: 44px;
+
+        font-size: 24px;
     }
+
     .hero {
+
         padding:
             120px 7% 60px;
     }
+
     .hero h1 {
+
         font-size: 50px;
     }
+
     .hero-label {
-        font-size: 10px;
+
+        font-size: 9px;
+
         letter-spacing: 3px;
     }
+
     section {
+
         padding:
             75px 7%;
     }
+
     .project-card {
+
         min-height: 360px;
     }
+
     .project-card.small {
+
         min-height: 260px;
     }
+
     .footer-logo img {
-        width: 150px;
-        height: 75px;
+
+        width: 145px;
+
+        height: 70px;
     }
+
 }
+
 </style>
+
 </head>
+
+
 <body>
+
+
 <!-- =====================================================
-HEADER
+     HEADER
 ===================================================== -->
+
 <header>
+
 <div class="nav-container">
+
+
+<a href="#home"
+   class="logo"
+   aria-label="Mac Urban Civil Construction">
+
+    <img
+        src="985.jpeg"
+        alt="Mac Urban Civil Construction Logo">
+
 </a>
+
+
 <nav id="mainNav">
+
+
 <a href="#home">
 HOME
 </a>
+
+
 <a href="#about">
 ABOUT
 </a>
+
+
 <!-- SERVICES -->
+
 <div class="dropdown">
-SERVICES <span>▾</span>
+
+<button
+    class="dropbtn"
+    type="button">
+
+    SERVICES
+
+    <span>▾</span>
+
 </button>
+
+
 <div class="dropdown-menu">
+
 <a href="#custom-homes">
 CUSTOM HOMES
 </a>
+
 <a href="#new-homes">
 NEW HOMES
 </a>
+
 <a href="#renovations">
 RENOVATIONS
 </a>
+
 <a href="#commercial">
 COMMERCIAL
 </a>
+
 <a href="#project-management">
 PROJECT MANAGEMENT
 </a>
+
 <a href="#construction-consulting">
 CONSTRUCTION CONSULTING
 </a>
+
 </div>
+
 </div>
+
+
 <!-- PROJECTS -->
+
 <div class="dropdown">
-PROJECTS <span>▾</span>
+
+<button
+    class="dropbtn"
+    type="button">
+
+    PROJECTS
+
+    <span>▾</span>
+
 </button>
+
+
 <div class="dropdown-menu">
+
 <a href="#projects">
 ALL PROJECTS
 </a>
+
 <a href="#residential">
 RESIDENTIAL
 </a>
+
 <a href="#luxury">
 LUXURY HOMES
 </a>
+
 <a href="#renovation-projects">
 RENOVATIONS
 </a>
+
 <a href="#commercial-projects">
 COMMERCIAL
 </a>
+
 </div>
+
 </div>
+
+
 <a href="#process">
 PROCESS
 </a>
+
+
 <a href="#contact">
 CONTACT
 </a>
+
+
 </nav>
-☰
+
+
+<button
+    class="menu-toggle"
+    id="menuToggle"
+    type="button"
+    aria-label="Open menu"
+    aria-expanded="false">
+
+    ☰
+
 </button>
+
+
 </div>
+
 </header>
+
+
+
 <!-- =====================================================
-HERO
+     HERO
 ===================================================== -->
+
 <section
     class="hero"
     id="home">
+
+
 <div class="hero-content">
+
+
 <div class="hero-label">
 
-Melbourne Residential Builder
+MELBOURNE RESIDENTIAL BUILDER
 
 </div>
+
+
 <h1>
 
-Building Homes.
+Building Homes.<br>
 
 Designed for Life.
 
 </h1>
+
+
 <p>
 
 Premium residential construction and custom home building,
@@ -792,33 +1451,58 @@ careful project management.
 
 </p>
 
-START YOUR PROJECT
+
+<a
+    href="#contact"
+    class="btn">
+
+    START YOUR PROJECT
 
 </a>
+
+
 </div>
+
 </section>
+
+
+
 <!-- =====================================================
-ABOUT
+     ABOUT
 ===================================================== -->
+
 <section
     class="about"
     id="about">
+
+
 <div class="container">
+
+
 <div class="about-grid">
+
+
 <div class="about-image"></div>
+
+
 <div>
+
+
 <div class="label">
 
-About Mac Urban
+ABOUT MAC URBAN
 
 </div>
+
+
 <h2 class="title">
 
-Built with purpose.
-
+Built with purpose.<br>
 Built to last.
 
 </h2>
+
+
 <p class="text">
 
 Mac Urban Civil Construction delivers carefully considered
@@ -830,396 +1514,752 @@ to create homes that are beautiful, functional and built
 for long-term value.
 
 </p>
+
+
 </div>
+
+
 </div>
+
+
 </div>
+
 </section>
+
+
+
 <!-- =====================================================
-SERVICES
+     SERVICES
 ===================================================== -->
+
 <section
     class="services"
     id="services">
+
+
 <div class="container">
+
+
 <div class="label">
 
-What We Do
+WHAT WE DO
 
 </div>
+
+
 <h2 class="title">
 
-Construction services
-
+Construction services<br>
 with a higher standard.
 
 </h2>
+
+
 <div class="services-grid">
+
+
 <!-- 01 -->
+
 <div
     class="service"
     id="custom-homes">
+
+
 <div class="service-number">
 
 01
 
 </div>
+
+
 <h3>
 
 Custom Homes
 
 </h3>
+
+
 <p>
 
-We create individually designed homes that respond to your lifestyle,
-site conditions and architectural vision. From early planning through
-construction and completion, we focus on quality workmanship,
-practical detailing, material selection and long-term functionality.
+We create individually designed homes that respond to your
+lifestyle, site conditions and architectural vision. From early
+planning through construction and completion, we focus on quality
+workmanship, practical detailing, material selection and
+long-term functionality.
 
 </p>
+
+
 </div>
+
+
+
 <!-- 02 -->
+
 <div
     class="service"
     id="new-homes">
+
+
 <div class="service-number">
 
 02
 
 </div>
+
+
 <h3>
 
 New Homes
 
 </h3>
+
+
 <p>
 
-Our new home construction service provides a coordinated pathway from
-initial concept and documentation through approvals, construction and
-final handover. We manage trades, scheduling, quality control and
-project coordination to deliver a carefully built home with clarity
-throughout the construction process.
+Our new home construction service provides a coordinated pathway
+from initial concept and documentation through approvals,
+construction and final handover. We manage trades, scheduling,
+quality control and project coordination to deliver a carefully
+built home with clarity throughout the construction process.
 
 </p>
+
+
 </div>
+
+
+
 <!-- 03 -->
+
 <div
     class="service"
     id="renovations">
+
+
 <div class="service-number">
 
 03
 
 </div>
+
+
 <h3>
 
 Renovations
 
 </h3>
+
+
 <p>
 
-We undertake considered renovations and extensions that improve both
-the character and functionality of existing homes. Our team carefully
-coordinates demolition, structural work, new finishes and services
-while respecting the original building and creating a seamless result
-between old and new spaces.
+We undertake considered renovations and extensions that improve
+both the character and functionality of existing homes. Our team
+carefully coordinates demolition, structural work, new finishes
+and services while respecting the original building and creating
+a seamless result between old and new spaces.
 
 </p>
+
+
 </div>
+
+
+
 <!-- 04 -->
+
 <div
     class="service"
     id="commercial">
+
+
 <div class="service-number">
 
 04
 
 </div>
+
+
 <h3>
 
 Commercial
 
 </h3>
+
+
 <p>
 
-We provide professional construction services for selected commercial,
-retail and development projects. Our approach focuses on programme
-management, site coordination, workmanship and communication, helping
-clients maintain control over quality, timelines and construction
-requirements throughout the project.
+We provide professional construction services for selected
+commercial, retail and development projects. Our approach focuses
+on programme management, site coordination, workmanship and
+communication, helping clients maintain control over quality,
+timelines and construction requirements throughout the project.
 
 </p>
+
+
 </div>
+
+
+
 <!-- 05 -->
+
 <div
     class="service"
     id="project-management">
+
+
 <div class="service-number">
 
 05
 
 </div>
+
+
 <h3>
 
 Project Management
 
 </h3>
+
+
 <p>
 
-Our project management service brings together consultants, trades,
-suppliers, budgets and construction schedules under one coordinated
-process. We monitor project progress, resolve construction issues,
-manage communication and maintain attention to quality so each stage
-can move forward efficiently and with clear accountability.
+Our project management service brings together consultants,
+trades, suppliers, budgets and construction schedules under one
+coordinated process. We monitor project progress, resolve
+construction issues, manage communication and maintain attention
+to quality so each stage can move forward efficiently and with
+clear accountability.
 
 </p>
+
+
 </div>
+
+
+
 <!-- 06 -->
+
 <div
     class="service"
     id="construction-consulting">
+
+
 <div class="service-number">
 
 06
 
 </div>
+
+
 <h3>
 
 Construction Consulting
 
 </h3>
+
+
 <p>
 
-We provide practical construction advice for clients, developers and
-property owners at different stages of a project. From early feasibility
-and planning through procurement, budgeting and construction strategy,
-we help identify potential risks, improve decision-making and establish
-a clearer pathway towards successful project delivery.
+We provide practical construction advice for clients, developers
+and property owners at different stages of a project. From early
+feasibility and planning through procurement, budgeting and
+construction strategy, we help identify potential risks, improve
+decision-making and establish a clearer pathway towards successful
+project delivery.
 
 </p>
+
+
 </div>
+
+
 </div>
+
+
 </div>
+
 </section>
+
+
+
 <!-- =====================================================
-PROJECTS
+     PROJECTS
 ===================================================== -->
+
 <section
     class="projects"
     id="projects">
+
+
 <div class="container">
+
+
 <div class="projects-header">
+
+
 <div>
+
+
 <div class="label">
 
-Selected Projects
+SELECTED PROJECTS
 
 </div>
+
+
 <h2 class="title">
 
-Spaces that speak
-
+Spaces that speak<br>
 for themselves.
 
 </h2>
+
+
 </div>
-<!-- IMPORTANT:
-     This now stays on the same page.
-     No projects.html = no 404.
--->
+
+
+<a
+    href="#project-gallery"
+    class="view-projects">
 
 VIEW ALL PROJECTS →
 
 </a>
+
+
 </div>
-<!-- CATEGORY LINKS -->
-<div class="project-categories"
-     id="project-gallery">
+
+
+
+<!-- PROJECT CATEGORIES -->
+
+<div
+    class="project-categories"
+    id="project-gallery">
+
+
+<a
+    href="#residential"
+    class="project-category">
 
 RESIDENTIAL
 
 </a>
+
+
+<a
+    href="#luxury"
+    class="project-category">
 
 LUXURY HOMES
 
 </a>
 
+
+<a
+    href="#renovation-projects"
+    class="project-category">
+
 RENOVATIONS
 
 </a>
 
+
+<a
+    href="#commercial-projects"
+    class="project-category">
+
 COMMERCIAL
 
 </a>
+
+
 </div>
+
+
+
+<!-- PROJECT IMAGES -->
+
 <div class="project-grid">
-<!-- RESIDENTIAL -->
+
+
+<!-- MAIN PROJECT -->
+
+<a
+    class="project-card"
+    id="residential"
+    href="#contact">
+
+
+<img
+    src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2200&q=95"
+    alt="Modern residential home">
+
+
 <div class="project-overlay">
+
 <div>
+
 <span>
+
 RESIDENTIAL
+
 </span>
+
+
 <h3>
+
 Modern Family Residence
+
 </h3>
+
 </div>
+
 </div>
+
+
 </a>
-<div>
+
+
+
+<!-- RIGHT COLUMN -->
+
+<div class="project-column">
+
+
 <!-- LUXURY -->
+
+<a
+    class="project-card small"
+    id="luxury"
+    href="#contact">
+
+
+<img
+    src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1800&q=95"
+    alt="Luxury contemporary home">
+
+
 <div class="project-overlay">
+
 <div>
+
 <span>
+
 LUXURY HOME
+
 </span>
+
+
 <h3>
+
 Contemporary Living
+
 </h3>
+
 </div>
+
 </div>
+
+
 </a>
+
+
+
 <!-- RENOVATION -->
+
+<a
+    class="project-card small"
+    id="renovation-projects"
+    href="#contact">
+
+
+<img
+    src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1800&q=95"
+    alt="Renovation residence">
+
+
 <div class="project-overlay">
+
 <div>
+
 <span>
+
 RENOVATION
+
 </span>
+
+
 <h3>
+
 Renovation Residence
+
 </h3>
+
 </div>
+
 </div>
+
+
 </a>
+
+
 </div>
+
+
 </div>
-<!-- COMMERCIAL CATEGORY -->
+
+
+
+<!-- =====================================================
+     COMMERCIAL PROJECTS
+===================================================== -->
+
 <div
     id="commercial-projects"
-    style="padding-top:80px;">
+    class="commercial-project-section">
+
+
 <div class="label">
 
-Commercial Construction
+COMMERCIAL CONSTRUCTION
 
 </div>
-<h3
-    style="
-        font-family:Georgia,serif;
-        font-size:32px;
-        font-weight:400;
-        margin-bottom:15px;
-    ">
+
+
+<h3>
 
 Commercial Projects
 
 </h3>
-<p
-    class="text">
+
+
+<p class="text">
 
 Selected commercial construction and development projects
 will be presented here as the Mac Urban project portfolio grows.
 
 </p>
+
+
 </div>
+
+
 </div>
+
 </section>
+
+
+
 <!-- =====================================================
-PROCESS
+     PROCESS
 ===================================================== -->
+
 <section
     class="process"
     id="process">
+
+
 <div class="container">
+
+
 <div class="label">
 
-Our Process
+OUR PROCESS
 
 </div>
+
+
 <h2 class="title">
 
-From first idea
-
+From first idea<br>
 to final handover.
 
 </h2>
+
+
+
 <div class="process-grid">
+
+
 <div class="process-step">
+
+<div class="process-number">
 
 01
 
-<h3>
-Consultation
-</h3>
-<p>
-Understanding your goals, site and budget.
-</p>
 </div>
+
+
+<h3>
+
+Consultation
+
+</h3>
+
+
+<p>
+
+Understanding your goals,
+site and budget.
+
+</p>
+
+</div>
+
+
+
 <div class="process-step">
+
+<div class="process-number">
 
 02
 
-<h3>
-Planning
-</h3>
-<p>
-Design development, consultants and planning.
-</p>
 </div>
+
+
+<h3>
+
+Planning
+
+</h3>
+
+
+<p>
+
+Design development,
+consultants and planning.
+
+</p>
+
+</div>
+
+
+
 <div class="process-step">
+
+<div class="process-number">
 
 03
 
-<h3>
-Approvals
-</h3>
-<p>
-Coordinating approvals and documentation.
-</p>
 </div>
+
+
+<h3>
+
+Approvals
+
+</h3>
+
+
+<p>
+
+Coordinating approvals
+and documentation.
+
+</p>
+
+</div>
+
+
+
 <div class="process-step">
+
+<div class="process-number">
 
 04
 
-<h3>
-Construction
-</h3>
-<p>
-Managing construction, trades and quality.
-</p>
 </div>
+
+
+<h3>
+
+Construction
+
+</h3>
+
+
+<p>
+
+Managing construction,
+trades and quality.
+
+</p>
+
+</div>
+
+
+
 <div class="process-step">
+
+<div class="process-number">
 
 05
 
+</div>
+
+
 <h3>
+
 Handover
+
 </h3>
+
+
 <p>
-A completed home ready for you to enjoy.
+
+A completed home ready
+for you to enjoy.
+
 </p>
+
 </div>
+
+
 </div>
+
+
 </div>
+
 </section>
+
+
+
 <!-- =====================================================
-CONTACT
+     CONTACT
 ===================================================== -->
+
 <section
     class="contact"
     id="contact">
+
+
 <div class="container">
+
+
 <div class="contact-grid">
+
+
 <div>
+
+
 <div class="label">
 
-Contact
+CONTACT
 
 </div>
+
+
 <h2 class="title">
 
-Let’s talk about
-
+Let’s talk about<br>
 your project.
 
 </h2>
+
+
 <p
     class="text"
     style="color:#c2cbc4;">
@@ -1229,151 +2269,359 @@ new build, renovation or development,
 we would love to hear about your project.
 
 </p>
+
+
 </div>
+
+
+
 <div class="contact-details">
+
+
 <div class="contact-row">
+
+
 <span>
+
 EMAIL
+
 </span>
+
+
+<a
+    href="mailto:info@macurbancivil.com.au">
 
 info@macurbancivil.com.au
 
 </a>
+
+
 </div>
+
+
+
 <div class="contact-row">
+
+
 <span>
+
 LOCATION
+
 </span>
+
+
+<p>
 
 Melbourne, Victoria, Australia
 
+</p>
+
+
 </div>
+
+
+
 <div class="contact-row">
+
+
 <span>
+
 BUSINESS
+
 </span>
+
+
+<p>
 
 MAC URBAN CIVIL CONSTRUCTION PTY LTD
 
+</p>
+
+
 </div>
+
+
 </div>
+
+
 </div>
+
+
 </div>
+
 </section>
+
+
+
 <!-- =====================================================
-FOOTER
+     FOOTER
 ===================================================== -->
+
 <footer>
+
+
 <div class="footer-container">
+
+
 <div class="footer-logo">
+
+
+<img
+    src="985.jpeg"
+    alt="Mac Urban Civil Construction Logo">
+
+
 </div>
+
+
 <div class="footer-copy">
 
-© 2026 Mac Urban Civil Construction Pty Ltd.
+© 2026 Mac Urban Civil Construction Pty Ltd.<br>
+
 All Rights Reserved.
 
 </div>
+
+
 </div>
+
 </footer>
+
+
+
 <!-- =====================================================
-JAVASCRIPT
+     JAVASCRIPT
 ===================================================== -->
+
 <script>
+
+
 /* =========================================================
-MAIN MENU
+   MAIN MENU
 ========================================================= */
+
 const menuToggle =
     document.getElementById("menuToggle");
+
 const mainNav =
     document.getElementById("mainNav");
+
 const dropdowns =
     document.querySelectorAll(".dropdown");
-/* OPEN / CLOSE MOBILE MENU */
-menuToggle.addEventListener("click", function(event) {
-    event.stopPropagation();
-    const isOpen =
-        mainNav.classList.toggle("active");
-    menuToggle.setAttribute(
-        "aria-expanded",
-        isOpen ? "true" : "false"
-    );
-});
+
+
 /* =========================================================
-DROPDOWN BUTTONS
+   OPEN / CLOSE MOBILE MENU
 ========================================================= */
-document
-.querySelectorAll(".dropbtn")
-.forEach(function(button) {
-    button.addEventListener("click", function(event) {
-        event.preventDefault();
+
+menuToggle.addEventListener(
+    "click",
+    function(event) {
+
         event.stopPropagation();
-        /* Only click on mobile */
-        if (window.innerWidth <= 900) {
-            const current =
-                this.closest(".dropdown");
-            dropdowns.forEach(function(dropdown) {
-                if (dropdown !== current) {
-                    dropdown.classList.remove("open");
-                }
-            });
-            current.classList.toggle("open");
-        }
-    });
-});
-/* =========================================================
-MOBILE LINK CLICK
-========================================================= */
-document
-.querySelectorAll("#mainNav a")
-.forEach(function(link) {
-    link.addEventListener("click", function() {
-        if (window.innerWidth <= 900) {
-            mainNav.classList.remove("active");
-            menuToggle.setAttribute(
-                "aria-expanded",
-                "false"
-            );
-            dropdowns.forEach(function(dropdown) {
-                dropdown.classList.remove("open");
-            });
-        }
-    });
-});
-/* =========================================================
-CLICK OUTSIDE
-========================================================= */
-document.addEventListener("click", function(event) {
-    if (window.innerWidth <= 900) {
-        if (
-            !mainNav.contains(event.target) &&
-            !menuToggle.contains(event.target)
-        ) {
-            mainNav.classList.remove("active");
-            menuToggle.setAttribute(
-                "aria-expanded",
-                "false"
-            );
-            dropdowns.forEach(function(dropdown) {
-                dropdown.classList.remove("open");
-            });
-        }
-    }
-});
-/* =========================================================
-RESIZE
-========================================================= */
-window.addEventListener("resize", function() {
-    if (window.innerWidth > 900) {
-        mainNav.classList.remove("active");
+
+        const isOpen =
+            mainNav.classList.toggle("active");
+
         menuToggle.setAttribute(
             "aria-expanded",
-            "false"
+            isOpen ? "true" : "false"
         );
-        dropdowns.forEach(function(dropdown) {
-            dropdown.classList.remove("open");
-        });
+
+        menuToggle.innerHTML =
+            isOpen ? "×" : "☰";
+
     }
-});
+);
+
+
+/* =========================================================
+   DROPDOWN BUTTONS
+========================================================= */
+
+document
+    .querySelectorAll(".dropbtn")
+    .forEach(function(button) {
+
+        button.addEventListener(
+            "click",
+            function(event) {
+
+                event.preventDefault();
+
+                event.stopPropagation();
+
+                if (window.innerWidth <= 900) {
+
+                    const current =
+                        this.closest(".dropdown");
+
+                    dropdowns.forEach(
+                        function(dropdown) {
+
+                            if (
+                                dropdown !== current
+                            ) {
+
+                                dropdown.classList.remove(
+                                    "open"
+                                );
+
+                            }
+
+                        }
+                    );
+
+                    current.classList.toggle(
+                        "open"
+                    );
+
+                }
+
+            }
+        );
+
+    });
+
+
+/* =========================================================
+   MOBILE LINK CLICK
+========================================================= */
+
+document
+    .querySelectorAll("#mainNav a")
+    .forEach(function(link) {
+
+        link.addEventListener(
+            "click",
+            function() {
+
+                if (
+                    window.innerWidth <= 900
+                ) {
+
+                    mainNav.classList.remove(
+                        "active"
+                    );
+
+                    menuToggle.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+                    menuToggle.innerHTML =
+                        "☰";
+
+                    dropdowns.forEach(
+                        function(dropdown) {
+
+                            dropdown.classList.remove(
+                                "open"
+                            );
+
+                        }
+                    );
+
+                }
+
+            }
+        );
+
+    });
+
+
+/* =========================================================
+   CLICK OUTSIDE
+========================================================= */
+
+document.addEventListener(
+    "click",
+    function(event) {
+
+        if (
+            window.innerWidth <= 900
+        ) {
+
+            if (
+                !mainNav.contains(
+                    event.target
+                ) &&
+                !menuToggle.contains(
+                    event.target
+                )
+            ) {
+
+                mainNav.classList.remove(
+                    "active"
+                );
+
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+                menuToggle.innerHTML =
+                    "☰";
+
+                dropdowns.forEach(
+                    function(dropdown) {
+
+                        dropdown.classList.remove(
+                            "open"
+                        );
+
+                    }
+                );
+
+            }
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   RESIZE
+========================================================= */
+
+window.addEventListener(
+    "resize",
+    function() {
+
+        if (
+            window.innerWidth > 900
+        ) {
+
+            mainNav.classList.remove(
+                "active"
+            );
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+            menuToggle.innerHTML =
+                "☰";
+
+            dropdowns.forEach(
+                function(dropdown) {
+
+                    dropdown.classList.remove(
+                        "open"
+                    );
+
+                }
+            );
+
+        }
+
+    }
+);
+
 </script>
+
+
 </body>
 </html>
