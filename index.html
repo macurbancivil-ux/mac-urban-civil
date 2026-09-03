@@ -10,10 +10,16 @@
 
 <style>
 
+/* =========================================================
+   ROOT
+========================================================= */
+
 :root{
     --green:#6F936F;
     --green-dark:#4F704F;
     --green-light:#E5EDE5;
+    --green-soft:#EEF3EE;
+
     --black:#111111;
     --dark:#1A1A1A;
     --grey:#666666;
@@ -21,6 +27,11 @@
     --white:#FFFFFF;
     --border:#E2E2DE;
 }
+
+
+/* =========================================================
+   RESET
+========================================================= */
 
 *{
     margin:0;
@@ -49,18 +60,27 @@ a{
     color:inherit;
 }
 
-button{
+button,
+input,
+textarea,
+select{
     font-family:inherit;
 }
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
 
 .container{
     width:min(1380px,92%);
     margin:auto;
 }
 
-/* =========================
+
+/* =========================================================
    HEADER
-========================= */
+========================================================= */
 
 header{
     position:fixed;
@@ -98,6 +118,11 @@ header.scrolled{
     object-fit:contain;
 }
 
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
 .nav{
     display:flex;
     align-items:center;
@@ -130,7 +155,10 @@ header.scrolled{
     width:100%;
 }
 
-/* Dropdown */
+
+/* =========================================================
+   DROPDOWN
+========================================================= */
 
 .dropdown{
     position:relative;
@@ -170,7 +198,10 @@ header.scrolled{
     color:var(--green-dark);
 }
 
-/* Mobile button */
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
 
 .menu-toggle{
     display:none;
@@ -192,9 +223,10 @@ header.scrolled{
     display:block;
 }
 
-/* =========================
+
+/* =========================================================
    HERO
-========================= */
+========================================================= */
 
 .hero{
     min-height:100vh;
@@ -202,6 +234,7 @@ header.scrolled{
     position:relative;
     display:flex;
     align-items:center;
+
     background:
         linear-gradient(
             90deg,
@@ -287,9 +320,10 @@ header.scrolled{
     color:#111;
 }
 
-/* =========================
-   GENERAL
-========================= */
+
+/* =========================================================
+   GENERAL SECTIONS
+========================================================= */
 
 section{
     padding:110px 0;
@@ -326,9 +360,10 @@ section{
     margin-bottom:55px;
 }
 
-/* =========================
+
+/* =========================================================
    ABOUT
-========================= */
+========================================================= */
 
 .about{
     background:var(--light);
@@ -341,70 +376,53 @@ section{
     align-items:center;
 }
 
+
+/* About Us image */
+
 .about-image{
     min-height:560px;
-    background:
-        linear-gradient(
-            135deg,
-            rgba(79,112,79,.08),
-            rgba(255,255,255,.6)
-        );
-    border:1px solid var(--border);
     position:relative;
     overflow:hidden;
+    background:#ddd;
+    border:1px solid var(--border);
 }
 
-.about-building{
+.about-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:transform .7s ease;
+}
+
+.about-image:hover img{
+    transform:scale(1.035);
+}
+
+.about-image-overlay{
     position:absolute;
-    width:70%;
-    height:65%;
-    left:15%;
-    top:17%;
+    inset:0;
+
     background:
         linear-gradient(
-            135deg,
-            rgba(111,147,111,.2),
-            rgba(255,255,255,.75)
+            180deg,
+            rgba(0,0,0,.03) 20%,
+            rgba(0,0,0,.18) 65%,
+            rgba(0,0,0,.65) 100%
         );
-    clip-path:polygon(
-        15% 35%,
-        50% 5%,
-        85% 35%,
-        85% 90%,
-        15% 90%
-    );
-}
-
-.about-building::before{
-    content:"";
-    position:absolute;
-    width:25%;
-    height:45%;
-    left:37.5%;
-    bottom:0;
-    background:var(--green-dark);
-}
-
-.about-building::after{
-    content:"";
-    position:absolute;
-    width:65%;
-    height:12%;
-    left:17.5%;
-    top:42%;
-    border-top:3px solid rgba(79,112,79,.45);
-    border-bottom:3px solid rgba(79,112,79,.25);
 }
 
 .about-image-label{
     position:absolute;
     bottom:25px;
     left:25px;
+    color:white;
     font-size:11px;
     letter-spacing:2px;
     font-weight:700;
-    color:var(--green-dark);
 }
+
+
+/* About text */
 
 .about-copy p{
     color:var(--grey);
@@ -412,6 +430,9 @@ section{
     font-size:16px;
     line-height:1.85;
 }
+
+
+/* About statistics */
 
 .about-stats{
     display:grid;
@@ -427,20 +448,25 @@ section{
 
 .stat strong{
     display:block;
-    font-size:30px;
+    font-size:22px;
+    line-height:1.2;
     color:var(--green-dark);
+    letter-spacing:.5px;
 }
 
 .stat span{
-    font-size:12px;
+    display:block;
+    margin-top:8px;
+    font-size:11px;
     text-transform:uppercase;
     letter-spacing:1px;
     color:var(--grey);
 }
 
-/* =========================
+
+/* =========================================================
    SERVICES
-========================= */
+========================================================= */
 
 .services{
     background:white;
@@ -488,9 +514,10 @@ section{
     line-height:1.85;
 }
 
-/* =========================
+
+/* =========================================================
    PROJECTS
-========================= */
+========================================================= */
 
 .projects{
     background:var(--light);
@@ -561,11 +588,13 @@ section{
 .project-overlay{
     position:absolute;
     inset:0;
-    background:linear-gradient(
-        to top,
-        rgba(0,0,0,.65),
-        rgba(0,0,0,0) 60%
-    );
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0,0,0,.65),
+            rgba(0,0,0,0) 60%
+        );
 }
 
 .project-category{
@@ -604,7 +633,8 @@ section{
     text-transform:uppercase;
 }
 
-/* Placeholder cards */
+
+/* Placeholder */
 
 .project-placeholder{
     background:#E9E9E5;
@@ -619,9 +649,10 @@ section{
     text-transform:uppercase;
 }
 
-/* =========================
+
+/* =========================================================
    PROJECT MODAL
-========================= */
+========================================================= */
 
 .project-modal{
     position:fixed;
@@ -752,9 +783,10 @@ section{
     font-size:14px;
 }
 
-/* =========================
+
+/* =========================================================
    PROCESS
-========================= */
+========================================================= */
 
 .process{
     background:white;
@@ -796,9 +828,10 @@ section{
     line-height:1.85;
 }
 
-/* =========================
+
+/* =========================================================
    CONTACT
-========================= */
+========================================================= */
 
 .contact{
     background:var(--dark);
@@ -869,7 +902,6 @@ section{
     border:1px solid #3D3D3D;
     color:white;
     outline:none;
-    font-family:inherit;
 }
 
 .contact-form textarea{
@@ -887,9 +919,10 @@ section{
     border:0;
 }
 
-/* =========================
+
+/* =========================================================
    FOOTER
-========================= */
+========================================================= */
 
 footer{
     background:#0D0D0D;
@@ -906,7 +939,6 @@ footer{
 
 .footer-logo img{
     width:145px;
-    filter:none;
 }
 
 .footer-copy{
@@ -927,9 +959,10 @@ footer{
     color:white;
 }
 
-/* =========================
+
+/* =========================================================
    LIGHTBOX
-========================= */
+========================================================= */
 
 .lightbox{
     position:fixed;
@@ -961,9 +994,10 @@ footer{
     cursor:pointer;
 }
 
-/* =========================
+
+/* =========================================================
    RESPONSIVE
-========================= */
+========================================================= */
 
 @media(max-width:1100px){
 
@@ -995,7 +1029,9 @@ footer{
         grid-template-columns:1fr;
         gap:25px;
     }
+
 }
+
 
 @media(max-width:800px){
 
@@ -1066,6 +1102,9 @@ footer{
         background:#fafafa;
     }
 
+
+    /* Hero */
+
     .hero{
         padding-top:82px;
         min-height:92vh;
@@ -1080,6 +1119,9 @@ footer{
         font-size:15px;
     }
 
+
+    /* Sections */
+
     section{
         padding:75px 0;
     }
@@ -1089,22 +1131,36 @@ footer{
         margin-bottom:35px;
     }
 
+
+    /* About */
+
     .about-grid{
         grid-template-columns:1fr;
         gap:45px;
     }
 
     .about-image{
-        min-height:400px;
+        min-height:420px;
     }
 
     .about-stats{
         grid-template-columns:1fr;
+        gap:25px;
     }
+
+    .stat strong{
+        font-size:21px;
+    }
+
+
+    /* Services */
 
     .services-grid{
         grid-template-columns:1fr;
     }
+
+
+    /* Projects */
 
     .projects-grid{
         grid-template-columns:1fr;
@@ -1113,6 +1169,9 @@ footer{
     .project-image{
         height:300px;
     }
+
+
+    /* Modal */
 
     .project-modal-inner{
         padding-top:95px;
@@ -1148,6 +1207,9 @@ footer{
         align-items:flex-start;
     }
 
+
+    /* Process */
+
     .process-grid{
         grid-template-columns:1fr;
     }
@@ -1162,6 +1224,9 @@ footer{
         border-bottom:0;
     }
 
+
+    /* Contact */
+
     .contact-grid{
         grid-template-columns:1fr;
         gap:50px;
@@ -1170,6 +1235,9 @@ footer{
     .form-row{
         grid-template-columns:1fr;
     }
+
+
+    /* Footer */
 
     .footer-inner{
         flex-direction:column;
@@ -1180,80 +1248,140 @@ footer{
         flex-wrap:wrap;
         justify-content:center;
     }
+
 }
 
 </style>
 </head>
 
+
 <body>
 
-<!-- =========================
+
+<!-- =========================================================
      HEADER
-========================= -->
+========================================================= -->
 
 <header id="header">
 
 <div class="container header-inner">
 
     <a href="#home" class="logo">
-        <img src="985.jpeg" alt="Mac Urban Civil Construction">
+
+        <img
+            src="985.jpeg"
+            alt="Mac Urban Civil Construction"
+        >
+
     </a>
 
-    <button class="menu-toggle" id="menuToggle" aria-label="Open Menu">
+
+    <button
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="Open Menu"
+    >
+
         <span></span>
         <span></span>
         <span></span>
+
     </button>
+
 
     <nav class="nav" id="nav">
 
-        <a href="#home">Home</a>
+        <a href="#home">
+            Home
+        </a>
 
-        <a href="#about">About</a>
 
-        <div class="dropdown">
+        <a href="#about">
+            About
+        </a>
 
-            <a href="#services">Services</a>
-
-            <div class="dropdown-menu">
-
-                <a href="#services">Custom Homes</a>
-                <a href="#services">New Homes</a>
-                <a href="#services">Renovations</a>
-                <a href="#services">Commercial</a>
-                <a href="#services">Project Management</a>
-                <a href="#services">Construction Consulting</a>
-
-            </div>
-
-        </div>
 
         <div class="dropdown">
 
-            <a href="#projects">Projects</a>
+            <a href="#services">
+                Services
+            </a>
 
             <div class="dropdown-menu">
 
-                <a href="#projects">All Projects</a>
-
-                <a href="#projects"
-                   onclick="openProjectModal('luxury'); return false;">
-                   Luxury
+                <a href="#services">
+                    Custom Homes
                 </a>
 
-                <a href="#projects">Renovation</a>
+                <a href="#services">
+                    New Homes
+                </a>
 
-                <a href="#projects">Residential</a>
+                <a href="#services">
+                    Renovations
+                </a>
 
-                <a href="#projects">Commercial</a>
+                <a href="#services">
+                    Commercial
+                </a>
+
+                <a href="#services">
+                    Project Management
+                </a>
+
+                <a href="#services">
+                    Construction Consulting
+                </a>
 
             </div>
 
         </div>
 
-        <a href="#process">Our Process</a>
 
-        <a href="#contact">Contact</a>
+        <div class="dropdown">
+
+            <a href="#projects">
+                Projects
+            </a>
+
+            <div class="dropdown-menu">
+
+                <a href="#projects">
+                    All Projects
+                </a>
+
+                <a
+                    href="#projects"
+                    onclick="openProjectModal('luxury'); return false;"
+                >
+                    Luxury
+                </a>
+
+                <a href="#projects">
+                    Renovation
+                </a>
+
+                <a href="#projects">
+                    Residential
+                </a>
+
+                <a href="#projects">
+                    Commercial
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <a href="#process">
+            Our Process
+        </a>
+
+
+        <a href="#contact">
+            Contact
+        </a>
 
     </nav>
 
@@ -1262,53 +1390,65 @@ footer{
 </header>
 
 
-<!-- =========================
+
+<!-- =========================================================
      HERO
-========================= -->
+========================================================= -->
 
 <section class="hero" id="home">
 
 <div class="container">
 
-    <div class="hero-content">
+<div class="hero-content">
 
-        <div class="hero-kicker">
-            Melbourne · Australia
-        </div>
+    <div class="hero-kicker">
+        Melbourne · Australia
+    </div>
 
-        <h1>
-            Building<br>
-            <span>with Purpose.</span>
-        </h1>
 
-        <p>
-            Mac Urban Civil Construction delivers considered residential,
-            luxury and commercial construction projects with a focus on
-            quality, precision and professional project management.
-        </p>
+    <h1>
+        Building<br>
+        <span>with Purpose.</span>
+    </h1>
 
-        <div class="hero-buttons">
 
-            <a href="#projects" class="btn btn-primary">
-                View Projects
-            </a>
+    <p>
+        Mac Urban Civil Construction delivers considered residential,
+        luxury and commercial construction projects with a focus on
+        quality, precision and professional project management.
+    </p>
 
-            <a href="#contact" class="btn btn-outline">
-                Start a Project
-            </a>
 
-        </div>
+    <div class="hero-buttons">
+
+        <a
+            href="#projects"
+            class="btn btn-primary"
+        >
+            View Projects
+        </a>
+
+
+        <a
+            href="#contact"
+            class="btn btn-outline"
+        >
+            Start a Project
+        </a>
 
     </div>
+
+</div>
 
 </div>
 
 </section>
 
 
-<!-- =========================
+
+<!-- =========================================================
      ABOUT
-========================= -->
+========================================================= -->
 
 <section class="about" id="about">
 
@@ -1316,9 +1456,17 @@ footer{
 
 <div class="about-grid">
 
+
+    <!-- IMAGE -->
+
     <div class="about-image">
 
-        <div class="about-building"></div>
+        <img
+            src="project-images/projects/luxury/3-cross-st-ryde/3805.jpeg"
+            alt="Mac Urban Luxury Residential Construction"
+        >
+
+        <div class="about-image-overlay"></div>
 
         <div class="about-image-label">
             MAC URBAN · BUILDING WITH PURPOSE
@@ -1327,22 +1475,28 @@ footer{
     </div>
 
 
+    <!-- CONTENT -->
+
     <div class="about-copy">
 
         <div class="section-kicker">
             About Mac Urban
         </div>
 
+
         <h2 class="section-title">
             Construction built around quality.
         </h2>
+
 
         <p>
             Mac Urban Civil Construction is an Australian construction
             company focused on delivering residential, luxury and
             commercial building projects with a strong emphasis on
-            workmanship, communication and project control.
+            workmanship, communication and professional project
+            management.
         </p>
+
 
         <p>
             We work closely with clients, architects, engineers,
@@ -1351,30 +1505,56 @@ footer{
             handover.
         </p>
 
+
         <p>
             Our approach combines practical construction knowledge,
-            detailed coordination and professional project management
+            detailed coordination and contemporary design thinking
             to deliver buildings that are functional, refined and
-            built for long-term performance.
+            built to a high standard.
         </p>
 
 
         <div class="about-stats">
 
-            <div class="stat">
-                <strong>10+</strong>
-                <span>Years Experience</span>
-            </div>
 
             <div class="stat">
-                <strong>AU</strong>
-                <span>Australian Construction</span>
+
+                <strong>
+                    10+
+                </strong>
+
+                <span>
+                    Years Experience
+                </span>
+
             </div>
 
+
             <div class="stat">
-                <strong>01</strong>
-                <span>Clear Project Approach</span>
+
+                <strong>
+                    PROFESSIONAL
+                </strong>
+
+                <span>
+                    Construction Quality
+                </span>
+
             </div>
+
+
+            <div class="stat">
+
+                <strong>
+                    CONTEMPORARY
+                </strong>
+
+                <span>
+                    Design Excellence
+                </span>
+
+            </div>
+
 
         </div>
 
@@ -1387,13 +1567,15 @@ footer{
 </section>
 
 
-<!-- =========================
+
+<!-- =========================================================
      SERVICES
-========================= -->
+========================================================= -->
 
 <section class="services" id="services">
 
 <div class="container">
+
 
 <div class="section-header">
 
@@ -1409,6 +1591,7 @@ footer{
 
     </div>
 
+
     <p class="section-intro">
         From bespoke residential construction to commercial projects,
         Mac Urban provides practical construction solutions supported
@@ -1418,13 +1601,19 @@ footer{
 </div>
 
 
+
 <div class="services-grid">
+
 
     <div class="service-card">
 
-        <div class="service-number">01</div>
+        <div class="service-number">
+            01
+        </div>
 
-        <h3>Custom Homes</h3>
+        <h3>
+            Custom Homes
+        </h3>
 
         <p>
             We deliver bespoke homes tailored to the site, architectural
@@ -1438,11 +1627,16 @@ footer{
     </div>
 
 
+
     <div class="service-card">
 
-        <div class="service-number">02</div>
+        <div class="service-number">
+            02
+        </div>
 
-        <h3>New Homes</h3>
+        <h3>
+            New Homes
+        </h3>
 
         <p>
             Our new home construction service provides a structured
@@ -1451,17 +1645,22 @@ footer{
             consultants, trades, materials, budgets and construction
             programs to maintain quality and accountability while
             delivering a well-managed building process aligned with
-            the project’s requirements.
+            the project's requirements.
         </p>
 
     </div>
 
 
+
     <div class="service-card">
 
-        <div class="service-number">03</div>
+        <div class="service-number">
+            03
+        </div>
 
-        <h3>Renovations</h3>
+        <h3>
+            Renovations
+        </h3>
 
         <p>
             We undertake renovations and extensions with careful
@@ -1476,11 +1675,16 @@ footer{
     </div>
 
 
+
     <div class="service-card">
 
-        <div class="service-number">04</div>
+        <div class="service-number">
+            04
+        </div>
 
-        <h3>Commercial</h3>
+        <h3>
+            Commercial
+        </h3>
 
         <p>
             Our commercial construction capability supports retail,
@@ -1495,11 +1699,16 @@ footer{
     </div>
 
 
+
     <div class="service-card">
 
-        <div class="service-number">05</div>
+        <div class="service-number">
+            05
+        </div>
 
-        <h3>Project Management</h3>
+        <h3>
+            Project Management
+        </h3>
 
         <p>
             We provide end-to-end project management covering consultant
@@ -1514,11 +1723,16 @@ footer{
     </div>
 
 
+
     <div class="service-card">
 
-        <div class="service-number">06</div>
+        <div class="service-number">
+            06
+        </div>
 
-        <h3>Construction Consulting</h3>
+        <h3>
+            Construction Consulting
+        </h3>
 
         <p>
             Our construction consulting service provides practical
@@ -1532,6 +1746,7 @@ footer{
 
     </div>
 
+
 </div>
 
 </div>
@@ -1539,13 +1754,15 @@ footer{
 </section>
 
 
-<!-- =========================
+
+<!-- =========================================================
      PROJECTS
-========================= -->
+========================================================= -->
 
 <section class="projects" id="projects">
 
 <div class="container">
+
 
 <div class="section-header">
 
@@ -1561,6 +1778,7 @@ footer{
 
     </div>
 
+
     <p class="section-intro">
         A selection of residential, luxury, renovation and commercial
         construction projects. Select a project to view the full
@@ -1570,44 +1788,62 @@ footer{
 </div>
 
 
+
 <div class="project-filter">
 
-    <button class="filter-btn active"
-            onclick="filterProjects('all', this)">
+    <button
+        class="filter-btn active"
+        onclick="filterProjects('all', this)"
+    >
         All
     </button>
 
-    <button class="filter-btn"
-            onclick="filterProjects('luxury', this)">
+
+    <button
+        class="filter-btn"
+        onclick="filterProjects('luxury', this)"
+    >
         Luxury
     </button>
 
-    <button class="filter-btn"
-            onclick="filterProjects('residential', this)">
+
+    <button
+        class="filter-btn"
+        onclick="filterProjects('residential', this)"
+    >
         Residential
     </button>
 
-    <button class="filter-btn"
-            onclick="filterProjects('renovation', this)">
+
+    <button
+        class="filter-btn"
+        onclick="filterProjects('renovation', this)"
+    >
         Renovation
     </button>
 
-    <button class="filter-btn"
-            onclick="filterProjects('commercial', this)">
+
+    <button
+        class="filter-btn"
+        onclick="filterProjects('commercial', this)"
+    >
         Commercial
     </button>
 
 </div>
 
 
+
 <div class="projects-grid" id="projectsGrid">
 
 
-    <!-- PROJECT 01 -->
+    <!-- 3 CROSS ST RYDE -->
 
-    <div class="project-card"
-         data-category="luxury"
-         onclick="openProjectModal('luxury')">
+    <div
+        class="project-card"
+        data-category="luxury"
+        onclick="openProjectModal('luxury')"
+    >
 
         <div class="project-image">
 
@@ -1644,10 +1880,13 @@ footer{
     </div>
 
 
-    <!-- PROJECT PLACEHOLDER 02 -->
 
-    <div class="project-card project-placeholder"
-         data-category="residential">
+    <!-- RESIDENTIAL PLACEHOLDER -->
+
+    <div
+        class="project-card project-placeholder"
+        data-category="residential"
+    >
 
         <div>
             Residential Project<br>
@@ -1657,10 +1896,13 @@ footer{
     </div>
 
 
-    <!-- PROJECT PLACEHOLDER 03 -->
 
-    <div class="project-card project-placeholder"
-         data-category="renovation">
+    <!-- RENOVATION PLACEHOLDER -->
+
+    <div
+        class="project-card project-placeholder"
+        data-category="renovation"
+    >
 
         <div>
             Renovation Project<br>
@@ -1670,10 +1912,13 @@ footer{
     </div>
 
 
-    <!-- PROJECT PLACEHOLDER 04 -->
 
-    <div class="project-card project-placeholder"
-         data-category="commercial">
+    <!-- COMMERCIAL PLACEHOLDER -->
+
+    <div
+        class="project-card project-placeholder"
+        data-category="commercial"
+    >
 
         <div>
             Commercial Project<br>
@@ -1690,17 +1935,25 @@ footer{
 </section>
 
 
-<!-- =========================
+
+<!-- =========================================================
      PROJECT DETAIL MODAL
-========================= -->
+========================================================= -->
 
-<div class="project-modal" id="projectModal">
+<div
+    class="project-modal"
+    id="projectModal"
+>
 
-<button class="project-modal-close"
-        onclick="closeProjectModal()"
-        aria-label="Close Project">
+
+<button
+    class="project-modal-close"
+    onclick="closeProjectModal()"
+    aria-label="Close Project"
+>
     ×
 </button>
+
 
 
 <div class="project-modal-inner">
@@ -1708,11 +1961,13 @@ footer{
 
     <div class="project-modal-header">
 
+
         <div>
 
             <div class="section-kicker">
                 Luxury Residence
             </div>
+
 
             <h2>
                 3 Cross St,<br>
@@ -1720,6 +1975,7 @@ footer{
             </h2>
 
         </div>
+
 
 
         <div class="project-modal-description">
@@ -1734,14 +1990,19 @@ footer{
 
         </div>
 
+
     </div>
+
 
 
     <div class="project-meta">
 
+
         <div class="meta-item">
 
-            <span>Project</span>
+            <span>
+                Project
+            </span>
 
             <strong>
                 3 Cross St, Ryde
@@ -1750,9 +2011,12 @@ footer{
         </div>
 
 
+
         <div class="meta-item">
 
-            <span>Category</span>
+            <span>
+                Category
+            </span>
 
             <strong>
                 Luxury Residential
@@ -1761,9 +2025,12 @@ footer{
         </div>
 
 
+
         <div class="meta-item">
 
-            <span>Location</span>
+            <span>
+                Location
+            </span>
 
             <strong>
                 Ryde, NSW
@@ -1771,14 +2038,18 @@ footer{
 
         </div>
 
+
     </div>
+
 
 
     <div class="project-gallery">
 
 
-        <div class="gallery-item"
-             onclick="openLightbox(this)">
+        <div
+            class="gallery-item"
+            onclick="openLightbox(this)"
+        >
 
             <img
                 src="project-images/projects/luxury/3-cross-st-ryde/3805.jpeg"
@@ -1788,35 +2059,27 @@ footer{
         </div>
 
 
-        <!-- Future image -->
-
-        <div class="gallery-item"
-             style="display:none;"
-             onclick="openLightbox(this)">
-
-            <img
-                src="project-images/projects/luxury/3-cross-st-ryde/3806.jpeg"
-                alt="3 Cross St Ryde"
-            >
-
-        </div>
-
-
     </div>
 
 
+
     <div class="project-modal-footer">
+
 
         <p>
             More project photography and construction details
             will be added as the project portfolio develops.
         </p>
 
-        <a href="#contact"
-           class="btn btn-primary"
-           onclick="closeProjectModal()">
+
+        <a
+            href="#contact"
+            class="btn btn-primary"
+            onclick="closeProjectModal()"
+        >
             Enquire About a Project
         </a>
+
 
     </div>
 
@@ -1826,15 +2089,18 @@ footer{
 </div>
 
 
-<!-- =========================
-     PROCESS
-========================= -->
+
+<!-- =========================================================
+     OUR PROCESS
+========================================================= -->
 
 <section class="process" id="process">
 
 <div class="container">
 
+
 <div class="section-header">
+
 
     <div>
 
@@ -1848,16 +2114,21 @@ footer{
 
     </div>
 
+
     <p class="section-intro">
         A structured approach helps create clarity from the first
         conversation through construction completion and handover.
     </p>
 
+
 </div>
+
 
 
 <div class="process-grid">
 
+
+    <!-- 01 -->
 
     <div class="process-item">
 
@@ -1870,7 +2141,7 @@ footer{
         </h3>
 
         <p>
-            We begin by understanding the client’s objectives, site
+            We begin by understanding the client's objectives, site
             conditions, budget, design expectations and project
             constraints. Early discussions help establish a practical
             project brief, identify key risks and clarify the scope
@@ -1880,6 +2151,9 @@ footer{
 
     </div>
 
+
+
+    <!-- 02 -->
 
     <div class="process-item">
 
@@ -1904,6 +2178,9 @@ footer{
     </div>
 
 
+
+    <!-- 03 -->
+
     <div class="process-item">
 
         <div class="process-number">
@@ -1927,6 +2204,9 @@ footer{
     </div>
 
 
+
+    <!-- 04 -->
+
     <div class="process-item">
 
         <div class="process-number">
@@ -1948,6 +2228,9 @@ footer{
 
     </div>
 
+
+
+    <!-- 05 -->
 
     <div class="process-item">
 
@@ -1979,9 +2262,10 @@ footer{
 </section>
 
 
-<!-- =========================
+
+<!-- =========================================================
      CONTACT
-========================= -->
+========================================================= -->
 
 <section class="contact" id="contact">
 
@@ -1996,10 +2280,12 @@ footer{
             Start a Conversation
         </div>
 
+
         <h2>
             Let's build<br>
             something better.
         </h2>
+
 
         <p class="contact-intro">
             Tell us about your project, development or construction
@@ -2008,11 +2294,15 @@ footer{
         </p>
 
 
+
         <div class="contact-details">
+
 
             <div class="contact-detail">
 
-                <span>Email</span>
+                <span>
+                    Email
+                </span>
 
                 <strong>
                     info@macurbancivil.com.au
@@ -2021,9 +2311,12 @@ footer{
             </div>
 
 
+
             <div class="contact-detail">
 
-                <span>Service Area</span>
+                <span>
+                    Service Area
+                </span>
 
                 <strong>
                     Melbourne · Victoria · Australia
@@ -2032,9 +2325,12 @@ footer{
             </div>
 
 
+
             <div class="contact-detail">
 
-                <span>Company</span>
+                <span>
+                    Company
+                </span>
 
                 <strong>
                     Mac Urban Civil Construction Pty Ltd
@@ -2042,9 +2338,11 @@ footer{
 
             </div>
 
+
         </div>
 
     </div>
+
 
 
     <form
@@ -2075,6 +2373,7 @@ footer{
                 required
             >
 
+
             <input
                 type="email"
                 name="email"
@@ -2085,6 +2384,7 @@ footer{
         </div>
 
 
+
         <div class="form-row">
 
             <input
@@ -2092,6 +2392,7 @@ footer{
                 name="phone"
                 placeholder="Phone"
             >
+
 
             <select name="project_type">
 
@@ -2128,11 +2429,13 @@ footer{
         </div>
 
 
+
         <textarea
             name="message"
             placeholder="Tell us about your project..."
             required
         ></textarea>
+
 
 
         <button
@@ -2151,13 +2454,15 @@ footer{
 </section>
 
 
-<!-- =========================
+
+<!-- =========================================================
      FOOTER
-========================= -->
+========================================================= -->
 
 <footer>
 
 <div class="container footer-inner">
+
 
     <div class="footer-logo">
 
@@ -2179,29 +2484,47 @@ footer{
 
     <div class="footer-links">
 
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+        <a href="#home">
+            Home
+        </a>
+
+        <a href="#about">
+            About
+        </a>
+
+        <a href="#projects">
+            Projects
+        </a>
+
+        <a href="#contact">
+            Contact
+        </a>
 
     </div>
+
 
 </div>
 
 </footer>
 
 
-<!-- =========================
-     LIGHTBOX
-========================= -->
 
-<div class="lightbox" id="lightbox">
+<!-- =========================================================
+     LIGHTBOX
+========================================================= -->
+
+<div
+    class="lightbox"
+    id="lightbox"
+>
 
     <div
         class="lightbox-close"
-        onclick="closeLightbox()">
+        onclick="closeLightbox()"
+    >
         ×
     </div>
+
 
     <img
         id="lightboxImage"
@@ -2212,34 +2535,47 @@ footer{
 </div>
 
 
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
 <script>
 
-/* =========================
-   HEADER
-========================= */
 
-const header = document.getElementById("header");
+/* =========================================================
+   HEADER SCROLL
+========================================================= */
+
+const header =
+    document.getElementById("header");
 
 window.addEventListener("scroll", function(){
 
     if(window.scrollY > 30){
+
         header.classList.add("scrolled");
+
     }else{
+
         header.classList.remove("scrolled");
+
     }
 
 });
 
 
-/* =========================
+
+/* =========================================================
    MOBILE MENU
-========================= */
+========================================================= */
 
 const menuToggle =
     document.getElementById("menuToggle");
 
 const nav =
     document.getElementById("nav");
+
 
 menuToggle.addEventListener("click", function(){
 
@@ -2248,9 +2584,10 @@ menuToggle.addEventListener("click", function(){
 });
 
 
-/* =========================
+
+/* =========================================================
    MOBILE DROPDOWN
-========================= */
+========================================================= */
 
 document.querySelectorAll(".dropdown > a")
 .forEach(function(link){
@@ -2273,9 +2610,10 @@ document.querySelectorAll(".dropdown > a")
 });
 
 
-/* =========================
+
+/* =========================================================
    CLOSE MOBILE MENU
-========================= */
+========================================================= */
 
 document.querySelectorAll(".nav > a")
 .forEach(function(link){
@@ -2289,9 +2627,10 @@ document.querySelectorAll(".nav > a")
 });
 
 
-/* =========================
+
+/* =========================================================
    PROJECT FILTER
-========================= */
+========================================================= */
 
 function filterProjects(category, clickedButton){
 
@@ -2301,23 +2640,31 @@ function filterProjects(category, clickedButton){
     const buttons =
         document.querySelectorAll(".filter-btn");
 
+
     buttons.forEach(function(btn){
 
         btn.classList.remove("active");
 
     });
 
+
     if(clickedButton){
+
         clickedButton.classList.add("active");
+
     }
+
 
     cards.forEach(function(card){
 
         const cardCategory =
             card.getAttribute("data-category");
 
-        if(category === "all" ||
-           cardCategory === category){
+
+        if(
+            category === "all" ||
+            cardCategory === category
+        ){
 
             card.style.display = "";
 
@@ -2332,9 +2679,10 @@ function filterProjects(category, clickedButton){
 }
 
 
-/* =========================
+
+/* =========================================================
    PROJECT MODAL
-========================= */
+========================================================= */
 
 const projectModal =
     document.getElementById("projectModal");
@@ -2348,11 +2696,12 @@ function openProjectModal(project){
 
         document.body.style.overflow = "hidden";
 
-        window.scrollTo(0,0);
+        projectModal.scrollTop = 0;
 
     }
 
 }
+
 
 
 function closeProjectModal(){
@@ -2364,9 +2713,10 @@ function closeProjectModal(){
 }
 
 
-/* =========================
+
+/* =========================================================
    LIGHTBOX
-========================= */
+========================================================= */
 
 const lightbox =
     document.getElementById("lightbox");
@@ -2380,16 +2730,22 @@ function openLightbox(element){
     const image =
         element.querySelector("img");
 
+
     if(!image){
+
         return;
+
     }
+
 
     lightboxImage.src =
         image.src;
 
+
     lightbox.classList.add("active");
 
 }
+
 
 
 function closeLightbox(){
@@ -2401,9 +2757,10 @@ function closeLightbox(){
 }
 
 
-/* =========================
+
+/* =========================================================
    ESCAPE KEY
-========================= */
+========================================================= */
 
 document.addEventListener("keydown", function(e){
 
@@ -2418,9 +2775,10 @@ document.addEventListener("keydown", function(e){
 });
 
 
-/* =========================
-   CLICK MODAL BACKGROUND
-========================= */
+
+/* =========================================================
+   PROJECT MODAL BACKGROUND
+========================================================= */
 
 projectModal.addEventListener("click", function(e){
 
@@ -2433,9 +2791,10 @@ projectModal.addEventListener("click", function(e){
 });
 
 
-/* =========================
+
+/* =========================================================
    LIGHTBOX BACKGROUND
-========================= */
+========================================================= */
 
 lightbox.addEventListener("click", function(e){
 
