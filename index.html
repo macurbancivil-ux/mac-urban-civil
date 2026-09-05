@@ -853,7 +853,7 @@ section{
     position:fixed;
     inset:0;
     z-index:2000;
-    background:rgba(0,0,0,.75);
+    background:rgba(0,0,0,.78);
     display:none;
     align-items:center;
     justify-content:center;
@@ -866,7 +866,7 @@ section{
 
 .modal-content{
     width:min(1100px,100%);
-    max-height:90vh;
+    max-height:92vh;
     overflow:auto;
     background:#FFFFFF;
     position:relative;
@@ -876,7 +876,7 @@ section{
     position:absolute;
     top:15px;
     right:15px;
-    z-index:5;
+    z-index:20;
     width:42px;
     height:42px;
     border:0;
@@ -886,18 +886,105 @@ section{
     cursor:pointer;
 }
 
-.modal-image{
+
+/* =========================================================
+   PROJECT GALLERY
+========================================================= */
+
+.gallery-main{
+    position:relative;
     width:100%;
     aspect-ratio:16 / 9;
-    background:#DDD;
+    background:#111111;
+    overflow:hidden;
 }
 
-.modal-image img{
+.gallery-main img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    cursor:pointer;
+}
+
+.gallery-arrow{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:48px;
+    height:48px;
+    border:0;
+    background:rgba(0,0,0,.58);
+    color:#FFFFFF;
+    font-size:30px;
+    line-height:1;
+    cursor:pointer;
+    z-index:10;
+    transition:.25s ease;
+}
+
+.gallery-arrow:hover{
+    background:#6F936F;
+}
+
+.gallery-prev{
+    left:15px;
+}
+
+.gallery-next{
+    right:15px;
+}
+
+.gallery-counter{
+    position:absolute;
+    left:50%;
+    bottom:15px;
+    transform:translateX(-50%);
+    background:rgba(0,0,0,.65);
+    color:#FFFFFF;
+    padding:6px 13px;
+    font-size:12px;
+    letter-spacing:1px;
+    z-index:10;
+}
+
+.gallery-thumbs{
+    display:flex;
+    gap:8px;
+    padding:12px;
+    background:#111111;
+    overflow-x:auto;
+}
+
+.gallery-thumb{
+    flex:0 0 90px;
+    width:90px;
+    height:65px;
+    border:2px solid transparent;
+    padding:0;
+    background:#222222;
+    cursor:pointer;
+    overflow:hidden;
+    opacity:.65;
+    transition:.25s ease;
+}
+
+.gallery-thumb:hover{
+    opacity:1;
+}
+
+.gallery-thumb.active{
+    border-color:#6F936F;
+    opacity:1;
+}
+
+.gallery-thumb img{
     width:100%;
     height:100%;
     object-fit:cover;
-    cursor:pointer;
 }
+
+
+/* MODAL BODY */
 
 .modal-body{
     padding:35px;
@@ -938,7 +1025,7 @@ section{
     position:fixed;
     inset:0;
     z-index:3000;
-    background:rgba(0,0,0,.92);
+    background:rgba(0,0,0,.94);
     display:none;
     align-items:center;
     justify-content:center;
@@ -950,8 +1037,8 @@ section{
 }
 
 .lightbox img{
-    max-width:95vw;
-    max-height:90vh;
+    max-width:88vw;
+    max-height:88vh;
     object-fit:contain;
 }
 
@@ -964,6 +1051,46 @@ section{
     color:#FFFFFF;
     font-size:35px;
     cursor:pointer;
+    z-index:20;
+}
+
+.lightbox-arrow{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:55px;
+    height:55px;
+    border:0;
+    background:rgba(255,255,255,.12);
+    color:#FFFFFF;
+    font-size:32px;
+    cursor:pointer;
+    z-index:20;
+    transition:.25s ease;
+}
+
+.lightbox-arrow:hover{
+    background:#6F936F;
+}
+
+.lightbox-prev{
+    left:25px;
+}
+
+.lightbox-next{
+    right:25px;
+}
+
+.lightbox-counter{
+    position:absolute;
+    bottom:25px;
+    left:50%;
+    transform:translateX(-50%);
+    color:#FFFFFF;
+    background:rgba(0,0,0,.6);
+    padding:7px 14px;
+    font-size:12px;
+    letter-spacing:1px;
 }
 
 
@@ -1287,11 +1414,35 @@ section{
     /* MODAL */
 
     .modal{
-        padding:15px;
+        padding:10px;
     }
 
     .modal-content{
-        max-height:92vh;
+        max-height:94vh;
+    }
+
+    .gallery-main{
+        aspect-ratio:4 / 3;
+    }
+
+    .gallery-arrow{
+        width:42px;
+        height:42px;
+        font-size:25px;
+    }
+
+    .gallery-prev{
+        left:8px;
+    }
+
+    .gallery-next{
+        right:8px;
+    }
+
+    .gallery-thumb{
+        flex:0 0 75px;
+        width:75px;
+        height:55px;
     }
 
     .modal-body{
@@ -1300,6 +1451,32 @@ section{
 
     .modal-body h2{
         font-size:32px;
+    }
+
+
+    /* LIGHTBOX */
+
+    .lightbox{
+        padding:15px;
+    }
+
+    .lightbox img{
+        max-width:94vw;
+        max-height:82vh;
+    }
+
+    .lightbox-arrow{
+        width:45px;
+        height:45px;
+        font-size:26px;
+    }
+
+    .lightbox-prev{
+        left:8px;
+    }
+
+    .lightbox-next{
+        right:8px;
     }
 
 }
@@ -1901,7 +2078,7 @@ section{
 
 
             <!-- =================================================
-                 RENOVATION - r1.JPG
+                 RENOVATION
             ================================================== -->
 
             <div
@@ -1940,7 +2117,7 @@ section{
 
 
             <!-- =================================================
-                 COMMERCIAL - c1.JPG
+                 COMMERCIAL
             ================================================== -->
 
             <div
@@ -2405,7 +2582,18 @@ section{
         </button>
 
 
-        <div class="modal-image">
+        <!-- GALLERY -->
+
+        <div class="gallery-main">
+
+            <button
+            class="gallery-arrow gallery-prev"
+            onclick="previousProjectImage(event)"
+            aria-label="Previous image"
+            >
+                ‹
+            </button>
+
 
             <img
             id="modalProjectImage"
@@ -2413,8 +2601,36 @@ section{
             alt=""
             >
 
+
+            <button
+            class="gallery-arrow gallery-next"
+            onclick="nextProjectImage(event)"
+            aria-label="Next image"
+            >
+                ›
+            </button>
+
+
+            <div
+            class="gallery-counter"
+            id="galleryCounter"
+            >
+                1 / 1
+            </div>
+
         </div>
 
+
+        <!-- THUMBNAILS -->
+
+        <div
+        class="gallery-thumbs"
+        id="galleryThumbs"
+        >
+        </div>
+
+
+        <!-- PROJECT INFORMATION -->
 
         <div class="modal-body">
 
@@ -2471,11 +2687,38 @@ section{
         ×
     </button>
 
+
+    <button
+    class="lightbox-arrow lightbox-prev"
+    onclick="previousLightboxImage(event)"
+    aria-label="Previous image"
+    >
+        ‹
+    </button>
+
+
     <img
     id="lightboxImage"
     src=""
     alt=""
     >
+
+
+    <button
+    class="lightbox-arrow lightbox-next"
+    onclick="nextLightboxImage(event)"
+    aria-label="Next image"
+    >
+        ›
+    </button>
+
+
+    <div
+    class="lightbox-counter"
+    id="lightboxCounter"
+    >
+        1 / 1
+    </div>
 
 </div>
 
@@ -2621,115 +2864,341 @@ filterButtons.forEach(
 
 
 /* =========================================================
-   PROJECT MODAL
+   PROJECT DATA
+========================================================= */
+
+const projects = {
+
+    luxury: {
+
+        category:
+        "Luxury Residence",
+
+        title:
+        "3 Cross St, Ryde",
+
+        location:
+        "Sydney · NSW",
+
+        description:
+        "A contemporary luxury residential project focused on refined architectural design, quality construction and carefully considered details.",
+
+        images: [
+
+            "project-images/projects/luxury/3-cross-st-ryde/3805.jpeg"
+
+        ]
+
+    },
+
+
+    renovation: {
+
+        category:
+        "Renovation",
+
+        title:
+        "Renovation Project",
+
+        location:
+        "Melbourne · VIC",
+
+        description:
+        "A renovation project focused on improving functionality, contemporary design and construction quality while respecting the existing property.",
+
+        images: [
+
+            "project-images/projects/renovation/r1.JPG",
+
+            "project-images/projects/renovation/r2.JPG",
+
+            "project-images/projects/renovation/r3.JPG",
+
+            "project-images/projects/renovation/r4.JPG",
+
+            "project-images/projects/renovation/r5.JPG"
+
+        ]
+
+    },
+
+
+    commercial: {
+
+        category:
+        "Commercial",
+
+        title:
+        "Commercial Project",
+
+        location:
+        "Australia",
+
+        description:
+        "A commercial construction project delivered with a focus on quality, coordination, programme control and professional project management.",
+
+        images: [
+
+            "project-images/projects/commercial/c1.JPG",
+
+            "project-images/projects/commercial/c2.JPG",
+
+            "project-images/projects/commercial/c3.JPG"
+
+        ]
+
+    }
+
+};
+
+
+/* =========================================================
+   GALLERY VARIABLES
+========================================================= */
+
+let currentProject = null;
+
+let currentProjectImages = [];
+
+let currentProjectIndex = 0;
+
+
+/* =========================================================
+   OPEN PROJECT MODAL
 ========================================================= */
 
 function openProjectModal(type){
 
-    const modal =
-    document.getElementById("projectModal");
+    const project =
+    projects[type];
+
+    if(!project){
+        return;
+    }
+
+
+    currentProject =
+    type;
+
+    currentProjectImages =
+    project.images;
+
+    currentProjectIndex =
+    0;
+
+
+    document
+    .getElementById("modalProjectCategory")
+    .textContent =
+    project.category;
+
+
+    document
+    .getElementById("modalProjectTitle")
+    .textContent =
+    project.title;
+
+
+    document
+    .getElementById("modalProjectLocation")
+    .textContent =
+    project.location;
+
+
+    document
+    .getElementById("modalProjectDescription")
+    .textContent =
+    project.description;
+
+
+    buildGalleryThumbs();
+
+    updateGallery();
+
+
+    document
+    .getElementById("projectModal")
+    .classList.add("active");
+
+
+    document.body.style.overflow =
+    "hidden";
+
+}
+
+
+/* =========================================================
+   BUILD THUMBNAILS
+========================================================= */
+
+function buildGalleryThumbs(){
+
+    const thumbs =
+    document.getElementById("galleryThumbs");
+
+    thumbs.innerHTML = "";
+
+
+    currentProjectImages.forEach(
+        function(imagePath,index){
+
+            const button =
+            document.createElement("button");
+
+            button.className =
+            "gallery-thumb";
+
+
+            if(index === 0){
+
+                button.classList.add("active");
+
+            }
+
+
+            const image =
+            document.createElement("img");
+
+            image.src =
+            imagePath;
+
+            image.alt =
+            "Project image " + (index + 1);
+
+
+            button.appendChild(image);
+
+
+            button.addEventListener(
+                "click",
+                function(){
+
+                    currentProjectIndex =
+                    index;
+
+                    updateGallery();
+
+                }
+            );
+
+
+            thumbs.appendChild(button);
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   UPDATE GALLERY
+========================================================= */
+
+function updateGallery(){
+
+    if(!currentProjectImages.length){
+        return;
+    }
+
 
     const image =
     document.getElementById("modalProjectImage");
 
-    const category =
-    document.getElementById("modalProjectCategory");
 
-    const title =
-    document.getElementById("modalProjectTitle");
-
-    const location =
-    document.getElementById("modalProjectLocation");
-
-    const description =
-    document.getElementById("modalProjectDescription");
+    image.src =
+    currentProjectImages[currentProjectIndex];
 
 
-    /* =========================
-       LUXURY
-    ========================= */
+    image.alt =
+    projects[currentProject].title +
+    " - Project Image " +
+    (currentProjectIndex + 1);
 
-    if(type === "luxury"){
 
-        image.src =
-        "project-images/projects/luxury/3-cross-st-ryde/3805.jpeg";
+    document
+    .getElementById("galleryCounter")
+    .textContent =
+    (currentProjectIndex + 1) +
+    " / " +
+    currentProjectImages.length;
 
-        image.alt =
-        "3 Cross St Ryde Luxury Residence";
 
-        category.textContent =
-        "Luxury Residence";
+    document
+    .querySelectorAll(".gallery-thumb")
+    .forEach(
+        function(thumb,index){
 
-        title.textContent =
-        "3 Cross St, Ryde";
+            thumb.classList.toggle(
+                "active",
+                index === currentProjectIndex
+            );
 
-        location.textContent =
-        "Sydney · NSW";
+        }
+    );
 
-        description.textContent =
-        "A contemporary luxury residential project focused on refined architectural design, quality construction and carefully considered details.";
+}
+
+
+/* =========================================================
+   NEXT PROJECT IMAGE
+========================================================= */
+
+function nextProjectImage(event){
+
+    if(event){
+        event.stopPropagation();
+    }
+
+
+    if(!currentProjectImages.length){
+        return;
+    }
+
+
+    currentProjectIndex++;
+
+    if(
+        currentProjectIndex >=
+        currentProjectImages.length
+    ){
+
+        currentProjectIndex = 0;
 
     }
 
 
-    /* =========================
-       RENOVATION
-    ========================= */
+    updateGallery();
 
-    if(type === "renovation"){
+}
 
-        image.src =
-        "project-images/projects/renovation/r1.JPG";
 
-        image.alt =
-        "Renovation Project";
+/* =========================================================
+   PREVIOUS PROJECT IMAGE
+========================================================= */
 
-        category.textContent =
-        "Renovation";
+function previousProjectImage(event){
 
-        title.textContent =
-        "Renovation Project";
+    if(event){
+        event.stopPropagation();
+    }
 
-        location.textContent =
-        "Melbourne · VIC";
 
-        description.textContent =
-        "A renovation project focused on improving functionality, contemporary design and construction quality while respecting the existing property.";
+    if(!currentProjectImages.length){
+        return;
+    }
+
+
+    currentProjectIndex--;
+
+    if(currentProjectIndex < 0){
+
+        currentProjectIndex =
+        currentProjectImages.length - 1;
 
     }
 
 
-    /* =========================
-       COMMERCIAL
-    ========================= */
-
-    if(type === "commercial"){
-
-        image.src =
-        "project-images/projects/commercial/c1.JPG";
-
-        image.alt =
-        "Commercial Construction Project";
-
-        category.textContent =
-        "Commercial";
-
-        title.textContent =
-        "Commercial Project";
-
-        location.textContent =
-        "Australia";
-
-        description.textContent =
-        "A commercial construction project delivered with a focus on quality, coordination, programme control and professional project management.";
-
-    }
-
-
-    modal.classList.add("active");
-
-    document.body.style.overflow =
-    "hidden";
+    updateGallery();
 
 }
 
@@ -2744,6 +3213,7 @@ function closeProjectModal(){
     .getElementById("projectModal")
     .classList.remove("active");
 
+
     document.body.style.overflow =
     "";
 
@@ -2751,7 +3221,7 @@ function closeProjectModal(){
 
 
 /* =========================================================
-   LIGHTBOX
+   OPEN LIGHTBOX
 ========================================================= */
 
 document
@@ -2763,21 +3233,80 @@ document
         const lightbox =
         document.getElementById("lightbox");
 
-        const lightboxImage =
-        document.getElementById("lightboxImage");
-
-
-        lightboxImage.src =
-        this.src;
-
-        lightboxImage.alt =
-        this.alt;
-
 
         lightbox.classList.add("active");
 
+
+        updateLightbox();
+
     }
 );
+
+
+/* =========================================================
+   UPDATE LIGHTBOX
+========================================================= */
+
+function updateLightbox(){
+
+    const lightboxImage =
+    document.getElementById("lightboxImage");
+
+
+    lightboxImage.src =
+    currentProjectImages[currentProjectIndex];
+
+
+    lightboxImage.alt =
+    projects[currentProject].title +
+    " - Project Image " +
+    (currentProjectIndex + 1);
+
+
+    document
+    .getElementById("lightboxCounter")
+    .textContent =
+    (currentProjectIndex + 1) +
+    " / " +
+    currentProjectImages.length;
+
+}
+
+
+/* =========================================================
+   NEXT LIGHTBOX IMAGE
+========================================================= */
+
+function nextLightboxImage(event){
+
+    if(event){
+        event.stopPropagation();
+    }
+
+
+    nextProjectImage();
+
+    updateLightbox();
+
+}
+
+
+/* =========================================================
+   PREVIOUS LIGHTBOX IMAGE
+========================================================= */
+
+function previousLightboxImage(event){
+
+    if(event){
+        event.stopPropagation();
+    }
+
+
+    previousProjectImage();
+
+    updateLightbox();
+
+}
 
 
 /* =========================================================
@@ -2830,12 +3359,19 @@ document
 
 
 /* =========================================================
-   ESC
+   KEYBOARD CONTROLS
 ========================================================= */
 
 document.addEventListener(
     "keydown",
     function(event){
+
+        const modal =
+        document.getElementById("projectModal");
+
+        const lightbox =
+        document.getElementById("lightbox");
+
 
         if(event.key === "Escape"){
 
@@ -2852,8 +3388,174 @@ document.addEventListener(
 
         }
 
+
+        if(
+            modal.classList.contains("active") &&
+            !lightbox.classList.contains("active")
+        ){
+
+            if(event.key === "ArrowRight"){
+
+                nextProjectImage();
+
+            }
+
+
+            if(event.key === "ArrowLeft"){
+
+                previousProjectImage();
+
+            }
+
+        }
+
+
+        if(
+            lightbox.classList.contains("active")
+        ){
+
+            if(event.key === "ArrowRight"){
+
+                nextLightboxImage();
+
+            }
+
+
+            if(event.key === "ArrowLeft"){
+
+                previousLightboxImage();
+
+            }
+
+        }
+
     }
 );
+
+
+/* =========================================================
+   MOBILE TOUCH SWIPE
+========================================================= */
+
+let touchStartX = 0;
+
+let touchEndX = 0;
+
+
+const galleryMain =
+document.querySelector(".gallery-main");
+
+
+galleryMain.addEventListener(
+    "touchstart",
+    function(event){
+
+        touchStartX =
+        event.changedTouches[0].screenX;
+
+    },
+    {
+        passive:true
+    }
+);
+
+
+galleryMain.addEventListener(
+    "touchend",
+    function(event){
+
+        touchEndX =
+        event.changedTouches[0].screenX;
+
+
+        handleGallerySwipe();
+
+    },
+    {
+        passive:true
+    }
+);
+
+
+function handleGallerySwipe(){
+
+    const difference =
+    touchStartX - touchEndX;
+
+
+    if(Math.abs(difference) < 50){
+        return;
+    }
+
+
+    if(difference > 0){
+
+        nextProjectImage();
+
+    }else{
+
+        previousProjectImage();
+
+    }
+
+}
+
+
+/* =========================================================
+   LIGHTBOX MOBILE SWIPE
+========================================================= */
+
+const lightbox =
+document.getElementById("lightbox");
+
+
+lightbox.addEventListener(
+    "touchstart",
+    function(event){
+
+        touchStartX =
+        event.changedTouches[0].screenX;
+
+    },
+    {
+        passive:true
+    }
+);
+
+
+lightbox.addEventListener(
+    "touchend",
+    function(event){
+
+        touchEndX =
+        event.changedTouches[0].screenX;
+
+
+        const difference =
+        touchStartX - touchEndX;
+
+
+        if(Math.abs(difference) < 50){
+            return;
+        }
+
+
+        if(difference > 0){
+
+            nextLightboxImage();
+
+        }else{
+
+            previousLightboxImage();
+
+        }
+
+    },
+    {
+        passive:true
+    }
+);
+
 
 </script>
 
